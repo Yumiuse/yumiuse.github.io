@@ -3,69 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Umicchiのポートフォリオ</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background: #fdf6ec;
-      color: #333;
-      padding: 2em;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 2em;
-      color: #d17c7c;
-      border-bottom: 2px solid #d17c7c;
-      padding-bottom: 0.3em;
-    }
-    h2 {
-      color: #5a5a5a;
-      margin-top: 2em;
-    }
-    a {
-      color: #3b6fa8;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    iframe {
-      max-width: 100%;
-      margin-bottom: 1em;
-    }
-    ul {
-      padding-left: 1.2em;
-    }
-    p, li {
-      line-height: 1.6;
-    }
-  </style>
+  <title>Portfolio</title>
+<style>
+  body {
+    font-family: "Helvetica Neue", sans-serif;
+    background: #fdf6ec;
+    color: #333;
+    padding: 1.5em;
+    max-width: 700px;
+    margin: auto;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.6em;
+    color: #dda0dd;
+    border-bottom: 2px solid #dda0dd;
+    padding-bottom: 0.3em;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  .subtitle {
+    display: block;
+    margin-left: 1em;
+    margin-top: 0.5em;
+    color: #666;
+    font-size: 0.85em;
+  }
+  .english {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 0.3em;
+    font-style: italic;
+  }
+  h2 {
+    font-size: 1.15em;
+    color: #5a5a5a;
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    text-align: left;
+  }
+  h3 {
+    font-size: 1em;
+    color: #666;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  h5 {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0.8em 0 0.3em 0;
+  }
+  .underline {
+    border-bottom: 2px solid #dda0dd;
+    display: inline-block;
+    padding-bottom: 0.2em;
+    margin: 0;
+  }
+  a {
+    color: #3b6fa8;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  iframe {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 1em;
+  }
+  ul {
+    padding-left: 1.2em;
+  }
+  p, li {
+    line-height: 1.5;
+    margin-bottom: 0.8em;
+  }
+  p {
+    font-size: 0.95em;
+  }
+  /* --- ここからスキルグリッド --- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin: 1em 0;
+  }
+  .skill-category {
+    background: #f4eef4;
+    padding: 0.8em;
+    border-radius: 5px;
+  }
+  .skill-level {
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 0.5em;
+  }
+</style>
 </head>
 <body>
-  <h1>✨ UmicchiのAI×フランス語アプリポートフォリオ ✨</h1>
-  <p>Umicchiが開発した、多言語対応の学習アプリやAIプロジェクトを紹介します！</p>
+  <h1>
+    Portfolio - Yumiko Sawa<br>
+    <span class="subtitle">AI & Language Learning Apps</span>
+  </h1>
+  <p>自然言語処理と教育工学の知見を活かし、AI × フランス語学習に特化したアプリケーションを開発しています。</p>
+  <p class="english">I develop AI-powered French learning applications, leveraging expertise in natural language processing and educational technology.</p>
 
-  <h2>📘 French Flashcard Study</h2>
-  <p>Streamlitで作成した、ユーザーの難易度フィードバックを反映するフラッシュカード学習アプリです。</p>
+  <h2 class="underline">🛠 技術スキル - Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-category">
+  <h4>💻 プログラミング言語</h4>
+  <ul>
+    <li>Python <span class="skill-level">（AIアプリ開発／基本文法と主要ライブラリ）</span></li>
+    <li>HTML/CSS <span class="skill-level">（基礎レベル／Web UI調整の実務経験）</span></li>
+    <li>Flutter（初歩レベル／講座でアプリ作成を受講）</li>
+    <li>JavaScript（学習中／Webの基本理解）</li>
+    <!-- JavaScriptは省略、または「学習中」と書いてOK -->
+  </ul>
+</div>
+
+    <div class="skill-category">
+      <h4>🔧 フレームワーク・ライブラリ</h4>
+      <ul>
+        <li>Streamlit</li>
+        <li>FastAPI</li>
+        <li>Pandas</li>
+        <li>Scikit-learn</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <h4>🤖 AI・機械学習</h4>
+      <ul>
+        <li>OpenAI API連携</li>
+        <li>自然言語処理</li>
+        <li>機械学習モデル構築</li>
+        <li>データ前処理・分析</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <h4>⚙ 開発環境・ツール</h4>
+      <ul>
+        <li>Git/GitHub</li>
+        <li>VS Code</li>
+        <li>Streamlit Cloud</li>
+        <li>CSV/データ管理</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="underline">📘 French Flashcard Study App</h2><p>
+  効率よく単語を記憶できるよう、復習タイミングにこだわったフランス語学習アプリです。<br>
+  Streamlitで開発し、ユーザーの記憶状況に合わせて最適なタイミングで単語を出題。忘却曲線の理論を応用し、着実な語彙定着をサポートします。
+</p>
+  <p class="english">
+  A French vocabulary learning app focused on maximizing retention through smart review scheduling. Built with Streamlit, it adapts to users’ memory status and presents words at optimal times, applying the forgetting curve theory for solid vocabulary acquisition.
+</p>
+
+<h3>技術的チャレンジ：</h3>
+<p>
+  FastAPI・Streamlit・OpenAI APIを連携し、ChatGPT APIの翻訳出力を最適化するためのプロンプト設計・パラメータ調整を工夫。効率的かつ高品質な翻訳機能を実装した。
+</p>
+<p class="english"><strong>
+  Technical Challenge:</strong> Integrated FastAPI, Streamlit, and OpenAI API, and engineered prompt design and parameter tuning to optimize ChatGPT translation output, achieving efficient and high-quality translations.
+</p>
+
+
+<h3>将来の展望：</h3>
+<p>
+  音声再生や学習進捗の可視化、個別最適化された復習タイミングなど、より学びやすいAI学習アプリを目指して拡張予定です。
+</p>
+<p class="english"><strong>
+  Future Vision: </strong>Plans for features like audio playback, progress visualization, and personalized review intervals to create an even more effective AI-powered language learning app.
+</p>
+
+<h3>使用技術：</h3>
+<p>
+  Python, Streamlit, FastAPI, OpenAI API, Pandas, GitHub
+</p>
+
   <a href="https://github.com/Yumiuse/french_flashcard_study" target="_blank">🔗 GitHubでコードを見る</a>
   
   <h3>🎥 デモ動画</h3>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Japanese Demo" frameborder="0" allowfullscreen></iframe>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/uzbAzosgZWw" title="English Demo" frameborder="0" allowfullscreen></iframe>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/-50wOdqEC1Y" title="French Demo" frameborder="0" allowfullscreen></iframe>
+  <h5>🇯🇵 日本語版</h5>
+  <iframe src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Japanese Demo" frameborder="0" allowfullscreen></iframe>
+  <h5>🇬🇧 English Demo</h5>
+  <iframe src="https://www.youtube.com/embed/uzbAzosgZWw" title="English Demo" frameborder="0" allowfullscreen></iframe>
+  <h5>🇫🇷 Démonstration en français</h5>
+  <iframe src="https://www.youtube.com/embed/-50wOdqEC1Y" title="French Demo" frameborder="0" allowfullscreen></iframe>
 
-  <h2>🔍 French Level Predictor</h2>
-  <p>FastAPIと機械学習を使って、入力文のフランス語レベルを予測するAPIアプリです。</p>
+
+  <h2><span class="underline">🕵️‍♀️ French Level Predictor App</span></h2>
+  <p>フランス語単語の難易度を機械学習で予測する学習支援Webアプリケーション。
+Scikit-learnを用いた分類モデルと、StreamlitによるインタラクティブなUIを組み合わせて開発しました。</p>
+
+  <p class="english">A web application that predicts French word difficulty using machine learning. Developed with Scikit-learn classification models and an interactive Streamlit interface.</p>
+
+  <p><strong>技術的チャレンジ：</strong>データ前処理から機械学習モデルの構築・評価まで、MLプロジェクトの全工程を実装。精度向上に向けた試行錯誤を通じて、実践的なスキルを習得しました。</p>
+  <p class="english"><strong>Technical Challenge:</strong> Implemented the complete ML pipeline from data preprocessing to model evaluation, gaining practical skills through iterative accuracy improvements.</p>
+ 
+ <p><strong>将来の展望：</strong>  現在は単語の難易度予測のみに対応していますが、今後は文章全体のレベル予測も行い、  
+French Flashcard Study App と統合する予定です。  
+学習者の語彙レベルに合わせて、最適な教材や例文を自動で出題できるような設計を目指しています。</p>
+<p class="english"><strong>Future Outlook:</strong>  
+Currently, the app supports only word-level difficulty prediction.  
+In the future, it is planned to integrate this app with the French Flashcard Study App,  
+enabling sentence-level difficulty assessment and automatic suggestion of appropriate materials and example sentences tailored to each learner's level.
+</p>
+
+  <p><strong>使用技術：</strong>Python, Scikit-learn, Pandas, Streamlit</p>
+
   <a href="https://github.com/Yumiuse/french-level-predictor" target="_blank">🔗 GitHubでコードを見る</a>
 
-  <h2>💡 使用技術</h2>
-  <ul>
-    <li>Python / FastAPI / Streamlit</li>
-    <li>Spacy（自然言語処理）</li>
-    <li>OpenAI API（GPT系）</li>
-    <li>Git / GitHub</li>
-  </ul>
+<h3>🎥 デモ動画</h3>
+<iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/K_5acngr0PE" 
+        title="Demo Video"
+        frameborder="0" 
+        allowfullscreen>
+</iframe>
 
   <h2>📩 連絡先</h2>
   <p>お仕事・ご相談は <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> まで📬</p>
