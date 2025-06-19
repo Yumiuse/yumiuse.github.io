@@ -24,7 +24,7 @@
   }
   .subtitle {
     display: block;
-    margin-left: 1em;
+    margin-left: 1.5em;
     margin-top: 0.5em;
     color: #666;
     font-size: 0.85em;
@@ -36,7 +36,7 @@
     font-style: italic;
   }
   h2 {
-    font-size: 1.15em;
+    font-size: 1.5em;
     color: #5a5a5a;
     margin-top: 1.8em;
     margin-bottom: 0.8em;
@@ -47,6 +47,11 @@
     color: #666;
     margin-top: 1.2em;
     margin-bottom: 0.5em;
+  }
+  h4 {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0.8em 0 0.3em 0;
   }
   h5 {
     font-size: 0.9em;
@@ -109,120 +114,258 @@
   <p>自然言語処理と教育工学の知見を活かし、AI × フランス語学習に特化したアプリケーションを開発しています。</p>
   <p class="english">I develop AI-powered French learning applications, leveraging expertise in natural language processing and educational technology.</p>
 
-  <h2 class="underline">🛠 技術スキル - Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-category">
-  <h4>💻 プログラミング言語</h4>
-  <ul>
-    <li>Python <span class="skill-level">（AIアプリ開発／基本文法と主要ライブラリ）</span></li>
-    <li>HTML/CSS <span class="skill-level">（基礎レベル／Web UI調整の実務経験）</span></li>
-    <li>Flutter（初歩レベル／講座でアプリ作成を受講）</li>
-    <li>JavaScript（学習中／Webの基本理解）</li>
-    <!-- JavaScriptは省略、または「学習中」と書いてOK -->
-  </ul>
-</div>
-
-    <div class="skill-category">
-      <h4>🔧 フレームワーク・ライブラリ</h4>
-      <ul>
-        <li>Streamlit</li>
-        <li>FastAPI</li>
-        <li>Pandas</li>
-        <li>Scikit-learn</li>
-      </ul>
-    </div>
-    <div class="skill-category">
-      <h4>🤖 AI・機械学習</h4>
-      <ul>
-        <li>OpenAI API連携</li>
-        <li>自然言語処理</li>
-        <li>機械学習モデル構築</li>
-        <li>データ前処理・分析</li>
-      </ul>
-    </div>
-    <div class="skill-category">
-      <h4>⚙ 開発環境・ツール</h4>
-      <ul>
-        <li>Git/GitHub</li>
-        <li>VS Code</li>
-        <li>Streamlit Cloud</li>
-        <li>CSV/データ管理</li>
-      </ul>
-    </div>
+<h2 class="underline">🛠 技術スキル - Technical Skills</h2>
+<div class="skills-grid">
+  <div class="skill-category">
+    <h4>💻 プログラミング言語</h4>
+    <ul>
+      <li>Python <span class="skill-level">（AIアプリ開発／基本文法と主要ライブラリ）</span></li>
+      <li>HTML/CSS <span class="skill-level">（基礎レベル／Web UI調整の実務経験）</span></li>
+      <li>JavaScript <span class="skill-level">（学習中／Webの基本理解）</span></li>
+      <li>Flutter <span class="skill-level">（初歩レベル／モバイルアプリ開発の講座受講）</span></li>
+    </ul>
   </div>
 
-  <h2 class="underline">📘 French Flashcard Study App</h2><p>
-  効率よく単語を記憶できるよう、復習タイミングにこだわったフランス語学習アプリです。<br>
-  Streamlitで開発し、ユーザーの記憶状況に合わせて最適なタイミングで単語を出題。忘却曲線の理論を応用し、着実な語彙定着をサポートします。
-</p>
+  <div class="skill-category">
+    <h4>🔧 フレームワーク・ライブラリ</h4>
+    <ul>
+      <li>Streamlit（フランス語学習アプリ開発）</li>
+      <li>FastAPI（バックエンドAPI構築）</li>
+      <li>Pandas / NumPy（データ整形・分析）</li>
+      <li>Scikit-learn（機械学習アルゴリズム）</li>
+      <li>XGBoost（予測モデル構築）</li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <h4>🤖 AI・機械学習</h4>
+    <ul>
+      <li>OpenAI API integration（ChatGPT連携）</li>
+      <li>自然言語処理 / Natural Language Processing（spaCy / トークン分類）</li>
+      <li>機械学習モデル構築・評価 / Model Development & Evaluation（XGBoost・回帰分析）</li>
+      <li>データ前処理・分析 / Data Preprocessing & Analysis（CSV統合・特徴量エンジニアリング）</li>
+      <li>Explainable AI（SHAPによるモデル解釈）</li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <h4>⚙ 開発環境・ツール</h4>
+    <ul>
+      <li>Git / GitHub（コード管理・チーム開発経験）</li>
+      <li>Visual Studio Code（開発用エディタ）</li>
+      <li>Streamlit Cloud（Webアプリの公開）</li>
+      <li>Google Colab（LLMモデルの学習／ファインチューニング）</li>
+      <li>Hugging Face（LLMモデルの公開・実装）</li>
+      <li>Docker（開発環境構築／キカガク講座）</li>
+      <li>CSV / Excel（データ管理・前処理）</li>
+    </ul>
+  </div>
+</div>
+  </div>
+</div>
+
+
+  <h2 class="underline">🏷️💫 French Flashcard Study App</h2>
+  <p>
+    効率よく単語を記憶できるよう、復習タイミングにこだわったフランス語学習アプリです。<br>
+    Streamlitで開発し、ユーザーの記憶状況に合わせて最適なタイミングで単語を出題。忘却曲線の理論を応用し、着実な語彙定着をサポートします。
+  </p>
   <p class="english">
-  A French vocabulary learning app focused on maximizing retention through smart review scheduling. Built with Streamlit, it adapts to users’ memory status and presents words at optimal times, applying the forgetting curve theory for solid vocabulary acquisition.
-</p>
+    A French vocabulary learning app focused on maximizing retention through smart review scheduling. Built with Streamlit, it adapts to users' memory status and presents words at optimal times, applying the forgetting curve theory for solid vocabulary acquisition.
+  </p>
 
-<h3>技術的チャレンジ：</h3>
-<p>
-  FastAPI・Streamlit・OpenAI APIを連携し、ChatGPT APIの翻訳出力を最適化するためのプロンプト設計・パラメータ調整を工夫。効率的かつ高品質な翻訳機能を実装した。
-</p>
-<p class="english"><strong>
-  Technical Challenge:</strong> Integrated FastAPI, Streamlit, and OpenAI API, and engineered prompt design and parameter tuning to optimize ChatGPT translation output, achieving efficient and high-quality translations.
-</p>
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    FastAPI・Streamlit・OpenAI APIを連携し、ChatGPT APIの翻訳出力を最適化するためのプロンプト設計・パラメータ調整を工夫。効率的かつ高品質な翻訳機能を実装した。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Integrated FastAPI, Streamlit, and OpenAI API, and engineered prompt design and parameter tuning to optimize ChatGPT translation output, achieving efficient and high-quality translations.
+  </p>
 
+  <h3>将来の展望：</h3>
+  <p>
+    音声再生や学習進捗の可視化、個別最適化された復習タイミングなど、より学びやすいAI学習アプリを目指して拡張予定です。
+  </p>
+  <p class="english"><strong>
+    Future Vision:</strong> Plans for features like audio playback, progress visualization, and personalized review intervals to create an even more effective AI-powered language learning app.
+  </p>
 
-<h3>将来の展望：</h3>
-<p>
-  音声再生や学習進捗の可視化、個別最適化された復習タイミングなど、より学びやすいAI学習アプリを目指して拡張予定です。
-</p>
-<p class="english"><strong>
-  Future Vision: </strong>Plans for features like audio playback, progress visualization, and personalized review intervals to create an even more effective AI-powered language learning app.
-</p>
-
-<h3>使用技術：</h3>
-<p>
-  Python, Streamlit, FastAPI, OpenAI API, Pandas, GitHub
-</p>
+  <h3>使用技術：</h3>
+  <p>
+    Python, Streamlit, FastAPI, OpenAI API, Pandas, GitHub
+  </p>
 
   <a href="https://github.com/Yumiuse/french_flashcard_study" target="_blank">🔗 GitHubでコードを見る</a>
   
   <h3>🎥 デモ動画</h3>
   <h5>🇯🇵 日本語版</h5>
   <iframe src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Japanese Demo" frameborder="0" allowfullscreen></iframe>
+  
   <h5>🇬🇧 English Demo</h5>
   <iframe src="https://www.youtube.com/embed/uzbAzosgZWw" title="English Demo" frameborder="0" allowfullscreen></iframe>
+  
   <h5>🇫🇷 Démonstration en français</h5>
   <iframe src="https://www.youtube.com/embed/-50wOdqEC1Y" title="French Demo" frameborder="0" allowfullscreen></iframe>
 
+  <h2 class="underline">🕵️‍♀️ French Level Predictor App</h2>
+  <p>
+    フランス語単語の難易度を機械学習で予測する学習支援Webアプリケーション。<br>
+    Scikit-learnを用いた分類モデルと、StreamlitによるインタラクティブなUIを組み合わせて開発しました。
+  </p>
+  <p class="english">
+    A web application that predicts French word difficulty using machine learning. Developed with Scikit-learn classification models and an interactive Streamlit interface.
+  </p>
 
-  <h2><span class="underline">🕵️‍♀️ French Level Predictor App</span></h2>
-  <p>フランス語単語の難易度を機械学習で予測する学習支援Webアプリケーション。
-Scikit-learnを用いた分類モデルと、StreamlitによるインタラクティブなUIを組み合わせて開発しました。</p>
-
-  <p class="english">A web application that predicts French word difficulty using machine learning. Developed with Scikit-learn classification models and an interactive Streamlit interface.</p>
-
-  <p><strong>技術的チャレンジ：</strong>データ前処理から機械学習モデルの構築・評価まで、MLプロジェクトの全工程を実装。精度向上に向けた試行錯誤を通じて、実践的なスキルを習得しました。</p>
-  <p class="english"><strong>Technical Challenge:</strong> Implemented the complete ML pipeline from data preprocessing to model evaluation, gaining practical skills through iterative accuracy improvements.</p>
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    データ前処理から機械学習モデルの構築・評価まで、MLプロジェクトの全工程を実装。精度向上に向けた試行錯誤を通じて、実践的なスキルを習得しました。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Implemented the complete ML pipeline from data preprocessing to model evaluation, gaining practical skills through iterative accuracy improvements.
+  </p>
  
- <p><strong>将来の展望：</strong>  現在は単語の難易度予測のみに対応していますが、今後は文章全体のレベル予測も行い、  
-French Flashcard Study App と統合する予定です。  
-学習者の語彙レベルに合わせて、最適な教材や例文を自動で出題できるような設計を目指しています。</p>
-<p class="english"><strong>Future Outlook:</strong>  
-Currently, the app supports only word-level difficulty prediction.  
-In the future, it is planned to integrate this app with the French Flashcard Study App,  
-enabling sentence-level difficulty assessment and automatic suggestion of appropriate materials and example sentences tailored to each learner's level.
-</p>
+  <h3>将来の展望：</h3>
+  <p>
+    現在は単語の難易度予測のみに対応していますが、今後は文章全体のレベル予測も行い、French Flashcard Study App と統合する予定です。<br>
+    学習者の語彙レベルに合わせて、最適な教材や例文を自動で出題できるような設計を目指しています。
+  </p>
+  <p class="english"><strong>
+    Future Outlook:</strong> Currently, the app supports only word-level difficulty prediction. In the future, it is planned to integrate this app with the French Flashcard Study App, enabling sentence-level difficulty assessment and automatic suggestion of appropriate materials and example sentences tailored to each learner's level.
+  </p>
 
-  <p><strong>使用技術：</strong>Python, Scikit-learn, Pandas, Streamlit</p>
+  <h3>使用技術：</h3>
+  <p>Python, Scikit-learn, Pandas, Streamlit</p>
 
   <a href="https://github.com/Yumiuse/french-level-predictor" target="_blank">🔗 GitHubでコードを見る</a>
 
-<h3>🎥 デモ動画</h3>
-<iframe width="560" height="315" 
-        src="https://www.youtube.com/embed/K_5acngr0PE" 
-        title="Demo Video"
-        frameborder="0" 
-        allowfullscreen>
-</iframe>
+  <h3>🎥 デモ動画</h3>
+  <iframe src="https://www.youtube.com/embed/K_5acngr0PE" title="Demo Video" frameborder="0" allowfullscreen></iframe>
+
+  <h2 class="underline">🤖 Japanese Instruction-following LLM</h2>
+  <p>
+    東京大学 松尾研究室主催「大規模言語モデル講座」最終課題として開発。<br>
+    日本語の大規模言語モデル「llm-jp-3-13b」をベースに、実際の質問に対する回答をより正確に返せるようにファインチューニングしました。<br>
+    Unslothライブラリを用いて効率的に学習し、最終的には <a href="https://huggingface.co/Yumikooo/llm-jp-3-13b-itA_lora" target="_blank">Hugging Face</a> 上でモデルを公開しました。
+  </p>
+  <p class="english">
+    Developed as the final project for the "Large Language Models Course" hosted by the Matsuo Laboratory at the University of Tokyo. This model is fine-tuned based on the Japanese large language model llm-jp-3-13b to provide more accurate responses to real-world questions. Using the Unsloth library, training was performed efficiently, and the resulting model has been published on Hugging Face.
+  </p>
+
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    Unsloth・LoRAによる軽量ファインチューニングを行い、Google Colab上でモデルを学習。<br>
+    4bit量子化や学習効率の工夫により、限られたGPUリソースでも安定した出力を得られるよう設計しました。<br>
+    また、推論コードや出力形式（JSONL）の整備を行い、再現性のある形で成果を公開しました。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Efficiently fine-tuned a 13B Japanese LLM with Unsloth and LoRA using Google Colab. Used 4-bit quantization for memory savings and implemented reproducible inference with JSONL outputs and public model hosting.
+  </p>
+
+  <h3>将来の展望：</h3>
+  <p>
+    より精緻な指示理解や会話の一貫性を向上させる継続的なトレーニングや、日本語タスク用に最適化されたInstructionデータセットの自作を進めたい。<br>
+    商用レベルの応答品質を目指した改良にも取り組みたい。
+  </p>
+  <p class="english"><strong>
+    Future Vision:</strong> Further improvements in instruction-following quality, task-specific fine-tuning, and development of proprietary Japanese instruction datasets.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>
+    Python, Transformers, Hugging Face, Google Colab, Unsloth, LoRA, JSONL
+  </p>
+
+  <a href="https://huggingface.co/Yumikooo/llm-jp-3-13b-itA_lora" target="_blank">🔗 Hugging Faceでモデルを確認する</a>
+<br>
+<br>
+<br>
+  <h2 class="underline">🚢 Titanic Survival Prediction (Kaggle - GCI)</h2>
+  <p>
+    東京大学松尾研究室が主催するGCI講座(東京大学グローバル消費インテリジェンス寄付講座)にて、Kaggleの「Titanic: Machine Learning from Disaster」に取り組みました。<br>
+    データ分析の全工程（前処理・EDA・特徴量エンジニアリング・モデル構築・アンサンブリング・提出）を実践し、予測精度向上のためのハイパーパラメータ調整や複数モデルの組み合わせを学びました。
+  </p>
+  <p class="english">
+    Participated in the Kaggle "Titanic: Machine Learning from Disaster" competition as part of the GCI program hosted by the University of Tokyo's Matsuo Lab. Implemented the full data analysis pipeline including preprocessing, EDA, feature engineering, model training, ensembling, and final submission. Practiced hyperparameter tuning and ensemble methods to improve accuracy.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>Python, Pandas, Scikit-learn, Matplotlib, Seaborn, Random Forest, Logistic Regression, MLPClassifier, GridSearchCV</p>
+
+  <h2 class="underline">📊 AirREGI アカウント獲得予測プロジェクト（GCI最終課題）</h2>
+  <p>
+    東京大学「グローバル消費インテリジェンス」寄附講座の最終課題として、AirREGIのアカウント獲得数を外部要因から予測するモデルを開発しました。
+  </p>
+
+  <h3> 目的:</h3>
+  <ul>
+    <li>アカウント獲得数（acc_get_cnt）に影響する外部要因を定量的に分析</li>
+    <li>CM・祝日・通話件数などを考慮し、マーケティング施策に活かせる予測モデルを構築</li>
+  </ul>
+
+  <h3> 使用技術・手法:</h3>
+  <ul>
+    <li>Python（pandas, seaborn, matplotlib, scikit-learn, XGBoost, SHAP）</li>
+    <li>複数CSVの統合：calendar_data / cm_data / call_data / acc_get_data を日付で統合</li>
+    <li>XGBoostによる回帰モデル、SHAPで特徴量の重要度を可視化</li>
+  </ul>
+
+  <h3> 分析結果:</h3>
+  <ul>
+    <li>平日のCM放映がアカウント獲得数に大きく影響</li>
+    <li>営業通話数（call_num）との相関は中程度</li>
+    <li>SHAPにより「CM」「曜日」「祝日」などが重要な特徴量として可視化され、モデルの透明性を確保</li>
+  </ul>
+
+  <h3> 学びと工夫:</h3>
+  <ul>
+    <li>時系列＋外部要因データの前処理・統合スキル</li>
+    <li>予測モデルの解釈性向上  <br>
+  - SHAP値による個別予測の要因分析<br>
+  - Feature Importanceによる全体的な特徴量寄与度評価</li>
+    <li>データ分析の結果をビジネス文脈に落とし込む視点</li>
+  </ul>
+
+<h3>🔗 関連リンク</h3>
+<ul>
+  <li> <strong>GitHub リポジトリ</strong>: <a href="https://github.com/Yumiuse/AirRegi-presentation" target="_blank">ソースコード</a></li>
+  <li> <strong>プレゼンテーション</strong>: <a href="https://yumiuse.github.io/AirRegi-presentation/" target="_blank">スライドを見る</a></li>
+</ul>
+
+<h2 class="underline">📚 AI・データサイエンス講座の受講歴</h2>
+
+<h3>♦️ 東京大学 松尾・岩澤研究室「LLM大規模言語モデル講座」受講</h3>
+<p>
+  LLMの仕組みと最新トレンド、プロンプト設計、Pre-training・Fine-tuning・RAG・RLHF・セーフティ・スケーリング法則など、研究レベルの内容を体系的に学習。
+</p>
+<p class="english">
+  A research-level course covering core topics of LLMs including prompting, pre-training, fine-tuning, RAG, RLHF, safety, and scaling laws.
+</p>
+
+<h3>🔹 東京大学　松尾・岩澤研究室「グローバル消費インテリジェンス（GCI）」寄附講座 受講</h3>
+<p>
+  データサイエンスの基礎・AIの考え方を、マーケティング課題の分析・解決に応用する実践講座。KaggleやAirREGIの課題に取り組み、モデル構築から分析・提案までを一貫して行った。
+</p>
+<p class="english">
+  A practical data science course focused on applying AI to business and marketing problems. Engaged in real-world assignments such as Kaggle and AirREGI, covering the full pipeline from modeling to insights.
+</p>
+
+<h3>♦️ 東京大学 松尾・岩澤研究室「AI経営講座（AI Business Insights）」受講</h3>
+<p>
+  ビジネスにおけるAIの役割と活用法を学習。AI導入の戦略設計や組織内での展開に関する視座を養った。
+</p>
+<p class="english">
+  Explored strategic applications of AI in business and learned how to implement AI across organizational structures.
+</p>
+
+<h3>🔹 株式会社キカガク「DXを推進するAI・データサイエンス人材育成コース（経産省認定）」受講</h3>
+<p>
+  Python・機械学習・Webアプリ開発・Docker・PaaSを用いた公開までの一連のAI開発工程を実践的に習得。
+</p>
+<p class="english">
+  Gained hands-on experience in Python, machine learning, and full-cycle development of AI web applications using Docker and PaaS platforms.
+</p>
 
   <h2>📩 連絡先</h2>
   <p>お仕事・ご相談は <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> まで📬</p>
 </body>
-</html>
+</html>    
