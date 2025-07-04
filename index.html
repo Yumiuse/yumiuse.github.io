@@ -1,810 +1,601 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume - Yumiko Sawa</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
 <style>
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #1e40af;
-  --accent-color: #3b82f6;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-light: #9ca3af;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-accent: #eff6ff;
-  --border-color: #e5e7eb;
-  --success-color: #10b981;
-  --learning-color: #8b5cf6;
-  --project-color: #f59e0b;
-  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  line-height: 1.4;
-  color: var(--text-primary);
-  background: var(--bg-secondary);
-  font-size: 13px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.cv-container {
-  max-width: 800px;
-  margin: 1rem auto;
-  background: var(--bg-primary);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.cv-header {
-  background: var(--bg-primary);
-  padding: 1.5rem 1.5rem;
+  body {
+    font-family: "Helvetica Neue", sans-serif;
+    background: #fdf6ec;
+    color: #333;
+    padding: 1.5em;
+    max-width: 700px;
+    margin: auto;
+    font-size: 14px;
+  }
+h1 {
+  font-size: 1.6em;
+  color: #8f5f8f;
+  border-bottom: 2px solid #dda0dd;
+  padding-bottom: 0.3em;
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.3em; /* 少し狭めに調整 */
 }
 
-.cv-header-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.cv-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.1em;
-}
-
-.cv-birth-info {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  margin-bottom: 0rem;
-}
-
-.cv-name {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
-}
-
-.cv-contact-simple {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  align-items: center;
-}
-
-.cv-contact-simple .cv-contact-item {
-  font-size: 0.85rem;
-  color: var(--text-primary);
-  line-height: 1;
-}
-
-.cv-contact-simple .cv-contact-item a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
-  font-weight: 600;
-}
-
-.cv-contact-simple .cv-contact-item a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-.cv-content {
-  padding: 1.5rem;
-}
-
-.cv-section {
-  margin-bottom: 1.8rem;
-}
-
-.cv-section:last-child {
-  margin-bottom: 0;
-}
-
-.cv-section-title {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.cv-section-title i {
-  font-size: 1rem;
-  color: var(--accent-color);
-}
-
-.cv-section-title.learning-section i {
-  color: var(--learning-color);
-}
-
-.cv-section-title.project-section i {
-  color: var(--project-color);
-}
-
-.cv-section-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent-color), transparent);
-  margin-left: 0.8rem;
-}
-
-.cv-section-title.learning-section::after {
-  background: linear-gradient(90deg, var(--learning-color), transparent);
-}
-
-.cv-section-title.project-section::after {
-  background: linear-gradient(90deg, var(--project-color), transparent);
-}
-
-.portfolio-link {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+.subtitle {
+  display: block;
+  margin-left: 0;        /* 左マージンを削除 */
+  margin-top: 0.3em;     /* 上マージンも調整 */
+  color: #666;
+  font-size: 0.85em;
   text-align: center;
-  font-style: italic;
 }
-
-.portfolio-link a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.portfolio-link a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-.timeline {
+  .english {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 0.3em;
+    font-style: italic;
+  }
+  h2 {
+    font-size: 1.5em;
+    color: #5a5a5a;
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    text-align: left;
+  }
+  /* 新しく追加 *//* ── 太い筆っぽい水彩アンダーライン ── */
+h2.underline {
   position: relative;
-  padding-left: 1.5rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--accent-color), var(--border-color));
-}
-
-.timeline.learning-timeline::before {
-  background: linear-gradient(180deg, var(--learning-color), var(--border-color));
-}
-
-.timeline.project-timeline::before {
-  background: linear-gradient(180deg, var(--project-color), var(--border-color));
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 1.2rem;
-  padding-left: 1.5rem;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1.5rem;
-  top: 0.3rem;
-  width: 8px;
-  height: 8px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  border: 2px solid var(--bg-primary);
-  box-shadow: 0 0 0 2px var(--accent-color);
-  z-index: 1;
-}
-
-.timeline.learning-timeline .timeline-item::before {
-  background: var(--learning-color);
-  box-shadow: 0 0 0 2px var(--learning-color);
-}
-
-.timeline.project-timeline .timeline-item::before {
-  background: var(--project-color);
-  box-shadow: 0 0 0 2px var(--project-color);
-}
-
-.timeline-period {
   display: inline-block;
-  background: var(--bg-accent);
-  color: var(--primary-color);
-  padding: 0.2rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  margin-bottom: 0.3rem;
-  font-family: 'Inter', monospace;
+  padding-bottom: 0.1em; /* 下にほんのり余白を確保 */
 }
 
-.timeline.learning-timeline .timeline-period {
-  background: #f3f4f6;
-  color: var(--learning-color);
-}
-
-.timeline.project-timeline .timeline-period {
-  background: #fef3c7;
-  color: var(--project-color);
-}
-
-.timeline-role {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.2rem;
-  line-height: 1.3;
-}
-
-.timeline-company {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.3rem;
-  font-style: italic;
-}
-
-.timeline-desc {
-  color: var(--text-secondary);
-  line-height: 1.4;
-  font-size: 0.8rem;
-}
-
-.timeline-desc ul {
-  margin: 0.4rem 0;
-  padding-left: 1rem;
-  list-style-type: disc;
-}
-
-.timeline-desc li {
-  margin-bottom: 0.2rem;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-}
-
-.timeline-desc a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.timeline-desc a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-.skills-section {
-  background: var(--bg-secondary);
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  margin-top: 0.5rem;
-}
-
-.skills-category {
-  margin-bottom: 1.2rem;
-}
-
-.skills-category:last-child {
-  margin-bottom: 0;
-}
-
-.skills-category-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.4rem;
-}
-
-.skills-text {
-  font-size: 0.8rem;
-  line-height: 1.4;
-  color: var(--text-secondary);
-}
-
-.qualifications-list {
-  display: grid;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.qualification-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem;
-  background: var(--bg-secondary);
-  border-radius: 6px;
-  border-left: 3px solid var(--success-color);
-  transition: all 0.2s ease;
-}
-
-.qualification-item:hover {
-  transform: translateX(2px);
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
-}
-
-.qualification-icon {
-  width: 28px;
-  height: 28px;
-  background: var(--success-color);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
-
-.qualification-content {
-  flex: 1;
-}
-
-.qualification-name {
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.1rem;
-  font-size: 0.85rem;
-}
-
-.qualification-year {
-  font-size: 0.75rem;
-  color: var(--text-light);
-}
-
-.cv-pr {
-  background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
-  border-radius: 10px;
-  padding: 1.2rem;
-  border: 1px solid var(--border-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.cv-pr::before {
-  content: '';
+h2.underline::before {
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  bottom: 0;
+  height: 0.8em;             /* 筆跡の太さを調整 */
+  background-color: #dda0dd; /* 水彩風の紫色 */
+  filter: blur(4px);         /* にじみ感を演出 */
+  transform: rotate(-1deg);   /* 軽く角度をつけてムラっぽく */
+  opacity: 0.7;              /* 透け感を出す */
+  z-index: -1;               /* テキストの背後に配置 */
 }
 
-.cv-pr-text {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--text-primary);
-  position: relative;
-  z-index: 1;
-}
 
-.cv-pr-text a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-}
 
-.cv-pr-text a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .cv-container {
-    margin: 0.5rem;
-    border-radius: 8px;
+  h3 {
+    font-size: 1em;
+    color: #666;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
   }
-  
-  .cv-header {
-    padding: 1rem;
+  h4 {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0.8em 0 0.3em 0;
   }
-  
-  .cv-title {
-    font-size: 1.2rem;
+  h5 {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0.8em 0 0.3em 0;
   }
-  
-  .cv-name {
-    font-size: 1.6rem;
-  }
-  
-  .cv-content {
-    padding: 1rem;
-  }
-  
-  .timeline {
-    padding-left: 1rem;
-  }
-  
-  .timeline-item {
-    padding-left: 1rem;
-  }
-}
-
-@media print {
-  body {
-    background: white;
-    font-size: 12px;
-  }
-  
-  .cv-container {
-    box-shadow: none;
+  .underline {
+    border-bottom: 2px solid #dda0dd;
+    display: inline-block;
+    padding-bottom: 0.2em;
     margin: 0;
-    max-width: none;
-    border-radius: 0;
   }
-  
-  .cv-header {
-    padding: 1rem;
-    page-break-inside: avoid;
+  a {
+    color: #3b6fa8;
+    text-decoration: none;
   }
-  
-  .cv-content {
-    padding: 1rem;
+  a:hover {
+    text-decoration: underline;
   }
-  
-  .cv-section {
-    page-break-inside: avoid;
-    margin-bottom: 1.2rem;
+  iframe {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 1em;
   }
-  
-  .timeline-item {
-    page-break-inside: avoid;
-    margin-bottom: 0.8rem;
+  ul {
+    padding-left: 1.2em;
   }
-  
-  .qualification-item {
-    page-break-inside: avoid;
+  p, li {
+    line-height: 1.5;
+    margin-bottom: 0.8em;
   }
+  p {
+    font-size: 0.95em;
+  }
+  /* --- ここからスキルグリッド --- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin: 1em 0;
+  }
+  .skill-category {
+    background: #f4eef4;
+    padding: 0.8em;
+    border-radius: 5px;
+  }
+  .skill-level {
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 0.5em;
+  }
+  /* --- 学習歴グリッド --- */
+  .learning-grid {
+    display: block;
+    margin: 1em 0;
+  }
+  .learning-category {
+    background: #f4eef4;
+    padding: 0.8em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+  }
+  /* --- 得意分野セクション用のスタイル --- */
+  .expertise-section {
+    background: #f0f8ff;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 1em 0;
+  }
+/* --- 学習details/summary スタイル --- */
+details {
+  margin: 1.5em 0;                    /* 上下の余白を増やした */
+  border: 2px solid #dda0dd;          /* 紫色の枠線を追加 */
+  border-radius: 8px;                 /* 角を丸くした */
+  padding: 0.3em;                       /* 内側の余白を追加 */
+  background: #f6e6f6;                /* 薄紫の背景色を追加 */
+  width: 550px;
 }
 
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
+summary {
+  cursor: pointer;                    /* マウスを乗せた時に指のマークに */
+  color: white;                       /* 文字色を白に変更 */
+  font-size: 1em;                    /* 文字サイズを大きくした */
+  font-weight: bold;                 /* 文字を太字にした */
+  margin-bottom: 0.5em;
+  padding: 0.5em;                    /* ボタンのような余白を追加 */
+  background: #d4b3d4;               /* 紫色の背景を追加 */
+  border-radius: 5px;                /* 角を丸くしてボタン風に */
+  text-align: center;                 /* 文字を中央揃えに */
+  list-style: none;                  /* デフォルトの三角マークを非表示 */
+  width: 530px;
+  margin: 0.08px 0; /* summary要素の上下間隔 */
+  padding: 9px; /* 内側の余白も調整 */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+summary:hover {
+  background: #c591c5;               /* ホバー時の色を少し暗く */
+  transform: translateY(-1px);       /* 少し浮き上がる効果 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 影を追加 */
+  
+}
+  summary::-webkit-details-marker {
+  display: none;  /* ブラウザのデフォルト三角マークを非表示 */
+}
+
+
+
+summary::after {
+ content: " CLICK";
+ font-size: 1.0em;
+ color: #ffc0cb; /* 白ピンク */
+ text-shadow: 
+   1px 1px 2px rgba(0, 0, 0, 0.3),     /* 右下の影 */
+   -1px -1px 0px rgba(255, 255, 255, 0.8), /* 左上のハイライト */
+   0 0 3px rgba(255, 192, 203, 0.5);   /* 外側の光彩 */
+ border: 2px solid #ffc0cb;
+ border-radius: 8px;
+ padding: 4px 12px;
+ margin-left: 8px;
+ background: linear-gradient(
+   145deg, 
+   rgba(255, 255, 255, 0.9) 0%,        /* 上部のハイライト */
+   rgba(255, 192, 203, 0.3) 50%,       /* 中央の白ピンク */
+   rgba(200, 150, 160, 0.4) 100%       /* 下部の影 */
+ );
+ box-shadow: 
+   2px 2px 6px rgba(0, 0, 0, 0.2),     /* 外側の影 */
+   inset 1px 1px 2px rgba(255, 255, 255, 0.8), /* 内側のハイライト */
+   inset -1px -1px 2px rgba(0, 0, 0, 0.1);     /* 内側の影 */
+ transition: all 0.3s ease;
+}
+
+summary:hover::after {
+ transform: translateY(-1px);
+ box-shadow: 
+   3px 3px 8px rgba(0, 0, 0, 0.3),
+   inset 1px 1px 3px rgba(255, 255, 255, 0.9),
+   inset -1px -1px 3px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+details[open] summary::after {
+  content: " [ CLICK ]"; /* 開いている時のテキスト */
+  font-size: 0.9em;
+  
 }
 </style>
 </head>
 <body>
-<div class="cv-container fade-in">
-  <div class="cv-header">
-    <div class="cv-header-content">
-      <h1 class="cv-title">RESUME</h1>
-      <div class="cv-birth-info">Born September 18, 1979 (Age 45)</div>
-      <h2 class="cv-name">Yumiko Sawa</h2>
-      
-      <div class="cv-contact-simple">
-        <div class="cv-contact-item">
-          📧 yumiko.sawa@gmail.com
-        </div>
-        <div class="cv-contact-item">
-          🌐 <strong>Portfolio:</strong> <a href="https://yumiuse.github.io/" target="_blank">yumiuse.github.io</a>
-        </div>
-        <div class="cv-contact-item">
-          📍 748-8 Ishida, Sado City, Niigata 952-1322, Japan
-        </div>
-      </div>
-    </div>
-  </div>
+  <h1>
+    Portfolio - Yumiko Sawa<br>
+    <span class="subtitle">AI & Language Learning Apps</span>
+  </h1>
+  <p>自然言語処理と教育工学の知見を活かし、AI × フランス語学習に特化したアプリケーションを開発しています。</p>
+  <p class="english">I develop AI-powered French learning applications, leveraging expertise in natural language processing and educational technology.</p>
+
+<h2 class="underline">🎓 学習歴・修了講座 - Learning History</h2>
+<ul>
+  <li>(株)キカガク「DXを推進するAI・データサイエンス人材育成長期コース」 修了<br>
+  <p class="english">Kikagaku Inc. "AI & Data Science Professional Development Program for DX" - Completed</p></li>
   
-  <div class="cv-content">
-    <div class="cv-section">
-      <div class="cv-section-title">
-        <i class="fas fa-user"></i>
-        Professional Summary
-      </div>
-      <div class="cv-pr">
-        <div class="cv-pr-text">
-I have recent hands-on experience in early childhood education, and previously worked in trade-related administrative roles and served in the automotive marketing division of a U.S. semiconductor company, where I handled semiconductor test progress management and executive support duties. After working as a childcare provider, I obtained a kindergarten teacher license and have been learning skills in data science, machine learning, natural language processing, and AI application development through the intensive, practical AI training programs offered by KIKAGAKU and University of Tokyo's Matsuo Laboratory.
+  <li>東京大学 松尾研究室 「LLM　大規模言語モデル講座 2024」修了<br>
+  <p class="english">University of Tokyo - Matsuo Lab "Large Language Models (LLM) Course 2024" - Completed</p></li>
+  
+  <li>東京大学 松尾研究室 「GCI　東京大学グローバル消費インテリジェンス寄付講座 2024」　受講<br>
+  <p class="english">University of Tokyo - Matsuo Lab "Global Consumer Intelligence Endowed Course 2024" - Attended</p></li>
+  
+  <li>東京大学 松尾研究室 「AI Business Insights AI経営講座 2025」　修了<br>
+  <p class="english">University of Tokyo - Matsuo Lab "AI Business Insights - AI Management Course 2025" - Completed</p></li>
+</ul>
 
-Leveraging my multifaceted background spanning education, business, and technology, I value continuous learning and seek to contribute in roles that bridge people and technology.
 
-        </div>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title">
-        <i class="fas fa-globe"></i>
-        Technical Portfolio
-      </div>
-      <div class="portfolio-link">
-        Project details and code samples available at: <a href="https://yumiuse.github.io/" target="_blank">yumiuse.github.io</a>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title project-section">
-        <i class="fas fa-rocket"></i>
-        Project Highlights
-      </div>
-      <div class="timeline project-timeline">
-        <div class="timeline-item">
-          <div class="timeline-period">2024</div>
-          <div class="timeline-role">AI-Powered Language Learning Application</div>
-          <div class="timeline-desc">
-            • Developed a French language flashcard app with OpenAI API integration for intelligent content generation<br>
-            • Built with Streamlit and deployed on the cloud using a responsive UI/UX design<br>
-            • Integrated a spaced repetition algorithm and learning progress tracker for personalized study
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">2023–2024</div>
-          <div class="timeline-role">Machine Learning & Data Science Projects</div>
-          <div class="timeline-desc">
-            • Developed classification and regression models using scikit-learn and XGBoost<br>
-            • Conducted data preprocessing, feature engineering, and exploratory data analysis on real-world datasets<br>
-            • Applied SHAP for interpretability and visualization of model outputs<br>
-            • Carried out LLM fine-tuning using LoRA and Unsloth techniques
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title">
-        <i class="fas fa-briefcase"></i>
-        Professional Experience
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-period">Jul 2019 – Mar 2023</div>
-          <div class="timeline-role">Childcare Worker (Part-time)</div>
-          <div class="timeline-company">Hiraizumi Nursery School</div>
-          <div class="timeline-desc">
-            • Provided care for infants and toddlers<br>
-            • Communicated with parents and organized educational events
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Dec 2007 – May 2009</div>
-          <div class="timeline-role">International Sales Administrator</div>
-          <div class="timeline-company">Eurocopter Japan Co., Ltd.</div>
-          <div class="timeline-desc">Handled import/export logistics for helicopters and parts including SAP, order processing, customs clearance, and invoicing</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Dec 2006 – Jul 2007</div>
-          <div class="timeline-role">Executive Assistant</div>
-          <div class="timeline-company">Analog Devices Inc. (Semiconductor Company)</div>
-          <div class="timeline-desc">Provided support to department head: managing schedules, meeting logistics, presentations, and Japanese-English translation</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Mar 2006 – Oct 2006</div>
-          <div class="timeline-role">Export Operations Specialist</div>
-          <div class="timeline-company">Furukawa Rock Drill Co., Ltd.</div>
-          <div class="timeline-desc">Managed exports of heavy machinery, including L/C & B/L handling, air and sea freight booking, and shipping documentation</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Apr 2002 – Jun 2004</div>
-          <div class="timeline-role">HR Specialist</div>
-          <div class="timeline-company">Fujiyakuhin Co., Ltd.</div>
-          <div class="timeline-desc">Oversaw all HR-related paperwork: onboarding, resignations, employment and health insurance, tax procedures, and certificates</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title learning-section">
-        <i class="fas fa-graduation-cap"></i>
-        Education & Training
-      </div>
-      <div class="timeline learning-timeline">
-        <div class="timeline-item">
-          <div class="timeline-period">Apr 2025</div>
-          <div class="timeline-role">AI Business Insights 2025</div>
-          <div class="timeline-company">The University of Tokyo, Matsuo Laboratory</div>
-          <div class="timeline-desc">Training in AI business models, implementation strategy, and governance</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Jan 2024</div>
-          <div class="timeline-role">Large Language Model Course 2024</div>
-          <div class="timeline-company">The University of Tokyo, Matsuo Laboratory</div>
-          <div class="timeline-desc">Focused on architecture, fine-tuning, and deployment of large-scale language models</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Sep 2023</div>
-          <div class="timeline-role">AI & Data Science Professional Program</div>
-          <div class="timeline-company">KIKAGAKU Inc.</div>
-          <div class="timeline-desc">Covered Python, ML, DL, CV, API development, and deployment pipelines</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Apr 2023 – Mar 2025</div>
-          <div class="timeline-role">Kindergarten Teacher License Program</div>
-          <div class="timeline-company">Bukkyo University</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">May 2009 – Jun 2015</div>
-          <div class="timeline-role">Study Abroad & Residence – Paris, France</div>
-          <div class="timeline-desc">
-            <ul>
-              <li>Sorbonne University: French Language and Culture</li>
-              <li>Institut de Langue et Culture Françaises (ILCF), Catholic Institute of Paris</li>
-              <li>Sorbonne Nouvelle Paris 3: Phonetics and Linguistics</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-period">Mar 2002</div>
-          <div class="timeline-role">Bachelor of Arts in English and American Literature</div>
-          <div class="timeline-company">Keiwa College</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title">
-        <i class="fas fa-code"></i>
-        Technical Skills
-      </div>
-      <div class="skills-section">
-        <div class="skills-category">
-          <div class="skills-category-title">Programming & AI/ML:</div>
-          <div class="skills-text">Python, Pandas, NumPy, Scikit-learn, XGBoost, OpenAI API, LoRA, Unsloth, spaCy, SHAP, Matplotlib, OpenCV (basic)</div>
-        </div>
-        <div class="skills-category">
-          <div class="skills-category-title">Development & Deployment:</div>
-          <div class="skills-text">Streamlit, FastAPI (basic), Git/GitHub, pytest, Docker (basic), virtual environments</div>
-        </div>
-        <div class="skills-category">
-          <div class="skills-category-title">Cloud Platforms:</div>
-          <div class="skills-text">Google Colab, Streamlit Cloud, Hugging Face, VS Code, terminal operations</div>
-        </div>
-        <div class="skills-category">
-          <div class="skills-category-title">Business Tools:</div>
-          <div class="skills-text">Excel (advanced), PowerPoint, SAP, Notion, Zoom, Slack, technical documentation, task management</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title">
-        <i class="fas fa-award"></i>
-        Certifications & Languages
-      </div>
-      <div class="qualifications-list">
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">Class 1 Kindergarten Teacher License</div>
-            <div class="qualification-year">Aug 2024</div>
-          </div>
-        </div>
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-language"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">Practical French Proficiency (Pre-1st Grade)</div>
-            <div class="qualification-year">2018</div>
-          </div>
-        </div>
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-child"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">Childcare Worker License</div>
-            <div class="qualification-year">2017</div>
-          </div>
-        </div>
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-certificate"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">DELF B2 (French)</div>
-            <div class="qualification-year">2013</div>
-          </div>
-        </div>
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">TOEIC 705</div>
-            <div class="qualification-year">2008</div>
-          </div>
-        </div>
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-language"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">EIKEN Pre-2nd Grade</div>
-            <div class="qualification-year">2003</div>
-          </div>
-        </div>
-        <div class="qualification-item">
-          <div class="qualification-icon">
-            <i class="fas fa-car"></i>
-          </div>
-          <div class="qualification-content">
-            <div class="qualification-name">Driver's License (Japan)</div>
-            <div class="qualification-year">1999</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cv-section">
-      <div class="cv-section-title">
-        <i class="fas fa-comments"></i>
-        Languages
-      </div>
-      <div class="skills-section">
-        <div class="skills-category">
-          <div class="skills-category-title">Multilingual Communication:</div>
-          <div class="skills-text"><strong>Japanese:</strong> Native | <strong>English:</strong> Upper-Intermediate (TOEIC 705) | <strong>French:</strong> Advanced (DELF B2, Pre-1st Grade)</div>
-        </div>
-      </div>
-    </div>
+<details>
+ <summary>学習プログラム詳細 / Learning Program Details </summary>
+ <div class="learning-grid">
+   <div class="learning-category">
+     <h4>キカガク「DXを推進するAI・データサイエンス人材育成長期コース」<br>
+     <p class="english">Kikagaku Co., Ltd. - AI & Data Science Professional Development Program</p></h4>
+     <ul>
+       <li>Python基礎（文法・関数・データ型・モジュール）<br>
+       <p class="english">Python Fundamentals (Syntax, Functions, Data Types, Modules)</p></li>
+       <li>データサイエンス（多変量解析・データ分析・前処理・特徴量エンジニアリング）<br>
+       <p class="english">Data Science (Multivariate Analysis, Data Analysis, Preprocessing, Feature Engineering)</p></li>
+       <li>機械学習（scikit-learn・XGBoostで分類・回帰・評価）<br>
+       <p class="english">Machine Learning (Classification, Regression, Evaluation with scikit-learn & XGBoost)</p></li>
+       <li>画像処理（OpenCV・Pillow／画像前処理・CNN基礎）<br>
+       <p class="english">Computer Vision (OpenCV, Pillow, Image Preprocessing, CNN Fundamentals)</p></li>
+       <li>ディープラーニング（PyTorch入門／理論・演習基礎）<br>
+       <p class="english">Deep Learning (PyTorch Introduction, Theory & Hands-on Practice)</p></li>
+       <li>自然言語処理（基礎理論）<br>
+       <p class="english">Natural Language Processing (Fundamental Theory)</p></li>
+       <li>API開発（FastAPI／基礎・演習）<br>
+       <p class="english">API Development (FastAPI Fundamentals & Practice)</p></li>
+     </ul>
+   </div>
+   
+   <div class="learning-category">
+     <h4>東京大学 松尾研究室「大規模言語モデル（LLM）講座 2024」<br>
+     <p class="english">University of Tokyo - Matsuo Lab "Large Language Models (LLM) Course 2024"</p></h4>
+     <ul>
+       <li>言語モデルの概要・仕組み<br>
+       <p class="english">Overview of Language Models</p></li>
+       <li>プロンプト設計・RAG<br>
+       <p class="english">Prompt Engineering & RAG (Retrieval-Augmented Generation)</p></li>
+       <li>事前学習・拡張学習<br>
+       <p class="english">Pre-training & Advanced Pre-training</p></li>
+       <li>Scaling Law（モデル規模の法則）<br>
+       <p class="english">Scaling Laws</p></li>
+       <li>半導体エコシステムとLLMの発展基盤<br>
+       <p class="english">Semiconductor Ecosystem & LLM Development Infrastructure</p></li>
+       <li>Supervised Fine-Tuning（教師ありファインチューニング）<br>
+       <p class="english">Supervised Fine-Tuning (SFT)</p></li>
+       <li>RLHF & Alignment（報酬付き学習・整合性）<br>
+       <p class="english">RLHF (Reinforcement Learning from Human Feedback) & AI Alignment</p></li>
+       <li>安全性・LLMの理論と分析<br>
+       <p class="english">AI Safety & LLM Analysis and Theory</p></li>
+       <li>LLM応用<br>
+       <p class="english">LLM Applications (Domain-Specific LLM, LLM for Control)</p></li>
+       <li>最終課題：LLMのコンペティション型課題に取り組み予定<br>
+       <p class="english">Final Project: LLM Competition Challenge</p></li>
+     </ul>
+   </div>
+   
+<div class="learning-category">
+  <h4>東京大学 松尾研究室「GCI　東京大学グローバル消費インテリジェンス寄付講座 2024」<br>
+  <p class="english">University of Tokyo - Matsuo Lab "Global Consumer Intelligence Endowed Course 2024"</p></h4>
+  <ul>
+    <li>Pythonコーディング（NumPy, Pandas, Matplotlib）<br>
+    <p class="english">Python Coding (NumPy, Pandas, Matplotlib)</p></li>
+    <li>データ分析（特徴量エンジニアリング・教師なし学習・時系列・モデル検証とチューニング）<br>
+    <p class="english">Data Analysis (Feature Engineering, Unsupervised Learning, Time Series, Model Validation & Tuning)</p></li>
+    <li>ビジネス応用（SQL・マーケティング基礎応用・ゲスト講義）<br>
+    <p class="english">Business Applications (SQL, Marketing Fundamentals & Applications, Guest Lectures)</p></li>
+    <li>実践演習（Python宿題・データ分析コンペティション・最終課題）<br>
+    <p class="english">Practical Exercises (Python Assignments, Data Analysis Competition, Final Project)</p></li>
+  </ul>
+</div>
+   
+<div class="learning-category">
+ <h4>東京大学 松尾研究室「AI Business Insights AI経営講座 2025」<br>
+ <p class="english">University of Tokyo - Matsuo Lab "AI Business Insights - AI Management Course 2025"</p></h4>
+ <ul>
+   <li>AIトレンド・ビジネスユースケース・業界別動向<br>
+   <p class="english">AI Trends, Business Use Cases & Industry-Specific Insights</p></li>
+   <li>生成AIの技術進化と未来展望<br>
+   <p class="english">Generative AI Technology Evolution & Future Prospects</p></li>
+   <li>AIガバナンス・法規制・リスク管理・サステナビリティ<br>
+   <p class="english">AI Governance, Legal Regulations, Risk Management & Sustainability</p></li>
+   <li>顧客体験・マーケティング/バックオフィス改革・ロボティクス<br>
+   <p class="english">Customer Experience, Marketing/Back-office Innovation & Robotics</p></li>
+   <li>人材育成・AI共創戦略・AI経営のあり方<br>
+   <p class="english">Talent Development, AI Co-creation Strategy & AI-driven Management</p></li>
+   <li>各業界の実務者による最新事例とケーススタディ<br>
+   <p class="english">Case Studies & Latest Industry Examples by Business Practitioners</p></li>
+   <li>（この講義では、AIの社会実装インサイトに基づき、業界・ソリューション別のビジネス動向とAI活用のポテンシャルとリスク、企業戦略における攻めと守りの両側面を学習）<br>
+   <p class="english">Focus: AI implementation insights, industry-specific business trends, AI potential & risks, and comprehensive corporate strategy (both offensive & defensive approaches)</p></li>
+ </ul>
+</div>
+ </div>
+</details>
+
+
+
+<h2 class="underline">🛠 技術スキル - Technical Skills</h2>
+<div class="skills-grid">
+  <div class="skill-category">
+    <h4>💻 プログラミング言語</h4>
+    <ul>
+      <li>Python <span class="skill-level">（AIアプリ開発・主要ライブラリ）</span></li>
+      <li>HTML/CSS <span class="skill-level">（Web UI調整・実務経験）</span></li>
+      <li>JavaScript <span class="skill-level">（基本理解・学習中）</span></li>
+      <li>Flutter <span class="skill-level">（モバイルアプリ初級・講座受講）</span></li>
+    </ul>
+  </div>
+  <div class="skill-category">
+    <h4>🔧 フレームワーク・ライブラリ</h4>
+    <ul>
+      <li>Streamlit（アプリ開発）</li>
+      <li>FastAPI（API構築）</li>
+      <li>Pandas / NumPy（データ整形・分析）</li>
+      <li>scikit-learn（機械学習アルゴリズム）</li>
+      <li>XGBoost（予測モデル構築）</li>
+    </ul>
+  </div>
+  <div class="skill-category">
+    <h4>⚙ 開発環境・ツール</h4>
+    <ul>
+      <li>Git / GitHub（コード管理・チーム開発）</li>
+      <li>Visual Studio Code（開発エディタ）</li>
+      <li>Streamlit Cloud（Webアプリ公開）</li>
+      <li>Google Colab（モデル学習・ファインチューニング）</li>
+      <li>Hugging Face（モデル公開・実装）</li>
+      <li>Docker（環境構築・講座経験）</li>
+      <li>CSV / Excel（データ管理・前処理）</li>
+    </ul>
   </div>
 </div>
 
-<script>
-// フェードインアニメーション
-document.addEventListener('DOMContentLoaded', function() {
-  const elements = document.querySelectorAll('.timeline-item, .qualification-item, .skills-category');
+<h2 class="underline">🚀 プロジェクト経験・挑戦したこと - Project Experience</h2>
+<div class="expertise-section">
+ <ul>
+   <li>OpenAI API（ChatGPT連携アプリ開発）<br>
+   <p class="english">OpenAI API Integration (ChatGPT-powered app development)</p></li>
+   
+   <li>機械学習モデル構築・評価（scikit-learn, XGBoostによる分類・回帰）<br>
+   <p class="english">Machine Learning Model Development & Evaluation (Classification & Regression with scikit-learn, XGBoost)</p></li>
+   
+   <li>データ前処理・分析（CSV統合、特徴量エンジニアリング、EDA）<br>
+   <p class="english">Data Preprocessing & Analysis (CSV integration, Feature Engineering, Exploratory Data Analysis)</p></li>
+   
+   <li>Explainable AI（SHAPによるモデル解釈・可視化／初歩レベル）<br>
+   <p class="english">Explainable AI (Model interpretation & visualization with SHAP - Beginner level)</p></li>
+   
+   <li>LLMファインチューニング（Unsloth・LoRAを活用した簡易実験）<br>
+   <p class="english">LLM Fine-tuning (Lightweight experiments using Unsloth & LoRA)</p></li>
+   
+   <li>spaCy（自然言語処理での活用を検討・調査段階）<br>
+   <p class="english">spaCy (Natural Language Processing - Research & exploration stage)</p></li>
+ </ul>
+</div>
+
+  <h2 class="underline" style="margin-top: 2.5em;">💫 French Flashcard Study App</h2>
+  <p>
+    効率よく単語を記憶できるよう、復習タイミングにこだわったフランス語学習アプリです。<br>
+    Streamlitで開発し、ユーザーの記憶状況に合わせて最適なタイミングで単語を出題。忘却曲線の理論を応用し、着実な語彙定着をサポートします。
+  </p>
+  <p class="english">
+    A French vocabulary learning app focused on maximizing retention through smart review scheduling. Built with Streamlit, it adapts to users' memory status and presents words at optimal times, applying the forgetting curve theory for solid vocabulary acquisition.
+  </p>
+
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    FastAPI・Streamlit・OpenAI APIを連携し、ChatGPT APIの翻訳出力を最適化するためのプロンプト設計・パラメータ調整を工夫。効率的かつ高品質な翻訳機能を実装した。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Integrated FastAPI, Streamlit, and OpenAI API, and engineered prompt design and parameter tuning to optimize ChatGPT translation output, achieving efficient and high-quality translations.
+  </p>
+
+  <h3>将来の展望：</h3>
+  <p>
+    音声再生や学習進捗の可視化、個別最適化された復習タイミングなど、より学びやすいAI学習アプリを目指して拡張予定です。
+  </p>
+  <p class="english"><strong>
+    Future Vision:</strong> Plans for features like audio playback, progress visualization, and personalized review intervals to create an even more effective AI-powered language learning app.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>
+    Python, Streamlit, FastAPI, OpenAI API, Pandas, GitHub
+  </p>
+
+  <a href="https://github.com/Yumiuse/french_flashcard_study" target="_blank">🔗 GitHubでコードを見る</a>
   
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '0';
-        entry.target.style.transform = 'translateY(15px)';
-        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
-        setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, Math.random() * 200);
-      }
-    });
-  });
+  <h3>🎥 DEMO</h3>
+  <h5>🇯🇵 日本語版</h5>
+  <iframe src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Japanese Demo" frameborder="0" allowfullscreen></iframe>
   
-  elements.forEach(el => observer.observe(el));
-});
-</script>
-</body>
-</html>
+  <h5>🇬🇧 English Demo</h5>
+  <iframe src="https://www.youtube.com/embed/uzbAzosgZWw" title="English Demo" frameborder="0" allowfullscreen></iframe>
+  
+  <h5>🇫🇷 Démonstration en français</h5>
+  <iframe src="https://www.youtube.com/embed/-50wOdqEC1Y" title="French Demo" frameborder="0" allowfullscreen></iframe>
+
+  <h2 class="underline" style="margin-top: 2.5em;">🕵️‍♀️ French Level Predictor App</h2>
+  <p>
+    フランス語単語の難易度を機械学習で予測する学習支援Webアプリケーション。<br>
+    Scikit-learnを用いた分類モデルと、StreamlitによるインタラクティブなUIを組み合わせて開発しました。
+  </p>
+  <p class="english">
+    A web application that predicts French word difficulty using machine learning. Developed with Scikit-learn classification models and an interactive Streamlit interface.
+  </p>
+
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    データ前処理から機械学習モデルの構築・評価まで、MLプロジェクトの全工程を実装。精度向上に向けた試行錯誤を通じて、実践的なスキルを習得しました。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Implemented the complete ML pipeline from data preprocessing to model evaluation, gaining practical skills through iterative accuracy improvements.
+  </p>
+ 
+  <h3>将来の展望：</h3>
+  <p>
+    現在は単語の難易度予測のみに対応していますが、今後は文章全体のレベル予測も行い、French Flashcard Study App と統合する予定です。<br>
+    学習者の語彙レベルに合わせて、最適な教材や例文を自動で出題できるような設計を目指しています。
+  </p>
+  <p class="english"><strong>
+    Future Outlook:</strong> Currently, the app supports only word-level difficulty prediction. In the future, it is planned to integrate this app with the French Flashcard Study App, enabling sentence-level difficulty assessment and automatic suggestion of appropriate materials and example sentences tailored to each learner's level.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>Python, Scikit-learn, Pandas, Streamlit</p>
+
+  <a href="https://github.com/Yumiuse/french-level-predictor" target="_blank">🔗 GitHubでコードを見る</a>
+
+  <h3>🎥 DEMO</h3>
+  <iframe src="https://www.youtube.com/embed/K_5acngr0PE" title="Demo Video" frameborder="0" allowfullscreen></iframe>
+
+  <h2 class="underline" style="margin-top: 2.5em;">🤖 Japanese Instruction-following LLM</h2>
+  <p>
+    東京大学 松尾研究室主催「大規模言語モデル講座」最終課題として開発。<br>
+    日本語の大規模言語モデル「llm-jp-3-13b」をベースに、実際の質問に対する回答をより正確に返せるようにファインチューニングしました。<br>
+    Unslothライブラリを用いて効率的に学習し、最終的には <a href="https://huggingface.co/Yumikooo/llm-jp-3-13b-itA_lora" target="_blank">Hugging Face</a> 上でモデルを公開しました。
+  </p>
+  <p class="english">
+    Developed as the final project for the "Large Language Models Course" hosted by the Matsuo Laboratory at the University of Tokyo. This model is fine-tuned based on the Japanese large language model llm-jp-3-13b to provide more accurate responses to real-world questions. Using the Unsloth library, training was performed efficiently, and the resulting model has been published on Hugging Face.
+  </p>
+
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    Unsloth・LoRAによる軽量ファインチューニングを行い、Google Colab上でモデルを学習。<br>
+    4bit量子化や学習効率の工夫により、限られたGPUリソースでも安定した出力を得られるよう設計しました。<br>
+    また、推論コードや出力形式（JSONL）の整備を行い、再現性のある形で成果を公開しました。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Efficiently fine-tuned a 13B Japanese LLM with Unsloth and LoRA using Google Colab. Used 4-bit quantization for memory savings and implemented reproducible inference with JSONL outputs and public model hosting.
+  </p>
+
+  <h3>将来の展望：</h3>
+  <p>
+    より精緻な指示理解や会話の一貫性を向上させる継続的なトレーニングや、日本語タスク用に最適化されたInstructionデータセットの自作を進めたい。<br>
+    商用レベルの応答品質を目指した改良にも取り組みたい。
+  </p>
+  <p class="english"><strong>
+    Future Vision:</strong> Further improvements in instruction-following quality, task-specific fine-tuning, and development of proprietary Japanese instruction datasets.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>
+    Python, Transformers, Hugging Face, Google Colab, Unsloth, LoRA, JSONL
+  </p>
+
+  <a href="https://huggingface.co/Yumikooo/llm-jp-3-13b-itA_lora" target="_blank">🔗 Hugging Faceでモデルを確認する</a>
+<br>
+<br>
+<br>
+  <h2 class="underline" style="margin-top: 2.5em;">🚢 Titanic Survival Prediction (Kaggle - GCI)</h2>
+  <p>
+    東京大学松尾研究室が主催するGCI講座(東京大学グローバル消費インテリジェンス寄付講座)にて、Kaggleの「Titanic: Machine Learning from Disaster」に取り組みました。<br>
+    データ分析の全工程（前処理・EDA・特徴量エンジニアリング・モデル構築・アンサンブリング・提出）を実践し、予測精度向上のためのハイパーパラメータ調整や複数モデルの組み合わせを学びました。
+  </p>
+  <p class="english">
+    Participated in the Kaggle "Titanic: Machine Learning from Disaster" competition as part of the GCI program hosted by the University of Tokyo's Matsuo Lab. Implemented the full data analysis pipeline including preprocessing, EDA, feature engineering, model training, ensembling, and final submission. Practiced hyperparameter tuning and ensemble methods to improve accuracy.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>Python, Pandas, Scikit-learn, Matplotlib, Seaborn, Random Forest, Logistic Regression, MLPClassifier, GridSearchCV</p>
+
+  <h2 class="underline" style="margin-top: 2.5em;">📊 AirREGI アカウント獲得予測プロジェクト（GCI最終課題）</h2>
+<p class="english">AirREGI Account Acquisition Prediction Project (GCI Final Assignment)</p>
+<p>
+  東京大学「グローバル消費インテリジェンス」寄附講座の最終課題として、AirREGIのアカウント獲得数を外部要因から予測するモデルを開発しました。
+</p>
+<p class="english">
+  Developed a predictive model for AirREGI account acquisition based on external factors as the final assignment for the University of Tokyo's "Global Consumer Intelligence" endowed course.
+</p>
+
+<h3>目的:</h3>
+<p class="english">Objectives:</p>
+<ul>
+  <li>アカウント獲得数（acc_get_cnt）に影響する外部要因を定量的に分析<br>
+  <p class="english">Quantitative analysis of external factors affecting account acquisition count (acc_get_cnt)</p></li>
+  <li>CM・祝日・通話件数などを考慮し、マーケティング施策に活かせる予測モデルを構築<br>
+  <p class="english">Built a predictive model considering TV commercials, holidays, and call volumes for marketing strategy implementation</p></li>
+</ul>
+
+<h3>使用技術・手法:</h3>
+<p class="english">Technologies & Methods:</p>
+<ul>
+  <li>Python（pandas, seaborn, matplotlib, scikit-learn, XGBoost, SHAP）<br>
+  <p class="english">Python (pandas, seaborn, matplotlib, scikit-learn, XGBoost, SHAP)</p></li>
+  <li>複数CSVの統合：calendar_data / cm_data / call_data / acc_get_data を日付で統合<br>
+  <p class="english">Multi-CSV integration: Merged calendar_data, cm_data, call_data, acc_get_data by date</p></li>
+  <li>XGBoostによる回帰モデル、SHAPで特徴量の重要度を可視化<br>
+  <p class="english">XGBoost regression model with SHAP for feature importance visualization</p></li>
+</ul>
+
+<h3>分析結果:</h3>
+<p class="english">Analysis Results:</p>
+<ul>
+  <li>平日のCM放映がアカウント獲得数に大きく影響<br>
+  <p class="english">Weekday TV commercial broadcasts significantly impact account acquisition</p></li>
+  <li>営業通話数（call_num）との相関は中程度<br>
+  <p class="english">Moderate correlation with sales call volume (call_num)</p></li>
+  <li>SHAPにより「CM」「曜日」「祝日」などが重要な特徴量として可視化され、モデルの透明性を確保<br>
+  <p class="english">SHAP visualized "TV commercials," "day of week," and "holidays" as key features, ensuring model transparency</p></li>
+</ul>
+
+<h3>学びと工夫:</h3>
+<p class="english">Key Learnings & Innovations:</p>
+<ul>
+  <li>時系列と外部要因データの効率的な前処理・統合手法を工夫<br>
+  <p class="english">Developed efficient methods for preprocessing and integrating time series and external factor data</p></li>
+  
+  <li>予測モデルの解釈性向上への取り組み<br>
+  <p class="english">Focused on enhancing predictive model interpretability through:</p><br>
+  - SHAP値による個別予測の要因分析手法を学習<br>
+  <p class="english">- Learned individual prediction factor analysis using SHAP values</p><br>
+  - Feature Importanceによる特徴量寄与度の可視化を実践<br>
+  <p class="english">- Practiced feature contribution visualization via Feature Importance</p></li>
+  
+  <li>データ分析結果をビジネス価値に変換する考え方を習得<br>
+  <p class="english">Learned to translate data analysis results into actionable business value</p></li>
+</ul>
+
+<h3>🔗 関連リンク</h3>
+<p class="english">Related Links:</p>
+<ul>
+  <li><strong>GitHub リポジトリ</strong>: <a href="https://github.com/Yumiuse/AirRegi-presentation" target="_blank">ソースコード</a><br>
+  <p class="english"><strong>GitHub Repository</strong>: <a href="https://github.com/Yumiuse/AirRegi-presentation" target="_blank">Source Code</a></p></li>
+  <li><strong>プレゼンテーション</strong>: <a href="https://yumiuse.github.io/AirRegi-presentation/" target="_blank">スライドを見る</a><br>
+  <p class="english"><strong>Presentation</strong>: <a href="https://yumiuse.github.io/AirRegi-presentation/" target="_blank">View Slides</a></p></li>
+</ul>
+
+<h2>📩 連絡先</h2>
+
+<p>お仕事・ご相談は <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> まで📬</p>
+<p class="english">For work inquiries and consultations: <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> 📬</p>
