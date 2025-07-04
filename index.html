@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume - Yumiko Sawa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #3b82f6;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-accent: #eff6ff;
+  --border-color: #e5e7eb;
+  --success-color: #10b981;
+  --learning-color: #8b5cf6;
+  --project-color: #f59e0b;
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.4;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cv-container {
+  max-width: 800px;
+  margin: 1rem auto;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.cv-header {
+  background: var(--bg-primary);
+  padding: 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cv-header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cv-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.cv-birth-info {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-bottom: 0rem;
+}
+
+.cv-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.cv-contact-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.cv-contact-simple .cv-contact-item {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.cv-contact-simple .cv-contact-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 600;
+}
+
+.cv-contact-simple .cv-contact-item a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.cv-content {
+  padding: 1.5rem;
+}
+
+.cv-section {
+  margin-bottom: 1.8rem;
+}
+
+.cv-section:last-child {
+  margin-bottom: 0;
+}
+
+.cv-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.cv-section-title i {
+  font-size: 1rem;
+  color: var(--accent-color);
+}
+
+.cv-section-title.learning-section i {
+  color: var(--learning-color);
+}
+
+.cv-section-title.project-section i {
+  color: var(--project-color);
+}
+
+.cv-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  margin-left: 0.8rem;
+}
+
+.cv-section-title.learning-section::after {
+  background: linear-gradient(90deg, var(--learning-color), transparent);
+}
+
+.cv-section-title.project-section::after {
+  background: linear-gradient(90deg, var(--project-color), transparent);
+}
+
+.portfolio-link {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.portfolio-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.portfolio-link a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-color), var(--border-color));
+}
+
+.timeline.learning-timeline::before {
+  background: linear-gradient(180deg, var(--learning-color), var(--border-color));
+}
+
+.timeline.project-timeline::before {
+  background: linear-gradient(180deg, var(--project-color), var(--border-color));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.3rem;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 0 2px var(--accent-color);
+  z-index: 1;
+}
+
+.timeline.learning-timeline .timeline-item::before {
+  background: var(--learning-color);
+  box-shadow: 0 0 0 2px var(--learning-color);
+}
+
+.timeline.project-timeline .timeline-item::before {
+  background: var(--project-color);
+  box-shadow: 0 0 0 2px var(--project-color);
+}
+
+.timeline-period {
+  display: inline-block;
+  background: var(--bg-accent);
+  color: var(--primary-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  font-family: 'Inter', monospace;
+}
+
+.timeline.learning-timeline .timeline-period {
+  background: #f3f4f6;
+  color: var(--learning-color);
+}
+
+.timeline.project-timeline .timeline-period {
+  background: #fef3c7;
+  color: var(--project-color);
+}
+
+.timeline-role {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+.timeline-company {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+
+.timeline-desc {
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-size: 0.8rem;
+}
+
+.timeline-desc ul {
+  margin: 0.4rem 0;
+  padding-left: 1rem;
+  list-style-type: disc;
+}
+
+.timeline-desc li {
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.timeline-desc a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.timeline-desc a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.skills-section {
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+}
+
+.skills-category {
+  margin-bottom: 1.2rem;
+}
+
+.skills-category:last-child {
+  margin-bottom: 0;
+}
+
+.skills-category-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.skills-text {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.qualifications-list {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.qualification-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  border-left: 3px solid var(--success-color);
+  transition: all 0.2s ease;
+}
+
+.qualification-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.qualification-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--success-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.qualification-content {
+  flex: 1;
+}
+
+.qualification-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.1rem;
+  font-size: 0.85rem;
+}
+
+.qualification-year {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.cv-pr {
+  background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+  border-radius: 10px;
+  padding: 1.2rem;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-pr::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+}
+
+.cv-pr-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.cv-pr-text a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cv-pr-text a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cv-container {
+    margin: 0.5rem;
+    border-radius: 8px;
+  }
+  
+  .cv-header {
+    padding: 1rem;
+  }
+  
+  .cv-title {
+    font-size: 1.2rem;
+  }
+  
+  .cv-name {
+    font-size: 1.6rem;
+  }
+  
+  .cv-content {
+    padding: 1rem;
+  }
+  
+  .timeline {
+    padding-left: 1rem;
+  }
+  
+  .timeline-item {
+    padding-left: 1rem;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    font-size: 12px;
+  }
+  
+  .cv-container {
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+    border-radius: 0;
+  }
+  
+  .cv-header {
+    padding: 1rem;
+    page-break-inside: avoid;
+  }
+  
+  .cv-content {
+    padding: 1rem;
+  }
+  
+  .cv-section {
+    page-break-inside: avoid;
+    margin-bottom: 1.2rem;
+  }
+  
+  .timeline-item {
+    page-break-inside: avoid;
+    margin-bottom: 0.8rem;
+  }
+  
+  .qualification-item {
+    page-break-inside: avoid;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+<div class="cv-container fade-in">
+  <div class="cv-header">
+    <div class="cv-header-content">
+      <h1 class="cv-title">RESUME</h1>
+      <div class="cv-birth-info">Born September 18, 1979 (Age 45)</div>
+      <h2 class="cv-name">Yumiko Sawa</h2>
+      
+      <div class="cv-contact-simple">
+        <div class="cv-contact-item">
+          📧 yumiko.sawa@gmail.com
+        </div>
+        <div class="cv-contact-item">
+          🌐 <strong>Portfolio:</strong> <a href="https://yumiuse.github.io/" target="_blank">yumiuse.github.io</a>
+        </div>
+        <div class="cv-contact-item">
+          📍 748-8 Ishida, Sado City, Niigata 952-1322, Japan
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cv-content">
+    <div class="cv-section">
+      <div class="cv-section-title">
+        <i class="fas fa-user"></i>
+        Professional Summary
+      </div>
+      <div class="cv-pr">
+        <div class="cv-pr-text">
+I have recent hands-on experience in early childhood education, and previously worked in trade-related administrative roles and served in the automotive marketing division of a U.S. semiconductor company, where I handled semiconductor test progress management and executive support duties. After working as a childcare provider, I obtained a kindergarten teacher license and have been learning skills in data science, machine learning, natural language processing, and AI application development through the intensive, practical AI training programs offered by KIKAGAKU and University of Tokyo's Matsuo Laboratory.
+
+Leveraging my multifaceted background spanning education, business, and technology, I value continuous learning and seek to contribute in roles that bridge people and technology.
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title">
+        <i class="fas fa-globe"></i>
+        Technical Portfolio
+      </div>
+      <div class="portfolio-link">
+        Project details and code samples available at: <a href="https://yumiuse.github.io/" target="_blank">yumiuse.github.io</a>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title project-section">
+        <i class="fas fa-rocket"></i>
+        Project Highlights
+      </div>
+      <div class="timeline project-timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">2024</div>
+          <div class="timeline-role">AI-Powered Language Learning Application</div>
+          <div class="timeline-desc">
+            • Developed a French language flashcard app with OpenAI API integration for intelligent content generation<br>
+            • Built with Streamlit and deployed on the cloud using a responsive UI/UX design<br>
+            • Integrated a spaced repetition algorithm and learning progress tracker for personalized study
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">2023–2024</div>
+          <div class="timeline-role">Machine Learning & Data Science Projects</div>
+          <div class="timeline-desc">
+            • Developed classification and regression models using scikit-learn and XGBoost<br>
+            • Conducted data preprocessing, feature engineering, and exploratory data analysis on real-world datasets<br>
+            • Applied SHAP for interpretability and visualization of model outputs<br>
+            • Carried out LLM fine-tuning using LoRA and Unsloth techniques
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title">
+        <i class="fas fa-briefcase"></i>
+        Professional Experience
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Jul 2019 – Mar 2023</div>
+          <div class="timeline-role">Childcare Worker (Part-time)</div>
+          <div class="timeline-company">Hiraizumi Nursery School</div>
+          <div class="timeline-desc">
+            • Provided care for infants and toddlers<br>
+            • Communicated with parents and organized educational events
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Dec 2007 – May 2009</div>
+          <div class="timeline-role">International Sales Administrator</div>
+          <div class="timeline-company">Eurocopter Japan Co., Ltd.</div>
+          <div class="timeline-desc">Handled import/export logistics for helicopters and parts including SAP, order processing, customs clearance, and invoicing</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Dec 2006 – Jul 2007</div>
+          <div class="timeline-role">Executive Assistant</div>
+          <div class="timeline-company">Analog Devices Inc. (Semiconductor Company)</div>
+          <div class="timeline-desc">Provided support to department head: managing schedules, meeting logistics, presentations, and Japanese-English translation</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Mar 2006 – Oct 2006</div>
+          <div class="timeline-role">Export Operations Specialist</div>
+          <div class="timeline-company">Furukawa Rock Drill Co., Ltd.</div>
+          <div class="timeline-desc">Managed exports of heavy machinery, including L/C & B/L handling, air and sea freight booking, and shipping documentation</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Apr 2002 – Jun 2004</div>
+          <div class="timeline-role">HR Specialist</div>
+          <div class="timeline-company">Fujiyakuhin Co., Ltd.</div>
+          <div class="timeline-desc">Oversaw all HR-related paperwork: onboarding, resignations, employment and health insurance, tax procedures, and certificates</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title learning-section">
+        <i class="fas fa-graduation-cap"></i>
+        Education & Training
+      </div>
+      <div class="timeline learning-timeline">
+        <div class="timeline-item">
+          <div class="timeline-period">Apr 2025</div>
+          <div class="timeline-role">AI Business Insights 2025</div>
+          <div class="timeline-company">The University of Tokyo, Matsuo Laboratory</div>
+          <div class="timeline-desc">Training in AI business models, implementation strategy, and governance</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Jan 2024</div>
+          <div class="timeline-role">Large Language Model Course 2024</div>
+          <div class="timeline-company">The University of Tokyo, Matsuo Laboratory</div>
+          <div class="timeline-desc">Focused on architecture, fine-tuning, and deployment of large-scale language models</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Sep 2023</div>
+          <div class="timeline-role">AI & Data Science Professional Program</div>
+          <div class="timeline-company">KIKAGAKU Inc.</div>
+          <div class="timeline-desc">Covered Python, ML, DL, CV, API development, and deployment pipelines</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Apr 2023 – Mar 2025</div>
+          <div class="timeline-role">Kindergarten Teacher License Program</div>
+          <div class="timeline-company">Bukkyo University</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">May 2009 – Jun 2015</div>
+          <div class="timeline-role">Study Abroad & Residence – Paris, France</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Sorbonne University: French Language and Culture</li>
+              <li>Institut de Langue et Culture Françaises (ILCF), Catholic Institute of Paris</li>
+              <li>Sorbonne Nouvelle Paris 3: Phonetics and Linguistics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-period">Mar 2002</div>
+          <div class="timeline-role">Bachelor of Arts in English and American Literature</div>
+          <div class="timeline-company">Keiwa College</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title">
+        <i class="fas fa-code"></i>
+        Technical Skills
+      </div>
+      <div class="skills-section">
+        <div class="skills-category">
+          <div class="skills-category-title">Programming & AI/ML:</div>
+          <div class="skills-text">Python, Pandas, NumPy, Scikit-learn, XGBoost, OpenAI API, LoRA, Unsloth, spaCy, SHAP, Matplotlib, OpenCV (basic)</div>
+        </div>
+        <div class="skills-category">
+          <div class="skills-category-title">Development & Deployment:</div>
+          <div class="skills-text">Streamlit, FastAPI (basic), Git/GitHub, pytest, Docker (basic), virtual environments</div>
+        </div>
+        <div class="skills-category">
+          <div class="skills-category-title">Cloud Platforms:</div>
+          <div class="skills-text">Google Colab, Streamlit Cloud, Hugging Face, VS Code, terminal operations</div>
+        </div>
+        <div class="skills-category">
+          <div class="skills-category-title">Business Tools:</div>
+          <div class="skills-text">Excel (advanced), PowerPoint, SAP, Notion, Zoom, Slack, technical documentation, task management</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title">
+        <i class="fas fa-award"></i>
+        Certifications & Languages
+      </div>
+      <div class="qualifications-list">
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">Class 1 Kindergarten Teacher License</div>
+            <div class="qualification-year">Aug 2024</div>
+          </div>
+        </div>
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">Practical French Proficiency (Pre-1st Grade)</div>
+            <div class="qualification-year">2018</div>
+          </div>
+        </div>
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-child"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">Childcare Worker License</div>
+            <div class="qualification-year">2017</div>
+          </div>
+        </div>
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">DELF B2 (French)</div>
+            <div class="qualification-year">2013</div>
+          </div>
+        </div>
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">TOEIC 705</div>
+            <div class="qualification-year">2008</div>
+          </div>
+        </div>
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">EIKEN Pre-2nd Grade</div>
+            <div class="qualification-year">2003</div>
+          </div>
+        </div>
+        <div class="qualification-item">
+          <div class="qualification-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <div class="qualification-content">
+            <div class="qualification-name">Driver's License (Japan)</div>
+            <div class="qualification-year">1999</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-section-title">
+        <i class="fas fa-comments"></i>
+        Languages
+      </div>
+      <div class="skills-section">
+        <div class="skills-category">
+          <div class="skills-category-title">Multilingual Communication:</div>
+          <div class="skills-text"><strong>Japanese:</strong> Native | <strong>English:</strong> Upper-Intermediate (TOEIC 705) | <strong>French:</strong> Advanced (DELF B2, Pre-1st Grade)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// フェードインアニメーション
+document.addEventListener('DOMContentLoaded', function() {
+  const elements = document.querySelectorAll('.timeline-item, .qualification-item, .skills-category');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '0';
+        entry.target.style.transform = 'translateY(15px)';
+        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, Math.random() * 200);
+      }
+    });
+  });
+  
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
