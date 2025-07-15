@@ -538,11 +538,13 @@ details[open] summary::after {
   
   <h2 class="underline" style="margin-top: 2.5em;">🎤 音声認識 × ChatGPT 対話型チャットボット</h2>
 <p>
-  WhisperとChatGPTを組み合わせた音声対話の試作を行いました。GradioのUIをColabで動かし、ブラウザ上で音声入力と応答を確認できる形にしています。
+  WhisperとChatGPTを組み合わせた音声対話AI「ミライミミ」を試作しました。
+Gradio UIをGoogle Colab上で動作させ、ブラウザだけで音声入力・応答確認・読み上げまで可能な構成にしています。
+ 
 </p>
 <p class="english">
-  Created a simple prototype combining Whisper and ChatGPT for voice interaction. The interface was built with Gradio and run via Google Colab, allowing basic browser-based testing</p>
-
+  MiraiMimi is a prototype combining Whisper and ChatGPT for voice-based interaction.
+The Gradio interface runs on Google Colab, enabling in-browser speech input, response, and audio playback.
 <h3>技術的チャレンジ：</h3>
 <p>
   音声入力のテキスト変換からChatGPTによる応答生成までの処理を組み合わせ、簡易的な対話パイプラインを試作しました。<br>
@@ -552,24 +554,13 @@ details[open] summary::after {
   Technical Challenge:</strong> Built a complete pipeline from speech input to text conversion, ChatGPT response generation, and speech synthesis. Focused on character design through prompt engineering and leveraging speech recognition variations for natural conversation flow.
 </p>
 
-<h3>実験的発見：</h3>
-<p>
-  「いい天気ですね → イイタイキですね」という音声認識の誤変換が偶然にも会話に自然さを加えるケースがあり、<br>
-  AIとの対話における柔軟な応答設計の可能性を感じました。
-
-。
-</p>
-<p class="english"><strong>
-  Experimental Insight:</strong> Observed how speech recognition variations (like "いい天気ですね → イイタイキですね") actually enhanced conversation naturalness, demonstrating the value of flexibility over perfection in AI applications.
-</p>
-
 <h3>将来の展望：</h3>
 <p>
   教育分野での語学練習、観光案内での音声ガイドなど、音声AIの幅広い応用可能性を検証していきたい。<br>
   より高精度な音声認識と、感情表現豊かな音声合成の実装も目指しています。
 </p>
 <p class="english"><strong>
-  Future Vision:</strong> Exploring applications in language learning, multilingual customer service, and voice-guided tourism. Planning to implement higher-accuracy speech recognition and emotionally expressive speech synthesis.
+  Future Vision:</strong> Exploring applications in language learning　and voice-guided tourism. Planning to implement higher-accuracy speech recognition and emotionally expressive speech synthesis.
 </p>
 
 <h3>使用技術：</h3>
