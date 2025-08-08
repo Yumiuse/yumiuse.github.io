@@ -454,15 +454,74 @@ details[open] summary::after {
   <a href="https://github.com/Yumiuse/french_flashcard_study" target="_blank">🔗 GitHubでコードを見る</a>
   
   <h3>🎥 DEMO</h3>
-  <h5>🇯🇵 日本語版</h5>
-  <iframe src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Japanese Demo" frameborder="0" allowfullscreen></iframe>
-  
-  <h5>🇬🇧 English Demo</h5>
-  <iframe src="https://www.youtube.com/embed/uzbAzosgZWw" title="English Demo" frameborder="0" allowfullscreen></iframe>
-  
-  <h5>🇫🇷 Démonstration en français</h5>
-  <iframe src="https://www.youtube.com/embed/-50wOdqEC1Y" title="French Demo" frameborder="0" allowfullscreen></iframe>
 
+<!-- 言語選択ボタン -->
+<div style="margin-bottom: 15px;">
+  <button onclick="switchVideo('japanese')" id="btn-japanese" class="demo-btn active">🇯🇵 日本語版</button>
+  <button onclick="switchVideo('english')" id="btn-english" class="demo-btn">🇬🇧 English Demo</button>
+  <button onclick="switchVideo('french')" id="btn-french" class="demo-btn">🇫🇷 Démonstration en français</button>
+</div>
+
+<!-- 動画表示エリア -->
+<div id="video-container">
+  <iframe id="demo-video" src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Demo Video" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<style>
+.demo-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.demo-btn:hover {
+  background: #e0e0e0;
+}
+
+.demo-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+#demo-video {
+  width: 100%;
+  height: 400px;
+}
+</style>
+
+<script>
+function switchVideo(language) {
+  const videoElement = document.getElementById('demo-video');
+  const buttons = document.querySelectorAll('.demo-btn');
+  
+  // 全ボタンからactiveクラスを削除
+  buttons.forEach(btn => btn.classList.remove('active'));
+  
+  // 選択されたボタンにactiveクラスを追加
+  document.getElementById(`btn-${language}`).classList.add('active');
+  
+  // 動画URLを切り替え
+  switch(language) {
+    case 'japanese':
+      videoElement.src = 'https://www.youtube.com/embed/-DdYUPyKYTw';
+      videoElement.title = 'Japanese Demo';
+      break;
+    case 'english':
+      videoElement.src = 'https://www.youtube.com/embed/uzbAzosgZWw';
+      videoElement.title = 'English Demo';
+      break;
+    case 'french':
+      videoElement.src = 'https://www.youtube.com/embed/-50wOdqEC1Y';
+      videoElement.title = 'French Demo';
+      break;
+  }
+}
+</script>
   <h2 class="underline" style="margin-top: 2.5em;">🕵️‍♀️ French Level Predictor App</h2>
   <p>
     フランス語単語の難易度を機械学習で予測する学習支援Webアプリケーション。<br>
