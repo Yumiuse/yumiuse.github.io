@@ -499,23 +499,33 @@ details[open] summary::after {
 
   <h2 class="underline" style="margin-top: 2.5em;">🤖 Japanese Instruction-following LLM</h2>
   <p>
-    東京大学 松尾研究室主催「大規模言語モデル講座」最終課題として開発。<br>
-    日本語の大規模言語モデル「llm-jp-3-13b」をベースに、実際の質問に対する回答をより正確に返せるようにファインチューニングしました。<br>
-    Unslothライブラリを用いて効率的に学習し、最終的には <a href="https://huggingface.co/Yumikooo/llm-jp-3-13b-itA_lora" target="_blank">Hugging Face</a> 上でモデルを公開しました。
+    東京大学 松尾研究室主催「大規模言語モデル講座」最終課題として開発。
+日本語ベンチマークである ELYZA-tasks-100 および Ichikara instruction を学習データとして使用し、その改変版である ELYZA-tasks-100tv を用いて、
+    命令応答能力（instruction-following）を強化するファインチューニングを実施しました。
+    LoRA + Unsloth 構成による軽量な PEFT（Parameter-Efficient Fine-Tuning） を Google Colab 環境で行い、
+    未学習のタスクに対しても一定の応答性能を確認。ファインチューニングしたモデルは Hugging Face にて公開しています。
   </p>
   <p class="english">
-    Developed as the final project for the "Large Language Models Course" hosted by the Matsuo Laboratory at the University of Tokyo. This model is fine-tuned based on the Japanese large language model llm-jp-3-13b to provide more accurate responses to real-world questions. Using the Unsloth library, training was performed efficiently, and the resulting model has been published on Hugging Face.
+    Developed as the final project for the "Large Language Models Course" hosted by the Matsuo Laboratory at the University of Tokyo. 
+    Fine-tuned for enhanced Japanese instruction-following capabilities using ELYZA-tasks-100 and Ichikara instruction datasets, 
+    with evaluation on ELYZA-tasks-100tv. Implemented lightweight PEFT (Parameter-Efficient Fine-Tuning) 
+    using LoRA + Unsloth configuration on Google Colab, achieving reliable performance on unseen tasks.
+    The fine-tuned model is publicly available on Hugging Face.
   </p>
 
   <h3>技術的チャレンジ：</h3>
   <p>
-    Unsloth・LoRAによる軽量ファインチューニングを行い、Google Colab上でモデルを学習。<br>
-    4bit量子化や学習効率の工夫により、限られたGPUリソースでも安定した出力を得られるよう設計しました。<br>
-    また、推論コードや出力形式（JSONL）の整備を行い、再現性のある形で成果を公開しました。
+    日本語特化ベンチマークであるELYZA-tasks-100とIchikara instructionを学習データとし、
+    ELYZA-tasks-100tvで評価することで日本語の命令理解能力を体系的に強化しました。
+    LoRA（Low-Rank Adaptation）とUnslothライブラリを組み合わせた効率的なPEFT手法により、限られたGPUリソースでも高品質な学習を実現し、
+    4bit量子化や学習効率の工夫でColab環境での安定した13Bモデル学習を可能にしました。
+    また、推論コードや出力形式（JSONL）の整備、モデルの公開により研究の再現性と透明性を担保しています。
   </p>
   <p class="english"><strong>
-    Technical Challenge:</strong> Efficiently fine-tuned a 13B Japanese LLM with Unsloth and LoRA using Google Colab. Used 4-bit quantization for memory savings and implemented reproducible inference with JSONL outputs and public model hosting.
-  </p>
+    Systematically enhanced Japanese instruction-following using ELYZA-tasks-100 and Ichikara instruction for training with ELYZA-tasks-100tv evaluation. 
+    Combined LoRA with Unsloth library for efficient PEFT on limited GPU resources, implementing 4-bit quantization 
+    for stable 13B model training in Google Colab. Ensured research transparency through structured inference code, 
+    JSONL outputs, and public model hosting.  </p>
 
   <h3>将来の展望：</h3>
   <p>
