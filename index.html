@@ -695,44 +695,44 @@ The Gradio interface runs on Google Colab, enabling in-browser speech input, res
 <ul>
   <li>アカウント獲得数（acc_get_cnt）に影響する外部要因を定量的に分析<br>
   <p class="english">Quantitative analysis of external factors affecting account acquisition count (acc_get_cnt)</p></li>
-  <li>CM・祝日・通話件数などを考慮し、マーケティング施策に活かせる予測モデルを構築<br>
-  <p class="english">Built a predictive model considering TV commercials, holidays, and call volumes for marketing strategy implementation</p></li>
+  <li>通話件数・CM・祝日・曜日・季節性などを考慮し、将来のアカウント獲得を予測できるモデルを構築<br>
+  <p class="english">Built a predictive model considering call volume, TV commercials, holidays, day-of-week, and seasonality for forecasting account acquisitions</p></li>
 </ul>
 
 <h3>使用技術・手法:</h3>
 <p class="english">Technologies & Methods:</p>
 <ul>
-  <li>Python（pandas, seaborn, matplotlib, scikit-learn, XGBoost, SHAP）<br>
-  <p class="english">Python (pandas, seaborn, matplotlib, scikit-learn, XGBoost, SHAP)</p></li>
-  <li>複数CSVの統合：calendar_data / cm_data / call_data / acc_get_data を日付で統合<br>
-  <p class="english">Multi-CSV integration: Merged calendar_data, cm_data, call_data, acc_get_data by date</p></li>
-  <li>XGBoostによる回帰モデル、SHAPで特徴量の重要度を可視化<br>
-  <p class="english">XGBoost regression model with SHAP for feature importance visualization</p></li>
+  <li>Python（pandas, seaborn, matplotlib, scikit-learn, XGBoost, Optuna, SHAP）<br>
+  <p class="english">Python (pandas, seaborn, matplotlib, scikit-learn, XGBoost, Optuna, SHAP)</p></li>
+  <li>複数CSV（calendar_data / cm_data / call_data / acc_get_data）を日付で統合し、時系列データを前処理<br>
+  <p class="english">Multi-CSV integration (calendar_data, cm_data, call_data, acc_get_data) merged by date with time series preprocessing</p></li>
+  <li>XGBoost + Optunaによるハイパーパラメータ最適化、SHAPによる特徴量の解釈性分析<br>
+  <p class="english">XGBoost with Optuna hyperparameter optimization and SHAP for interpretability analysis</p></li>
 </ul>
 
 <h3>分析結果:</h3>
 <p class="english">Analysis Results:</p>
 <ul>
-  <li>平日のCM放映がアカウント獲得数に大きく影響<br>
-  <p class="english">Weekday TV commercial broadcasts significantly impact account acquisition</p></li>
-  <li>営業通話数（call_num）との相関は中程度<br>
-  <p class="english">Moderate correlation with sales call volume (call_num)</p></li>
-  <li>SHAPにより「CM」「曜日」「祝日」などが重要な特徴量として可視化され、モデルの透明性を確保<br>
-  <p class="english">SHAP visualized "TV commercials," "day of week," and "holidays" as key features, ensuring model transparency</p></li>
+  <li>営業通話数（call_num）が最も重要な要因（特徴量重要度49%）<br>
+  <p class="english">Sales call volume (call_num) was the most important factor (49% feature importance)</p></li>
+  <li>CM効果は中程度（特に火曜〜木曜の平日で有効）、祝日は負の影響<br>
+  <p class="english">CM effect was moderate (effective especially Tue–Thu), while holidays had negative impact</p></li>
+  <li>9〜10月に獲得数が大幅に増加、6〜7月は低迷するなど明確な季節性を確認<br>
+  <p class="english">Strong seasonality observed: September–October showed sharp increases, while June–July remained low</p></li>
+  <li>XGBoost最適化モデルで R²=0.9089 を達成し、高精度な予測が可能<br>
+  <p class="english">Optimized XGBoost model achieved R²=0.9089, enabling high-accuracy predictions</p></li>
 </ul>
 
 <h3>学びと工夫:</h3>
-本プロジェクトを通じて、時系列と外部要因データの効率的な前処理・統合手法を習得し、複数のデータソースを日付で結合する技術を身につけました。<br>
-  予測モデルの解釈性向上に重点を置き、SHAP値による個別予測の要因分析手法を学習するとともに、
-  Feature Importanceによる特徴量寄与度の可視化を実践しました。<br>
-  これらの技術により、機械学習モデルがなぜその予測を行ったかを説明できるようになり、データ分析結果をビジネス価値に変換する考え方を習得することができました。<br>
-  <p class="english">Through this project, I developed efficient methods for preprocessing and integrating time series and external factor data,
-    mastering techniques for joining multiple data sources by date. 
-    I focused on enhancing predictive model interpretability by learning individual prediction factor analysis using SHAP values 
-    and practicing feature contribution visualization via Feature Importance.
-    These techniques enabled me to explain why machine learning models made specific predictions, 
-    and I learned to translate data analysis results into actionable business value.</p></li>
+本プロジェクトを通じて、時系列と外部要因データの効率的な前処理・統合手法を習得しました。<br>
+  モデル解釈性を重視し、SHAP値や特徴量重要度を用いた分析を実践することで、なぜその予測が出たのかを説明可能にしました。<br>
+  さらに、Optunaを活用してモデル精度を向上させ、予測結果を具体的なビジネス戦略（平日の通話強化、祝日施策の再設計、季節性を考慮したリソース配分）に結びつけました。<br>
+  <p class="english">Through this project, I mastered efficient methods for preprocessing and integrating time series and external factor data. 
+    By focusing on model interpretability with SHAP values and feature importance, I was able to explain predictions transparently. 
+    Leveraging Optuna, I enhanced prediction accuracy and translated model outputs into actionable business strategies 
+    (e.g., strengthening weekday calls, redesigning holiday approaches, allocating resources based on seasonality).</p>
 </ul>
+
 
 <h3>🔗 関連リンク</h3>
 <p class="english">Related Links:</p>
