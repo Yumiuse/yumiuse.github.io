@@ -65,7 +65,41 @@ h2.underline::before {
   z-index: -1;               /* テキストの背後に配置 */
 }
 
+/* 制作実績セクション用のスタイル（太字 + 下線） */
+h2.portfolio-section {
+  font-size: 1.5em;
+  color: #5a5a5a;
+  font-weight: bold;  /* 太字 */
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.1em;
+}
 
+h2.portfolio-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.8em;
+  background-color: #dda0dd;  /* 既存の紫色と統一 */
+  filter: blur(4px);
+  transform: rotate(-1deg);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* 各プロジェクトタイトル用のスタイル（青ベース） */
+h3.project-title {
+  font-size: 1.3em;
+  color: #2E86AB;  /* 青ベース */
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+}
 
   h3 {
     font-size: 1em;
@@ -218,15 +252,30 @@ summary:hover::after {
    inset -1px -1px 3px rgba(0, 0, 0, 0.15);
 }
 
-
-
-
-
-
 details[open] summary::after {
   content: " [ CLICK ]"; /* 開いている時のテキスト */
   font-size: 0.9em;
   
+}
+
+.demo-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.demo-btn:hover {
+  background: #e0e0e0;
+}
+
+.demo-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
 }
 </style>
 </head>
@@ -252,7 +301,6 @@ details[open] summary::after {
   <li>東京大学 松尾研究室 「AI Business Insights AI経営講座 2025」　修了<br>
   <p class="english">University of Tokyo - Matsuo Lab "AI Business Insights - AI Management Course 2025" - Completed</p></li>
 </ul>
-
 
 <details>
  <summary>学習プログラム詳細 / Learning Program Details </summary>
@@ -343,8 +391,6 @@ details[open] summary::after {
  </div>
 </details>
 
-
-
 <h2 class="underline">🛠 技術スキル - Technical Skills</h2>
 <div class="skills-grid">
   <div class="skill-category">
@@ -421,7 +467,9 @@ details[open] summary::after {
  </ul>
 </div>
 
-  <h2 class="underline" style="margin-top: 2.5em;">💫 French Flashcard Study App</h2>
+<h2 class="portfolio-section underline">💻 制作実績 - Portfolio Projects</h2>
+
+  <h3 class="project-title">💫 French Flashcard Study App</h3>
   <p>
     効率よく単語を記憶できるよう、復習タイミングにこだわったフランス語学習アプリです。<br>
     Streamlitで開発し、ユーザーの記憶状況に合わせて最適なタイミングで単語を出題。忘却曲線の理論を応用し、着実な語彙定着をサポートします。
@@ -430,7 +478,7 @@ details[open] summary::after {
     A French vocabulary learning app focused on maximizing retention through smart review scheduling. Built with Streamlit, it adapts to users' memory status and presents words at optimal times, applying the forgetting curve theory for solid vocabulary acquisition.
   </p>
 
-  <h3>技術的チャレンジ：</h3>
+  <h4>技術的チャレンジ：</h4>
   <p>
     FastAPI・Streamlit・OpenAI APIを連携し、ChatGPT APIの翻訳出力を最適化するためのプロンプト設計・パラメータ調整を工夫。効率的かつ高品質な翻訳機能を実装した。
   </p>
@@ -438,7 +486,7 @@ details[open] summary::after {
     Technical Challenge:</strong> Integrated FastAPI, Streamlit, and OpenAI API, and engineered prompt design and parameter tuning to optimize ChatGPT translation output, achieving efficient and high-quality translations.
   </p>
 
-  <h3>将来の展望：</h3>
+  <h4>将来の展望：</h4>
   <p>
     音声再生や学習進捗の可視化、個別最適化された復習タイミングなど、より学びやすいAI学習アプリを目指して拡張予定です。
   </p>
@@ -446,14 +494,14 @@ details[open] summary::after {
     Future Vision:</strong> Plans for features like audio playback, progress visualization, and personalized review intervals to create an even more effective AI-powered language learning app.
   </p>
 
-  <h3>使用技術：</h3>
+  <h4>使用技術：</h4>
   <p>
     Python, Streamlit, FastAPI, OpenAI API, Pandas, GitHub
   </p>
 
   <a href="https://github.com/Yumiuse/french_flashcard_study" target="_blank">🔗 GitHubでコードを見る</a>
   
-  <h3>🎥 DEMO</h3>
+  <h4>🎥 DEMO</h4>
 
 <!-- 言語選択ボタン -->
 <div style="margin-bottom: 15px;">
@@ -466,32 +514,6 @@ details[open] summary::after {
 <div id="video-container">
   <iframe id="demo-video" src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Demo Video" frameborder="0" allowfullscreen></iframe>
 </div>
-
-<style>
-.demo-btn {
-  background: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 8px 16px;
-  margin-right: 10px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.demo-btn:hover {
-  background: #e0e0e0;
-}
-
-.demo-btn.active {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-#demo-video {
-  
-}
-</style>
 
 <script>
 function switchVideo(language) {
