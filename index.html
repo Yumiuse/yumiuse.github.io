@@ -713,24 +713,25 @@ The Gradio interface runs on Google Colab, enabling in-browser speech input, res
 <h3>分析結果:</h3>
 <p class="english">Analysis Results:</p>
 <ul>
-  <li>営業通話数（call_num）が最も重要な要因（特徴量重要度49%）<br>
-  <p class="english">Sales call volume (call_num) was the most important factor (49% feature importance)</p></li>
+  <li>営業通話数（call_num）とCMの掛け合わせが最も重要な要因（特徴量重要度 49.4%）<br>
+  <p class="english">Combination of sales call volume and TV commercials was the most important factor(49.4% feature importance)</p></li>
   <li>CM効果は中程度（特に火曜〜木曜の平日で有効）、祝日は負の影響<br>
   <p class="english">CM effect was moderate (effective especially Tue–Thu), while holidays had negative impact</p></li>
   <li>9〜10月に獲得数が大幅に増加、6〜7月は低迷するなど明確な季節性を確認<br>
   <p class="english">Strong seasonality observed: September–October showed sharp increases, while June–July remained low</p></li>
-  <li>XGBoost最適化モデルで R²=0.9089 を達成し、高精度な予測が可能<br>
-  <p class="english">Optimized XGBoost model achieved R²=0.9089, enabling high-accuracy predictions</p></li>
+  <li>XGBoost最適化モデルで R²=0.9238 を達成し、高精度な予測が可能<br>
+  <p class="english">Optimized XGBoost model achieved R²=0.9238, enabling high-accuracy predictions</p></li>
 </ul>
 
 <h3>学びと工夫:</h3>
-本プロジェクトを通じて、時系列と外部要因データの効率的な前処理・統合手法を習得しました。<br>
-  モデル解釈性を重視し、SHAP値や特徴量重要度を用いた分析を実践することで、なぜその予測が出たのかを説明可能にしました。<br>
-  さらに、Optunaを活用してモデル精度を向上させ、予測結果を具体的なビジネス戦略（平日の通話強化、祝日施策の再設計、季節性を考慮したリソース配分）に結びつけました。<br>
-  <p class="english">Through this project, I mastered efficient methods for preprocessing and integrating time series and external factor data. 
-    By focusing on model interpretability with SHAP values and feature importance, I was able to explain predictions transparently. 
-    Leveraging Optuna, I enhanced prediction accuracy and translated model outputs into actionable business strategies 
-    (e.g., strengthening weekday calls, redesigning holiday approaches, allocating resources based on seasonality).</p>
+ただ精度の高い予測モデルを作るのではなく、そこからビジネスに役立つ気づきを得ることを目標にしました。
+そのために、XGBoostとOptunaを組み合わせてモデルの精度を高めつつ、SHAPを使ってブラックボックスになりがちなモデルを分かりやすく解釈する工夫をしました。
+その結果、営業通話数とCMのかけ合わせが大きな要因になることや、特定の季節に需要が高まる傾向があることなど、単なる数値だけでは見えなかった発見を得られました。
+この経験を通じて、予測モデルを「作って終わり」にせず、ビジネス戦略につなげる力を少しずつ身につけられたことが、このプロジェクトでの一番の学びでした。<br>
+  <p class="english">Through this project, my goal was not just to build a highly accurate predictive model, but also to extract insights that could be useful for business.
+To achieve this, I combined XGBoost with Optuna to improve model performance, while using SHAP to make the often “black box” nature of the model more interpretable.
+Through this process, I discovered that the interaction between sales calls and TV commercials played a major role, and that demand tended to rise in certain seasons—findings that wouldn’t have been visible from the numbers alone.
+What I gained most from this project was the ability to go beyond simply building a model, and to start connecting predictive modeling to practical business strategies.</p>
 </ul>
 
 
