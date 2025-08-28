@@ -110,11 +110,7 @@ h3.project-title {
     margin-bottom: 0.5em;
     font-weight: 600;
   }
-  h3.underline {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.1em; /* 下にほんのり余白を確保 */
-}
+  
   h4 {
     font-size: 1.05em;
     color: #444;
@@ -158,9 +154,10 @@ h3.project-title {
     font-size: 0.95em;
   }
   /* --- ここからスキルグリッド --- */
-  .skills-grid {
+  .skills-grid-custom {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 1em;
     margin: 1em 0;
   }
@@ -168,6 +165,35 @@ h3.project-title {
     background: #f4eef4;
     padding: 0.8em;
     border-radius: 5px;
+  }
+  .skill-category-multi {
+    background: #f4eef4;
+    padding: 0.8em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mini-category {
+    background: #e8dde8;
+    padding: 0.5em;
+    border-radius: 3px;
+    margin-bottom: 0.5em;
+  }
+  .mini-category:last-child {
+    margin-bottom: 0;
+  }
+  .mini-category h5 {
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+    color: #444;
+  }
+  .mini-category ul {
+    margin: 0;
+    padding-left: 1em;
+  }
+  .mini-category li {
+    font-size: 0.85em;
+    margin-bottom: 0.2em;
   }
   .skill-level {
     font-size: 0.85em;
@@ -403,17 +429,36 @@ details[open] summary::after {
 </details>
 
 <h2 class="underline">🛠 技術スキル - Technical Skills</h2>
-<div class="skills-grid">
-  <div class="skill-category">
-    <h4>💻 プログラミング言語</h4>
-    <ul>
-      <li>Python <span class="skill-level">（AIアプリ開発・主要ライブラリ）</span></li>
-      <li>HTML/CSS <span class="skill-level">（Web UI調整）</span></li>
-      <li>JavaScript <span class="skill-level">（基本学習中）</span></li>
-      <li>Flutter <span class="skill-level">（モバイルアプリ・講座受講）</span></li>
-    </ul>
+<div class="skills-grid-custom">
+  <!-- 左上：3つの小カテゴリを含む1つのボックス -->
+  <div class="skill-category-multi">
+    <div class="mini-category">
+      <h5>💻 プログラミング言語</h5>
+      <ul>
+        <li>Python <span class="skill-level">（AIアプリ開発・主要ライブラリ）</span></li>
+        <li>HTML/CSS <span class="skill-level">（Web UI調整）</span></li>
+        <li>JavaScript <span class="skill-level">（基本学習中）</span></li>
+        <li>Flutter <span class="skill-level">（モバイルアプリ・講座受講）</span></li>
+      </ul>
+    </div>
+    
+    <div class="mini-category">
+      <h5>🌐 API・外部サービス</h5>
+      <ul>
+        <li>OpenAI API <span class="skill-level">（ChatGPT連携・テキスト生成）</span></li>
+        <li>Google Gemini API <span class="skill-level">（AI対話システム構築）</span></li>
+      </ul>
+    </div>
+    
+    <div class="mini-category">
+      <h5>🎯 AI技術・手法</h5>
+      <ul>
+        <li>プロンプトエンジニアリング <span class="skill-level">（ChatGPTなど効果的なAI指示設計）</span></li>
+      </ul>
+    </div>
   </div>
   
+  <!-- 右上 -->
   <div class="skill-category">
     <h4>🔧 フレームワーク・ライブラリ</h4>
     <ul>
@@ -429,14 +474,7 @@ details[open] summary::after {
     </ul>
   </div>
   
-  <div class="skill-category">
-    <h4>🌐 API・外部サービス</h4>
-    <ul>
-      <li>OpenAI API <span class="skill-level">（ChatGPT連携・テキスト生成）</span></li>
-      <li>Google Gemini API <span class="skill-level">（AI対話システム構築）</span></li>
-    </ul>
-  </div>
-  
+  <!-- 左下 -->
   <div class="skill-category">
     <h4>⚙️ 開発環境・ツール</h4>
     <ul>
@@ -451,13 +489,7 @@ details[open] summary::after {
     </ul>
   </div>
   
-  <div class="skill-category">
-    <h4>🎯 AI技術・手法</h4>
-    <ul>
-      <li>プロンプトエンジニアリング <span class="skill-level">（ChatGPTなど効果的なAI指示設計）</span></li>
-    </ul>
-  </div>
-  
+  <!-- 右下 -->
   <div class="skill-category">
     <h4>🪄 AIクリエイティブツール</h4>
     <ul>
