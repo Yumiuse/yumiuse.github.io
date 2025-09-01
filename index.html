@@ -693,22 +693,30 @@ The Gradio interface runs on Google Colab, enabling in-browser speech input, res
   
   <h3 class="project-title" >5. 🚢 Titanic Survival Prediction (Kaggle - GCI)</h3>
   <p>
-    東京大学松尾研究室主催のGCI講座にて、Kaggle「Titanic: Machine Learning from Disaster」に参加。<br>
-    データ前処理・EDA（探索的データ分析）・特徴量エンジニアリング・モデル構築・アンサンブル・提出までの一連の流れを実践しました。<br>
-    特徴量エンジニアリングでは、名前から敬称を抽出・カテゴリ化、家族人数の作成、Cabin 欠損の有無フラグ化、年齢のグループ中央値補完などを行い、
-    予測精度向上を図りました。さらに、ランダムフォレスト・ロジスティック回帰・MLP などに加えて、XGBoostを構築。
-    GridSearchCV によるハイパーパラメータ調整やアンサンブルによりスコアを改善しました。 </p>
+    東京大学松尾研究室主催のGCI講座にて、Kaggle「Titanic: Machine Learning from Disaster」に参加。
+    データ前処理・EDA（探索的データ分析）・特徴量エンジニアリング・モデル構築・評価までの一連の流れを実践しました。
+    特徴量エンジニアリングでは、名前から敬称を抽出・カテゴリ化、家族人数の作成、Cabin 欠損の有無フラグ化、年齢の欠損を中央値で補完するなどの工夫を行い、予測精度向上を図りました。
+    さらに、ランダムフォレスト・ロジスティック回帰・MLP など複数モデルを構築し、GridSearchCV によるハイパーパラメータ調整を通じて性能を改善しました。
+ </p>
   <p class="english">
     Participated in Kaggle's "Titanic: Machine Learning from Disaster" competition through the GCI program hosted by the University of Tokyo's Matsuo Lab. 
-    Implemented the complete data science pipeline from preprocessing, EDA (Exploratory Data Analysis), feature engineering, 
-    model building, ensemble methods, to final submission. In feature engineering, extracted and categorized titles from names, 
-    created family size features, flagged missing Cabin data, and imputed age using group median values to improve prediction accuracy. 
-    Built multiple models including Random Forest, 
-    Logistic Regression, MLP, and XGBoost, optimizing performance through hyperparameter tuning with GridSearchCV and ensemble methods.  </p>
+    Implemented the data science pipeline from preprocessing, EDA (Exploratory Data Analysis), feature engineering, model building, to evaluation. 
+    For feature engineering, extracted and categorized titles from names, created family size features, flagged missing Cabin data, and imputed missing age values with medians to improve prediction accuracy. 
+    Built multiple models including Random Forest, Logistic Regression, and MLP, and improved performance through hyperparameter tuning with GridSearchCV.
+  </p>
 
   <h3>使用技術：</h3>
   <p>Python, Pandas, Scikit-learn, Matplotlib, Seaborn, Random Forest, Logistic Regression, MLPClassifier, GridSearchCV</p>
+  
+  <h3>将来の展望：</h3>
+  <p>今後は **XGBoost** を導入し、さらに精度向上を図る予定です。 また、Kaggle の Titanic コンペに改めて参加し、より良いスコアを目指したいと考えています。 
+  </p>
+  <p class="english">In the future, I plan to implement **XGBoost** to further improve prediction accuracy.  
+I also aim to rejoin the Kaggle Titanic competition and strive for a higher score.
+  </p>
 
+
+  
   <h3 class="project-title" >6. 📊 AirREGI アカウント獲得予測プロジェクト（GCI最終課題）</h3>
 <p class="english">AirREGI Account Acquisition Prediction Project (GCI Final Assignment)</p>
 <p>
