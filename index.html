@@ -856,40 +856,30 @@ The most valuable outcome was learning to see predictive modeling not as the “
 </p>
 
 <h3>処理フロー：</h3>
-<svg viewBox="0 0 640 800" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Helvetica Neue',sans-serif;">
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
-      <polygon points="0 0, 10 4, 0 8" fill="#b695b6"/>
-    </marker>
-  </defs>
-  <rect x="20" y="20" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
-  <text x="320" y="52" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">📥 Gmail</text>
-  <text x="320" y="76" text-anchor="middle" font-size="13" fill="#666">反響メールを受信</text>
-  <line x1="320" y1="100" x2="320" y2="136" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <rect x="20" y="140" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
-  <text x="320" y="172" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">⚙️ Google Apps Script (GAS)</text>
-  <text x="320" y="196" text-anchor="middle" font-size="13" fill="#666">メール本文を取得し、必要項目を抽出</text>
-  <line x1="320" y1="220" x2="320" y2="256" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <rect x="20" y="260" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
-  <text x="320" y="292" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">✨ Google Gemini API</text>
-  <text x="320" y="316" text-anchor="middle" font-size="13" fill="#666">既存の会場マスタ候補から正式名称を判定</text>
-  <line x1="320" y1="340" x2="320" y2="376" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <rect x="20" y="380" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
-  <text x="320" y="412" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">📊 Google スプレッドシート</text>
-  <text x="320" y="436" text-anchor="middle" font-size="13" fill="#666">構造化データとして記録</text>
-  <line x1="320" y1="460" x2="320" y2="496" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <rect x="20" y="500" width="600" height="80" rx="14" fill="#f5eaf5" stroke="#6b4c6b" stroke-width="2" stroke-dasharray="6,4"/>
-  <text x="320" y="532" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">🧩 対応表・数式・人間確認</text>
-  <text x="320" y="556" text-anchor="middle" font-size="13" fill="#666">マスタ外・不安定な回答を検品</text>
-  <line x1="320" y1="580" x2="320" y2="616" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
-  <rect x="20" y="620" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
-  <text x="320" y="652" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">📈 Looker Studio</text>
-  <text x="320" y="676" text-anchor="middle" font-size="13" fill="#666">集計・可視化</text>
-  <rect x="20" y="730" width="18" height="18" rx="3" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
-  <text x="46" y="744" font-size="12" fill="#666">AIによる自動処理</text>
-  <rect x="200" y="730" width="18" height="18" rx="3" fill="#f5eaf5" stroke="#6b4c6b" stroke-width="2" stroke-dasharray="4,3"/>
-  <text x="226" y="744" font-size="12" fill="#666">ルール・人間による確認</text>
-</svg>
+<ol style="line-height:2.1;padding-left:1.3em;">
+  <li><strong>📥 Gmailで反響メールを受信</strong><br>
+  <span style="font-size:0.9em;color:#666;">HPの問い合わせフォーム等からの反響メールを受信。</span></li>
+
+  <li><strong>⚙️ Google Apps Scriptで件名・本文・受信日時を取得</strong><br>
+  <span style="font-size:0.9em;color:#666;">メール受信をトリガーにGASが起動し、必要項目を抽出。</span></li>
+
+  <li><strong>✨ Gemini APIで会場候補とのマッチングを検証</strong><br>
+  <span style="font-size:0.9em;color:#666;">メール本文の表現と会場候補リストの名称が完全一致しないケースがあったため、AIによる意味理解を活用したマッチングを検証。20件のテストのうち17件で概念的に妥当な候補を選択できた一方、日付表記・表記ゆれ・類似会場名の誤選択といった精度面の課題も確認した。</span></li>
+
+  <li><strong>📊 判定結果をGoogleスプレッドシートへ構造化して記録</strong></li>
+
+  <li><strong>🔍 会場候補リストの運用実態を確認</strong><br>
+  <span style="font-size:0.9em;color:#666;">候補リストは固定の正解マスタではなく、運用上随時追加・調整されているものであることが判明。AI単独を本番の確定方式とするには課題が残ると判断した。</span></li>
+
+  <li><strong>🧩 対応表・数式・人間確認を組み合わせて最終会場名を補正</strong><br>
+  <span style="font-size:0.9em;color:#666;">この検証結果をもとに、本番運用ではsubject列と数式・対応表を軸にした方式を提案した。</span></li>
+
+  <li><strong>📈 整理済みデータをLooker Studioで可視化する想定でデータ構造を検討</strong></li>
+</ol>
+
+<p style="background:#f5eaf5;border-left:4px solid #b695b6;padding:0.8em 1em;margin-top:1em;font-size:0.9em;">
+💡 このPoCの成果は、「AIを導入したこと」自体ではなく、AI検証を通じて会場データが固定マスタではなく変化するものだと明らかになった点、そしてその検証結果をもとに、実運用にはルール・数式ベースの方が適していると判断できた点にあります。
+</p>
 
 <h3>入力・出力データのイメージ（ダミー）：</h3>
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
