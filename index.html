@@ -832,7 +832,106 @@ The most valuable outcome was learning to see predictive modeling not as the “
 <h3>🎥 Showcase</h3>
 <iframe src="https://www.youtube.com/embed/-83E9LRd-yk" title="AI Creative Demo" frameborder="0" allowfullscreen></iframe>
 
+<h3 class="project-title">8. 📩 生成AI業務改善PoC：反響メール会場自動判定システム</h3>
+<p>
+  AI活用支援を行う事業会社にて、住宅会社のマーケティング部門における反響対応業務（来場予約・資料請求などの反響メール集計）を題材に、会場名の自動判定PoCを設計・実装しました。<br>
+  Google Apps Script（GAS）でGmail受信メールを取得し、必要項目を抽出してGoogleスプレッドシートへ構造化して記録。会場名の判定には、既存の会場マスタを候補リストとしてGoogle Gemini APIに渡し、候補の中から正式名称を選ばせる設計としました。
+</p>
+<p class="english">
+  While working on AI adoption support at a business services company, designed and implemented a PoC for automatically identifying venue names in inquiry emails, focused on the marketing department's lead-response workflow at a housing company client. Using Google Apps Script (GAS), inquiry emails received via Gmail were parsed, structured, and logged into Google Sheets. Venue identification was handled by passing an existing venue master list as candidates to the Google Gemini API, which selected the matching official name from that list.
+</p>
 
+<h3>技術的チャレンジ：</h3>
+<p>
+  Geminiには候補リストの中から一字一句そのまま選ぶよう指示し、候補外の場合は「該当なし」と判定させるバリデーションロジックを実装。既存マスタとの曖昧一致による会場判定を検証し、AIの判定精度そのものよりも、マスタデータ・対応表の整備状況が自動化の前提として重要であるという運用課題を特定しました。
+</p>
+<p class="english"><strong>
+  Technical Challenge:</strong> Instructed Gemini to select an exact match from the candidate list only, with a validation function that flagged out-of-list responses as "no match." Through testing this fuzzy-matching logic against the existing venue master, identified that the completeness of the master data and mapping tables — not the AI's matching accuracy alone — was the key factor for reliable automation.
+</p>
+
+<h3>学びと工夫：</h3>
+<p>
+  AIに自由に会場名を生成させるのではなく、既存マスタの範囲内から選ばせる設計とすることで、誤判定のリスクを抑えました。本番運用では、AIの推論だけに頼らず、数式と対応表を組み合わせた方式を提案。AIに任せる部分と、ルール・人間確認で担保する部分を切り分ける視点を学びました。
+</p>
+<p class="english">
+  Rather than letting the AI generate free-form answers, I constrained it to select only from an existing master list to reduce the risk of misidentification. For production use, I proposed combining formula-based logic with mapping tables instead of relying solely on AI inference — reinforcing the importance of separating what AI should handle from what should remain rule-based or human-verified.
+</p>
+
+<h3>処理フロー：</h3>
+<svg viewBox="0 0 640 800" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Helvetica Neue',sans-serif;">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#b695b6"/>
+    </marker>
+  </defs>
+  <rect x="20" y="20" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
+  <text x="320" y="52" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">📥 Gmail</text>
+  <text x="320" y="76" text-anchor="middle" font-size="13" fill="#666">反響メールを受信</text>
+  <line x1="320" y1="100" x2="320" y2="136" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <rect x="20" y="140" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
+  <text x="320" y="172" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">⚙️ Google Apps Script (GAS)</text>
+  <text x="320" y="196" text-anchor="middle" font-size="13" fill="#666">メール本文を取得し、必要項目を抽出</text>
+  <line x1="320" y1="220" x2="320" y2="256" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <rect x="20" y="260" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
+  <text x="320" y="292" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">✨ Google Gemini API</text>
+  <text x="320" y="316" text-anchor="middle" font-size="13" fill="#666">既存の会場マスタ候補から正式名称を判定</text>
+  <line x1="320" y1="340" x2="320" y2="376" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <rect x="20" y="380" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
+  <text x="320" y="412" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">📊 Google スプレッドシート</text>
+  <text x="320" y="436" text-anchor="middle" font-size="13" fill="#666">構造化データとして記録</text>
+  <line x1="320" y1="460" x2="320" y2="496" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <rect x="20" y="500" width="600" height="80" rx="14" fill="#f5eaf5" stroke="#6b4c6b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="320" y="532" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">🧩 対応表・数式・人間確認</text>
+  <text x="320" y="556" text-anchor="middle" font-size="13" fill="#666">マスタ外・不安定な回答を検品</text>
+  <line x1="320" y1="580" x2="320" y2="616" stroke="#b695b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <rect x="20" y="620" width="600" height="80" rx="14" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
+  <text x="320" y="652" text-anchor="middle" font-size="17" font-weight="bold" fill="#444">📈 Looker Studio</text>
+  <text x="320" y="676" text-anchor="middle" font-size="13" fill="#666">集計・可視化</text>
+  <rect x="20" y="730" width="18" height="18" rx="3" fill="#ffffff" stroke="#b695b6" stroke-width="2"/>
+  <text x="46" y="744" font-size="12" fill="#666">AIによる自動処理</text>
+  <rect x="200" y="730" width="18" height="18" rx="3" fill="#f5eaf5" stroke="#6b4c6b" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="226" y="744" font-size="12" fill="#666">ルール・人間による確認</text>
+</svg>
+
+<h3>入力・出力データのイメージ（ダミー）：</h3>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
+  <tr style="background:#f5eaf5;">
+    <th style="border:1px solid #dda0dd;padding:6px;">受信日時</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">問い合わせ種別</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">来場希望場所（本文記載）</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">Gemini判定結果</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">検品ステータス</th>
+  </tr>
+  <tr>
+    <td style="border:1px solid #dda0dd;padding:6px;">2026/03/05 10:12</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">来場予約</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">〇〇展示場（第一希望）</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">〇〇モデルハウス</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">✅ マスタ一致</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #dda0dd;padding:6px;">2026/03/05 14:40</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">資料請求</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">△△会場希望</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">該当なし</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">⚠️ 人間確認へ</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #dda0dd;padding:6px;">2026/03/06 09:03</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">来場予約</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">（本文に会場記載なし）</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">未判定</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">⚠️ 対応表で補完予定</td>
+  </tr>
+</table>
+<p class="english" style="margin-top:0.5em;">
+  ※ 表内の日時・会場名・件数はすべて架空のサンプルです。実際の顧客データは含まれていません。
+</p>
+
+<h3>使用技術：</h3>
+<p>Google Apps Script (GAS), Gmail, Google Gemini API, Googleスプレッドシート, Looker Studio</p>
+
+<p style="font-size:0.9em;color:#888;">※社内業務のPoCのため、ソースコードは非公開です。</p>
 
 <!-- <h2>📩 連絡先</h2>
 
