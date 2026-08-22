@@ -860,24 +860,24 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 <h3>処理フロー：</h3>
 <ol style="line-height:2.1;padding-left:1.3em;">
-  <li><strong>📥 Gmailで反響メールを受信</strong><br>
+  <li><strong> Gmailで反響メールを受信</strong><br>
   <span style="font-size:0.9em;color:#666;">HPの問い合わせフォーム等からの反響メールを受信。</span></li>
 
-  <li><strong>⚙️ Google Apps Scriptで件名・本文・受信日時を取得</strong><br>
+  <li><strong> Google Apps Scriptで件名・本文・受信日時を取得</strong><br>
   <span style="font-size:0.9em;color:#666;">メール受信をトリガーにGASが起動し、必要項目を抽出。</span></li>
 
-  <li><strong>✨ Gemini APIで会場候補とのマッチングを検証</strong><br>
+  <li><strong> Gemini APIで会場候補とのマッチングを検証</strong><br>
   <span style="font-size:0.9em;color:#666;">メール本文の表現と会場候補リストの名称が完全一致しないケースがあったため、AIによる意味理解を活用したマッチングを検証。20件のテストのうち17件で概念的に妥当な候補を選択できた一方、日付表記・表記ゆれ・類似会場名の誤選択といった精度面の課題も確認した。</span></li>
 
-  <li><strong>📊 判定結果をGoogleスプレッドシートへ構造化して記録</strong></li>
+  <li><strong> 判定結果をGoogleスプレッドシートへ構造化して記録</strong></li>
 
-  <li><strong>🔍 会場候補リストの運用実態を確認</strong><br>
+  <li><strong> 会場候補リストの運用実態を確認</strong><br>
   <span style="font-size:0.9em;color:#666;">候補リストは固定の正解マスタではなく、運用上随時追加・調整されているものであることが判明。AI単独を本番の確定方式とするには課題が残ると判断した。</span></li>
 
-  <li><strong>🧩 対応表・数式・人間確認を組み合わせて最終会場名を補正</strong><br>
+  <li><strong> 対応表・数式・人間確認を組み合わせて最終会場名を補正</strong><br>
   <span style="font-size:0.9em;color:#666;">この検証結果をもとに、本番運用ではsubject列と数式・対応表を軸にした方式を提案した。</span></li>
 
-  <li><strong>📈 整理済みデータをLooker Studioで可視化する想定でデータ構造を検討</strong></li>
+  <li><strong> 整理済みデータをLooker Studioで可視化する想定でデータ構造を検討</strong></li>
 </ol>
 
 <p style="background:#f5eaf5;border-left:4px solid #b695b6;padding:0.8em 1em;margin-top:1em;font-size:0.9em;">
