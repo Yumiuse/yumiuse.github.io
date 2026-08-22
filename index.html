@@ -841,18 +841,21 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 <h3>技術的チャレンジ：</h3>
 <p>
-  Geminiには候補リストの中から一字一句そのまま選ぶよう指示し、候補外の場合は「該当なし」と判定させるバリデーションロジックを実装。既存マスタとの曖昧一致による会場判定を検証し、AIの判定精度そのものよりも、マスタデータ・対応表の整備状況が自動化の前提として重要であるという運用課題を特定しました。
+  Geminiには候補リストの中から一字一句そのまま選ぶよう指示し、候補外の場合は「該当なし」と判定させる完全一致検品ロジックを実装。Gemini無料枠のレート制限（1分あたり5回、1日20回）に対応するため、リクエスト間に約13秒の待機時間を設け、エラー発生時には自動で最大3回リトライする仕組みも組み込みました。<br>
+  また、全件をAIに通すのではなく、パターンが固定的な問い合わせ（資料請求など）はGAS側のルール処理のみで完結させ、AI呼び出しを会場特定が難しいケースに絞ることで、不要なAPI呼び出しを抑える設計としました。<br>
+  検証は128件の会場候補リストに対して20件のテストを実施し、概念的に妥当な候補を選択できたものは17件（85%）、文字列として完全一致したものは14件（70%）でした。
 </p>
 <p class="english"><strong>
-  Technical Challenge:</strong> Instructed Gemini to select an exact match from the candidate list only, with a validation function that flagged out-of-list responses as "no match." Through testing this fuzzy-matching logic against the existing venue master, identified that the completeness of the master data and mapping tables — not the AI's matching accuracy alone — was the key factor for reliable automation.
+  Technical Challenge:</strong> Implemented a strict validation function that only accepted exact matches from the candidate list, falling back to "no match" otherwise. To handle the Gemini free tier's rate limits (5 requests/minute, 20/day), I added a ~13-second wait between requests and automatic retry (up to 3 attempts) on errors. Rule-based logic in GAS handled clearly patterned inquiries (e.g., brochure requests) without invoking the AI, reserving API calls for genuinely ambiguous cases. Testing against a 128-item candidate list across 20 cases showed conceptually reasonable matches in 17 cases (85%) and exact string matches in 14 cases (70%).
 </p>
 
 <h3>学びと工夫：</h3>
 <p>
-  AIに自由に会場名を生成させるのではなく、既存マスタの範囲内から選ばせる設計とすることで、誤判定のリスクを抑えました。本番運用では、AIの推論だけに頼らず、数式と対応表を組み合わせた方式を提案。AIに任せる部分と、ルール・人間確認で担保する部分を切り分ける視点を学びました。
+  検証を通じて、会場候補リスト自体が固定的な正解マスタではなく、運用上随時追加・調整されているものであることが判明しました。この事実と、AIの判定精度（完全一致70%）を踏まえ、AI単独を本番の確定方式とするには課題が残ると判断。本番運用ではルールベースの数式・対応表方式を提案しました。<br>
+  一方で、対応表だけでは拾いきれない例外パターン（新イベント、表記ゆれの大きいケースなど）にはAIによる曖昧マッチングが補助的に有効という可能性も見えたため、「基本はルール、例外はAI」という役割分担の視点を得ました。AIに任せる部分と、ルール・人間確認で担保する部分を切り分ける設計判断の重要性を学びました。
 </p>
 <p class="english">
-  Rather than letting the AI generate free-form answers, I constrained it to select only from an existing master list to reduce the risk of misidentification. For production use, I proposed combining formula-based logic with mapping tables instead of relying solely on AI inference — reinforcing the importance of separating what AI should handle from what should remain rule-based or human-verified.
+  Testing revealed that the venue candidate list was not a fixed master but an evolving, manually maintained list. Combined with the AI's exact-match accuracy (70%), I concluded that AI alone was not yet reliable enough to serve as the production source of truth, and recommended a rule- and mapping-table-based approach for production instead. At the same time, AI-based fuzzy matching showed promise for handling exception cases the mapping table couldn't cover — new events, cases with significant notation variance — leading to a "rules for the common case, AI for exceptions" design perspective, and a broader lesson in separating what to delegate to AI versus what to secure with rules and human review.
 </p>
 
 <h3>処理フロー：</h3>
