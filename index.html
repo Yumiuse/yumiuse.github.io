@@ -931,7 +931,65 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 </div>
 </details>
+<h3 class="project-title">9. 🛂 実務プロジェクト：在留資格申請データの正解データ（Ground Truth）監査</h3>
+<p>
+  在留資格申請データを抽出するAIシステムにおいて、抽出精度を評価する前提となる「正解データ（golden）」自体の妥当性を監査する業務に携わっています。goldenは申請書PDFなどの元資料をもとに暫定的に生成されたデータで、AIの抽出結果と比較する「採点基準」として使われる予定でしたが、そのまま正解として扱ってよいか、事前の人手確認が必要な状態でした。
+</p>
+<p class="english">
+  I've been working on auditing the reliability of the "golden" (ground-truth) dataset used to evaluate an AI system that extracts data from immigration status application documents. The golden data was provisionally generated from source application PDFs and was intended to serve as the answer key against which the AI's extraction results would be scored — but it required human verification before it could be trusted as ground truth.
+</p>
 
+<details style="margin-top:0.8em;">
+<summary style="cursor:pointer;font-weight:bold;color:#6b4c6b;padding:0.5em 0;">🔍 検証プロセス・分類結果を詳しく見る</summary>
+
+<div style="margin-top:1em;">
+
+<h3>技術的チャレンジ：</h3>
+<p>
+  7名分の申請データについて、AIの抽出結果とgoldenを完全一致ベースで比較した初期評価では、509項目中237項目が一致（正答率約46.6%）、不一致・抽出漏れ等が272件でした。ただし、この数字をそのままAIの実力として扱うのは早計と判断し、まず不一致272件をカテゴリ別に安全側に再分類しました。分類は「表記ゆれ」「コード値と表示値の対応」「対象企業限定の固定値候補」「値の誤り・項目取り違えの疑い」「正解データ側の確認が必要な候補」「現行ルールでは判断不能」の6区分とし、いずれも断定はせず候補扱いとしました。<br>
+  1名分については元資料まで遡って照合し、性別・住所・実務経験月数の3項目で、golden側の値が元資料と一致しないことを確認しました。特にある項目では、選択肢が1〜9の9個しか存在しないにもかかわらずgoldenに範囲外の値が入っているなど、選択肢の表示値ではなく内部コードらしき値が紛れ込んでいる可能性がある事例も発見しました。<br>
+  一方でAI側にも、金額の桁を読み違えたと見られるケースを確認し、golden側・AI側の双方に確認すべき点が残っていることを整理しました。個人情報を含む照合データはバージョン管理対象から外し、社外共有を行わない運用としています。
+</p>
+<p class="english"><strong>
+  Technical Challenge:</strong> An initial full-string-match comparison of AI extraction results against the golden dataset across 7 applicants showed 237 of 509 fields matching (a raw match rate of about 46.6%), with 272 discrepancies. Rather than treating this number as a measure of AI accuracy, I first re-classified the 272 discrepancies conservatively into six candidate categories: notation variance, code-value/display-value correspondence, client-specific fixed values, suspected value errors or field mix-ups, cases requiring verification of the golden data or evaluation criteria, and cases unclassifiable under current rules — none treated as a confirmed AI error without further verification.<br>
+  For one applicant, I cross-checked the golden values against the original source documents and confirmed that three fields — sex, address, and months of work experience — did not match the source. In one case, a field had only 9 valid dropdown options, yet the golden value fell outside that range, suggesting the golden data may have been contaminated with internal code values rather than the actual displayed selection.<br>
+  At the same time, I identified a likely AI misread involving a digit transposition in a monetary field, confirming that both the golden data and the AI's output required further scrutiny. Data containing personal information was kept out of version control and was not shared externally.
+</p>
+
+<h3>分類結果（7名分・272件）：</h3>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
+  <tr style="background:#f5eaf5;">
+    <th style="border:1px solid #dda0dd;padding:6px;">分類</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">件数</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">意味</th>
+  </tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">A：表記ゆれ・同義</td><td style="border:1px solid #dda0dd;padding:6px;">0</td><td style="border:1px solid #dda0dd;padding:6px;">※分類優先順位によりC等へ先に振り分け</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">B：コード値と表示値の対応</td><td style="border:1px solid #dda0dd;padding:6px;">1</td><td style="border:1px solid #dda0dd;padding:6px;">同義と確認できたもの</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">C：対象企業限定の固定値候補</td><td style="border:1px solid #dda0dd;padding:6px;">79</td><td style="border:1px solid #dda0dd;padding:6px;">field単位で限定</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">D候補：値誤り・取り違え疑い</td><td style="border:1px solid #dda0dd;padding:6px;">24</td><td style="border:1px solid #dda0dd;padding:6px;">元資料未確認のため候補扱い</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">E候補：golden/評価基準の確認要</td><td style="border:1px solid #dda0dd;padding:6px;">85</td><td style="border:1px solid #dda0dd;padding:6px;">正本確認が必要</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">要判断</td><td style="border:1px solid #dda0dd;padding:6px;">83</td><td style="border:1px solid #dda0dd;padding:6px;">現ルールでは分類不能</td></tr>
+</table>
+
+<h3>学びと工夫：</h3>
+<p>
+  このプロジェクトを通じて、「AIの抽出精度を評価する前に、評価基準そのもの（golden）が信頼できるかを確認する必要がある」という視点を学びました。goldenは元々AIツールによって暫定生成されたデータだったため、そのまま正解として使うと、実際には正しく抽出できているAIの結果が「誤り」と判定されてしまうリスクがあることに気づきました。<br>
+  また、分類作業では「ある区分の件数が0件」という結果が、必ずしも「その事象が存在しない」ことを意味しないという点も整理しました。分類の優先順位によって、本来別の区分に入り得る項目が先に別区分へ振り分けられているケースがあったためです。数字をそのまま報告するのではなく、集計プロセスまで遡って正確に説明できることの重要性を学びました。
+</p>
+<p class="english">
+  This project taught me that before evaluating an AI system's extraction accuracy, it's necessary to first verify that the evaluation standard itself (the golden data) is trustworthy. Because the golden data had originally been provisionally generated by an AI tool, using it as-is risked mislabeling genuinely correct AI outputs as errors.<br>
+  I also learned that a category showing zero occurrences doesn't necessarily mean that phenomenon doesn't exist — classification priority rules can route items that might otherwise fit one category into a different one first. This reinforced the importance of being able to explain a number by tracing back through the aggregation process, rather than reporting it at face value.
+</p>
+
+<h3>使用技術：</h3>
+<p>Google Gemini API（抽出対象）, JSON, Excel / TSV, データ監査・正規化ルール設計</p>
+
+<p style="font-size:0.9em;color:#888;">※実務案件のため、企業名・申請者情報・実データは一切含めず、検証プロセスと匿名化した集計結果のみ紹介しています。本プロジェクトは現在進行中で、goldenの正式な修正やAI抽出精度の最終評価は今後実施予定です。</p>
+
+</div>
+</details>
+
+  
 <!-- <h2>📩 連絡先</h2>
 
 <p>お仕事・ご相談は <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> まで📬</p>
