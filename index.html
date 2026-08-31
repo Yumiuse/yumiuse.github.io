@@ -931,28 +931,28 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 </div>
 </details>
-<h3 class="project-title">9. 🛂 実務プロジェクト：在留資格申請データの正解データ（Ground Truth）監査</h3>
+<h3 class="project-title">9. 🛂 実務プロジェクト：在留資格申請AIシステムの精度評価・Ground Truth検証</h3>
 <p>
-  在留資格申請データを抽出するAIシステムにおいて、抽出精度を評価する前提となる「正解データ（golden）」自体の妥当性を監査する業務に携わっています。goldenは申請書PDFなどの元資料をもとに暫定的に生成されたデータで、AIの抽出結果と比較する「採点基準」として使われる予定でしたが、そのまま正解として扱ってよいか、事前の人手確認が必要な状態でした。
+  在留資格申請データを抽出するAIシステムの精度評価業務に携わっています。GitHubで共有された既存リポジトリをローカル環境にclone し、VS Code・Python・ChatGPT Codexを使用して評価環境を構築。評価用データの確認、dry-run、Geminiによる抽出評価、goldenデータとの比較まで実施しました。<br>
+  評価を進める中で、AIの抽出結果と比較する「正解データ（golden）」自体についても、そのまま採点基準として使用してよいか検証が必要であることが分かりました。そこで、申請書PDFなどの元資料とgoldenを人手で照合し、表記ゆれ、コード値、項目取り違え、評価ルールの曖昧さなどを整理。AIの抽出精度だけでなく、評価基準そのものの妥当性も含めて検証しています。
 </p>
 <p class="english">
-  I've been working on auditing the reliability of the "golden" (ground-truth) dataset used to evaluate an AI system that extracts data from immigration status application documents. The golden data was provisionally generated from source application PDFs and was intended to serve as the answer key against which the AI's extraction results would be scored — but it required human verification before it could be trusted as ground truth.
+  I've been working on accuracy evaluation for an AI system that extracts data from immigration status application documents. After being given access to an existing repository via GitHub, I cloned it locally and built an evaluation environment using VS Code, Python, and ChatGPT Codex — reviewing evaluation data, running a dry-run, executing Gemini-based extraction evaluation, and comparing the results against the golden dataset.<br>
+  In the course of this evaluation, I found that the golden (ground-truth) data used to score the AI's output couldn't simply be trusted as-is either. I therefore cross-checked the golden data against source documents such as application PDFs, identifying issues including notation variance, code-value mix-ups, field mismatches, and ambiguity in the evaluation rules — verifying not just the AI's extraction accuracy, but the validity of the evaluation standard itself.
 </p>
 
 <details style="margin-top:0.8em;">
-<summary style="cursor:pointer;font-weight:bold;color:#6b4c6b;padding:0.5em 0;">🔍 検証プロセス・分類結果を詳しく見る</summary>
+<summary style="cursor:pointer;font-weight:bold;color:#6b4c6b;padding:0.5em 0;">🔍 評価環境・検証プロセスを詳しく見る</summary>
 
 <div style="margin-top:1em;">
 
 <h3>評価環境の構築：</h3>
 <p>
-  既存の開発リポジトリを共有いただき、ローカル環境へclone。VS Codeでプロジェクト構成を確認しながら、Gemini APIへ実際にデータを送信する前にdry-run（実送信せず処理内容だけを確認するテスト）を行い、安全に評価処理を進められる状態を整えました。あわせて、既存の申請システム（visa-app）のローカル起動を確認し、Google Cloud認証が必要となる範囲を切り分けました。
+  Gemini APIへ実際にデータを送信する前にdry-run（実送信せず処理内容だけを確認するテスト）を行い、安全に評価処理を進められる状態を整えました。あわせて、既存の申請システム（visa-app）のローカル起動を確認し、Google Cloud認証が必要となる範囲を切り分けました。
 </p>
 <p class="english">
-  After being given access to the existing development repository, I cloned it locally and reviewed the project structure in VS Code. Before sending any real data to the Gemini API, I ran a dry-run to verify the processing logic without making live API calls, ensuring the evaluation could proceed safely. I also confirmed local startup of the existing application (visa-app) and identified which parts required Google Cloud authentication.
+  Before sending any real data to the Gemini API, I ran a dry-run to verify the processing logic without making live API calls, ensuring the evaluation could proceed safely. I also confirmed local startup of the existing application (visa-app) and identified which parts required Google Cloud authentication.
 </p>
-
-  
 
 <h3>技術的チャレンジ：</h3>
 <p>
@@ -992,12 +992,22 @@ The most valuable outcome was learning to see predictive modeling not as the “
 </p>
 
 <h3>使用技術：</h3>
-<p>Python, Git / GitHub, VS Code, Google Gemini API, Google Cloud（認証範囲の確認）, JSON, Excel / TSV, データ監査・正規化ルール設計</p>
+<p>Python, Git / GitHub, VS Code, Google Gemini API, ChatGPT Codex, Google Cloud（認証範囲の確認）, JSON, Excel / TSV, データ監査・正規化ルール設計</p>
 
-<p style="font-size:0.9em;color:#888;">※実務案件のため、企業名・申請者情報・実データは一切含めず、検証プロセスと匿名化した集計結果のみ紹介しています。本プロジェクトは現在進行中で、goldenの正式な修正やAI抽出精度の最終評価は今後実施予定です。</p>
+<p style="font-size:0.9em;color:#888;">※実務案件のため、企業名・申請者情報・実データ・リポジトリ・ソースコードは一切含めず、検証プロセスと匿名化した集計結果のみ紹介しています。本プロジェクトは現在進行中で、goldenの正式な修正やAI抽出精度の最終評価は今後実施予定です。</p>
 
 </div>
 </details>
+次にやること
+これで9番が完成です。プロジェクト8番の直後(</details>が閉じた後)に貼り付けて、Commit changesで保存してください。保存後、8番・9番両方の「詳しく見る」が正しく開閉するか確認してみましょう。
+
+
+
+
+
+
+
+Claude は AI のため、誤りを含む可能性があります。回答内容は必ずご確認ください。
 
   
 <!-- <h2>📩 連絡先</h2>
