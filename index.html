@@ -944,9 +944,19 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 <div style="margin-top:1em;">
 
+<h3>評価環境の構築：</h3>
+<p>
+  既存の開発リポジトリを共有いただき、ローカル環境へclone。VS Codeでプロジェクト構成を確認しながら、Gemini APIへ実際にデータを送信する前にdry-run（実送信せず処理内容だけを確認するテスト）を行い、安全に評価処理を進められる状態を整えました。あわせて、既存の申請システム（visa-app）のローカル起動を確認し、Google Cloud認証が必要となる範囲を切り分けました。
+</p>
+<p class="english">
+  After being given access to the existing development repository, I cloned it locally and reviewed the project structure in VS Code. Before sending any real data to the Gemini API, I ran a dry-run to verify the processing logic without making live API calls, ensuring the evaluation could proceed safely. I also confirmed local startup of the existing application (visa-app) and identified which parts required Google Cloud authentication.
+</p>
+
+  
+
 <h3>技術的チャレンジ：</h3>
 <p>
-  7名分の申請データについて、AIの抽出結果とgoldenを完全一致ベースで比較した初期評価では、509項目中237項目が一致（正答率約46.6%）、不一致・抽出漏れ等が272件でした。ただし、この数字をそのままAIの実力として扱うのは早計と判断し、まず不一致272件をカテゴリ別に安全側に再分類しました。分類は「表記ゆれ」「コード値と表示値の対応」「対象企業限定の固定値候補」「値の誤り・項目取り違えの疑い」「正解データ側の確認が必要な候補」「現行ルールでは判断不能」の6区分とし、いずれも断定はせず候補扱いとしました。<br>
+  7名分の申請データについて、AIの抽出結果とgoldenを完全一致ベースで比較した初期評価では、509項目中237項目が一致（正答率約46.6%）、不一致は272件でした。ただし、この数字をそのままAIの実力として扱うのは早計と判断し、まず不一致272件をカテゴリ別に安全側に再分類しました。分類は「表記ゆれ」「コード値と表示値の対応」「対象企業限定の固定値候補」「値の誤り・項目取り違えの疑い」「正解データ側の確認が必要な候補」「現行ルールでは判断不能」の6区分とし、いずれも断定はせず候補扱いとしました。<br>
   1名分については元資料まで遡って照合し、性別・住所・実務経験月数の3項目で、golden側の値が元資料と一致しないことを確認しました。特にある項目では、選択肢が1〜9の9個しか存在しないにもかかわらずgoldenに範囲外の値が入っているなど、選択肢の表示値ではなく内部コードらしき値が紛れ込んでいる可能性がある事例も発見しました。<br>
   一方でAI側にも、金額の桁を読み違えたと見られるケースを確認し、golden側・AI側の双方に確認すべき点が残っていることを整理しました。個人情報を含む照合データはバージョン管理対象から外し、社外共有を行わない運用としています。
 </p>
@@ -982,7 +992,7 @@ The most valuable outcome was learning to see predictive modeling not as the “
 </p>
 
 <h3>使用技術：</h3>
-<p>Google Gemini API（抽出対象）, JSON, Excel / TSV, データ監査・正規化ルール設計</p>
+<p>Python, Git / GitHub, VS Code, Google Gemini API, Google Cloud（認証範囲の確認）, JSON, Excel / TSV, データ監査・正規化ルール設計</p>
 
 <p style="font-size:0.9em;color:#888;">※実務案件のため、企業名・申請者情報・実データは一切含めず、検証プロセスと匿名化した集計結果のみ紹介しています。本プロジェクトは現在進行中で、goldenの正式な修正やAI抽出精度の最終評価は今後実施予定です。</p>
 
