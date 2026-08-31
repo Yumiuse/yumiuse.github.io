@@ -848,9 +848,16 @@ The most valuable outcome was learning to see predictive modeling not as the “
 <h3 class="project-title">8. 📩 実務PoC：反響メール集計業務の生成AI活用</h3>
 <p>
   AI活用支援を行う事業会社にて、住宅会社のマーケティング部門における反響対応業務（来場予約・資料請求などの反響メール集計）を題材に、会場名の自動判定PoCを設計・実装しました。<br>
-  Google Apps Script（GAS）でGmail受信メールを取得し、必要項目を抽出してGoogleスプレッドシートへ構造化して記録。会場名の判定には、既存の会場マスタを候補リストとしてGoogle Gemini APIに渡し、候補の中から正式名称を選ばせる設計としました。<p class="english">
+  Google Apps Script（GAS）でGmail受信メールを取得し、必要項目を抽出してGoogleスプレッドシートへ構造化して記録。会場名の判定には、既存の会場マスタを候補リストとしてGoogle Gemini APIに渡し、候補の中から正式名称を選ばせる設計としました。
+</p>
+<p class="english">
   While working on AI adoption support at a business services company, designed and implemented a PoC for automatically identifying venue names in inquiry emails, focused on the marketing department's lead-response workflow at a housing company client. Using Google Apps Script (GAS), inquiry emails received via Gmail were parsed, structured, and logged into Google Sheets. Venue identification was handled by passing an existing venue master list as candidates to the Google Gemini API, which selected the matching official name from that list.
 </p>
+
+<details style="margin-top:0.8em;">
+<summary style="cursor:pointer;font-weight:bold;color:#6b4c6b;padding:0.5em 0;">🔍 技術的チャレンジ・検証結果を詳しく見る</summary>
+
+<div style="margin-top:1em;">
 
 <h3>技術的チャレンジ：</h3>
 <p>
@@ -872,30 +879,15 @@ The most valuable outcome was learning to see predictive modeling not as the “
 </p>
 
 <h3>処理フロー：</h3>
-<ol style="line-height:2.1;padding-left:1.3em;">
-  <li><strong> Gmailで反響メールを受信</strong><br>
-  <span style="font-size:0.9em;color:#666;">HPの問い合わせフォーム等からの反響メールを受信。</span></li>
-
-  <li><strong> Google Apps Scriptで件名・本文・受信日時を取得</strong><br>
-  <span style="font-size:0.9em;color:#666;">メール受信をトリガーにGASが起動し、必要項目を抽出。</span></li>
-
-  <li><strong> Gemini APIで会場候補とのマッチングを検証</strong><br>
-  <span style="font-size:0.9em;color:#666;">メール本文の表現と会場候補リストの名称が完全一致しないケースがあったため、AIによる意味理解を活用したマッチングを検証。20件のテストのうち17件で概念的に妥当な候補を選択できた一方、日付表記・表記ゆれ・類似会場名の誤選択といった精度面の課題も確認した。</span></li>
-
-  <li><strong> 判定結果をGoogleスプレッドシートへ構造化して記録</strong></li>
-
-  <li><strong> 会場候補リストの運用実態を確認</strong><br>
-  <span style="font-size:0.9em;color:#666;">候補リストは固定の正解マスタではなく、運用上随時追加・調整されているものであることが判明。AI単独を本番の確定方式とするには課題が残ると判断した。</span></li>
-
-  <li><strong> 対応表・数式・人間確認を組み合わせて最終会場名を補正</strong><br>
-  <span style="font-size:0.9em;color:#666;">この検証結果をもとに、本番運用ではsubject列と数式・対応表を軸にした方式を提案した。</span></li>
-
-  <li><strong> 整理済みデータをLooker Studioで可視化する想定でデータ構造を検討</strong></li>
+<ol style="line-height:1.9;padding-left:1.3em;">
+  <li>Gmailで反響メールを受信</li>
+  <li>Google Apps Scriptで件名・本文・受信日時を取得</li>
+  <li>Gemini APIで会場候補とのマッチングを検証（20件中17件で概念的に妥当な候補を選択、日付表記・表記ゆれ等の課題も確認）</li>
+  <li>判定結果をGoogleスプレッドシートへ構造化して記録</li>
+  <li>会場候補リストの運用実態を確認（固定マスタではなく随時更新されるものと判明）</li>
+  <li>対応表・数式・人間確認を組み合わせて最終会場名を補正する方針を提案</li>
+  <li>整理済みデータをLooker Studioで可視化する想定でデータ構造を検討</li>
 </ol>
-
-<p style="background:#f5eaf5;border-left:4px solid #b695b6;padding:0.8em 1em;margin-top:1em;font-size:0.9em;">
-💡 このPoCの成果は、「AIを導入したこと」自体ではなく、AI検証を通じて会場データが固定マスタではなく変化するものだと明らかになった点、そしてその検証結果をもとに、実運用にはルール・数式ベースの方が適していると判断できた点にあります。
-</p>
 
 <h3>入力・出力データのイメージ（ダミー）：</h3>
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
@@ -936,6 +928,9 @@ The most valuable outcome was learning to see predictive modeling not as the “
 <p>Google Apps Script (GAS), Gmail, Google Gemini API, Googleスプレッドシート, Looker Studio</p>
 
 <p style="font-size:0.9em;color:#888;">※社内業務のPoCのため、ソースコードは非公開です。</p>
+
+</div>
+</details>
 
 <!-- <h2>📩 連絡先</h2>
 
