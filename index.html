@@ -959,16 +959,14 @@ The most valuable outcome was learning to see predictive modeling not as the “
   I confirmed local startup of the existing application (visa-app) and ran a dry-run before sending any real data to the Gemini API — verifying the processing logic without live calls — to ensure data containing personal information could be handled safely throughout the evaluation.
 </p>
 
-<h3>技術的チャレンジ：</h3>
 <p>
-  7名分の申請データについて、AIの抽出結果とgoldenを完全一致ベースで比較した初期評価では、509項目中237項目が一致（正答率約46.6%）、不一致は272件でした。ただし、この数字をそのままAIの実力として扱うのは早計と判断し、まず不一致272件をカテゴリ別に安全側に再分類しました。分類は「表記ゆれ」「コード値と表示値の対応」「対象企業限定の固定値候補」「値の誤り・項目取り違えの疑い」「正解データ側の確認が必要な候補」「現行ルールでは判断不能」の6区分とし、いずれも断定はせず候補扱いとしました。<br>
-  1名分については元資料まで遡って照合し、性別・住所・実務経験月数の3項目で、golden側の値が元資料と一致しないことを確認しました。特にある項目では、選択肢が1〜9の9個しか存在しないにもかかわらずgoldenに範囲外の値が入っているなど、選択肢の表示値ではなく内部コードらしき値が紛れ込んでいる可能性がある事例も発見しました。<br>
-  一方でAI側にも、金額の桁を読み違えたと見られるケースを確認し、golden側・AI側の双方に確認すべき点が残っていることを整理しました。個人情報を含む照合データはバージョン管理対象から外し、社外共有を行わない運用としています。
+  AIの抽出結果と「正解データ」を機械的に突き合わせたところ、7名分・509項目のうち237項目が一致（約46.6%）という結果が出ました。しかし数字をそのまま信じる前に、1名分について実際の申請書まで遡って確認したところ、そもそも「正解データ」の方に誤りが含まれているケースが見つかりました。<br>
+  たとえば、ある項目は選択肢が1〜9の9種類しかないはずなのに、正解データには「25」という存在しない値が入っていました。つまり、AIが間違っていたのではなく、比較対象である「正解」の方が誤っていたということです。<br>
+  そこで、不一致が出た272件すべてを一つずつ見直し、「本当にAIが間違えたもの」「正解データ側に問題があるもの」「単なる表記の違い」などに仕分けしました。金額の桁を読み違えていたなど、AI側の本当のミスも別途見つかっています。個人情報を含むデータはバージョン管理から外し、社外には一切共有していません。
 </p>
 <p class="english"><strong>
-  Technical Challenge:</strong> An initial full-string-match comparison of AI extraction results against the golden dataset across 7 applicants showed 237 of 509 fields matching (a raw match rate of about 46.6%), with 272 discrepancies. Rather than treating this number as a measure of AI accuracy, I first re-classified the 272 discrepancies conservatively into six candidate categories: notation variance, code-value/display-value correspondence, client-specific fixed values, suspected value errors or field mix-ups, cases requiring verification of the golden data or evaluation criteria, and cases unclassifiable under current rules — none treated as a confirmed AI error without further verification.<br>
-  For one applicant, I cross-checked the golden values against the original source documents and confirmed that three fields — sex, address, and months of work experience — did not match the source. In one case, a field had only 9 valid dropdown options, yet the golden value fell outside that range, suggesting the golden data may have been contaminated with internal code values rather than the actual displayed selection.<br>
-  At the same time, I identified a likely AI misread involving a digit transposition in a monetary field, confirming that both the golden data and the AI's output required further scrutiny. Data containing personal information was kept out of version control and was not shared externally.
+  Technical Challenge:</strong> A mechanical comparison between the AI's extraction results and the "ground truth" answer key showed 237 out of 509 fields matching (about 46.6%) across 7 applicants. But before trusting that number, I traced one applicant's data back to the original application documents — and found that the "ground truth" itself sometimes contained incorrect values. For example, one field only had 9 valid options, yet the ground truth contained the value "25," which wasn't a valid option at all. In other words, it wasn't the AI that was wrong — the answer key itself was inaccurate.<br>
+  I then reviewed all 272 discrepancies one by one, sorting them into categories such as genuine AI errors, ground-truth issues, and simple notation differences. I also found real AI mistakes, such as a digit-transposition error in a monetary field. Data containing personal information was kept out of version control and was never shared externally.
 </p>
 
 <h3>分類結果（7名分・272件）：</h3>
