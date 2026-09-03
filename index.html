@@ -958,7 +958,8 @@ The most valuable outcome was learning to see predictive modeling not as the “
 <p class="english">
   I confirmed local startup of the existing application (visa-app) and ran a dry-run before sending any real data to the Gemini API — verifying the processing logic without live calls — to ensure data containing personal information could be handled safely throughout the evaluation.
 </p>
-
+  
+<h3>技術的チャレンジ：</h3>
 <p>
   AIの抽出結果と「正解データ」を機械的に突き合わせたところ、7名分・509項目のうち237項目が一致（約46.6%）という結果が出ました。しかし数字をそのまま信じる前に、1名分について実際の申請書まで遡って確認したところ、そもそも「正解データ」の方に誤りが含まれているケースが見つかりました。<br>
   たとえば、ある項目は選択肢が1〜9の9種類しかないはずなのに、正解データには「25」という存在しない値が入っていました。つまり、AIが間違っていたのではなく、比較対象である「正解」の方が誤っていたということです。<br>
