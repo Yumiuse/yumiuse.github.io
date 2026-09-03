@@ -953,10 +953,10 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 <h3>評価環境の構築：</h3>
 <p>
-  Gemini APIへ実際にデータを送信する前にdry-run（実送信せず処理内容だけを確認するテスト）を行い、安全に評価処理を進められる状態を整えました。あわせて、既存の申請システム（visa-app）のローカル起動を確認し、Google Cloud認証が必要となる範囲を切り分けました。
+  既存の申請システム（visa-app）のローカル起動を確認し、Gemini APIへ実際にデータを送信する前にdry-run（実送信せず処理内容だけを確認するテスト）を行うことで、個人情報を含むデータを安全に扱いながら評価処理を進められる状態を整えました。
 </p>
 <p class="english">
-  Before sending any real data to the Gemini API, I ran a dry-run to verify the processing logic without making live API calls, ensuring the evaluation could proceed safely. I also confirmed local startup of the existing application (visa-app) and identified which parts required Google Cloud authentication.
+  I confirmed local startup of the existing application (visa-app) and ran a dry-run before sending any real data to the Gemini API — verifying the processing logic without live calls — to ensure data containing personal information could be handled safely throughout the evaluation.
 </p>
 
 <h3>技術的チャレンジ：</h3>
