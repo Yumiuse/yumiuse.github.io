@@ -970,20 +970,22 @@ The most valuable outcome was learning to see predictive modeling not as the “
   I then reviewed all 272 discrepancies one by one, sorting them into categories such as genuine AI errors, ground-truth issues, and simple notation differences. I also found real AI mistakes, such as a digit-transposition error in a monetary field. Data containing personal information was kept out of version control and was never shared externally.
 </p>
 
-<h3>分類結果（7名分・272件）：</h3>
+<h3>不一致272件の内訳：</h3>
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
   <tr style="background:#f5eaf5;">
     <th style="border:1px solid #dda0dd;padding:6px;">分類</th>
     <th style="border:1px solid #dda0dd;padding:6px;">件数</th>
-    <th style="border:1px solid #dda0dd;padding:6px;">意味</th>
   </tr>
-  <tr><td style="border:1px solid #dda0dd;padding:6px;">A：表記ゆれ・同義</td><td style="border:1px solid #dda0dd;padding:6px;">0</td><td style="border:1px solid #dda0dd;padding:6px;">※分類優先順位によりC等へ先に振り分け</td></tr>
-  <tr><td style="border:1px solid #dda0dd;padding:6px;">B：コード値と表示値の対応</td><td style="border:1px solid #dda0dd;padding:6px;">1</td><td style="border:1px solid #dda0dd;padding:6px;">同義と確認できたもの</td></tr>
-  <tr><td style="border:1px solid #dda0dd;padding:6px;">C：対象企業限定の固定値候補</td><td style="border:1px solid #dda0dd;padding:6px;">79</td><td style="border:1px solid #dda0dd;padding:6px;">field単位で限定</td></tr>
-  <tr><td style="border:1px solid #dda0dd;padding:6px;">D候補：値誤り・取り違え疑い</td><td style="border:1px solid #dda0dd;padding:6px;">24</td><td style="border:1px solid #dda0dd;padding:6px;">元資料未確認のため候補扱い</td></tr>
-  <tr><td style="border:1px solid #dda0dd;padding:6px;">E候補：golden/評価基準の確認要</td><td style="border:1px solid #dda0dd;padding:6px;">85</td><td style="border:1px solid #dda0dd;padding:6px;">正本確認が必要</td></tr>
-  <tr><td style="border:1px solid #dda0dd;padding:6px;">要判断</td><td style="border:1px solid #dda0dd;padding:6px;">83</td><td style="border:1px solid #dda0dd;padding:6px;">現ルールでは分類不能</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">単なる表記のゆれ</td><td style="border:1px solid #dda0dd;padding:6px;">0</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">コード値と表示値の対応関係の違いのみ（実質同じ内容）</td><td style="border:1px solid #dda0dd;padding:6px;">1</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">業務ルール上、固定値として扱ってよいもの</td><td style="border:1px solid #dda0dd;padding:6px;">79</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">AI側の誤りの疑い（要確認）</td><td style="border:1px solid #dda0dd;padding:6px;">24</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">正解データ側に問題がある可能性（要確認）</td><td style="border:1px solid #dda0dd;padding:6px;">85</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">現時点ではどちらとも判断できないもの</td><td style="border:1px solid #dda0dd;padding:6px;">83</td></tr>
 </table>
+<p style="font-size:0.85em;color:#888;margin-top:0.4em;">
+  272件のうち約7割（192件）が「AI側の誤り」「正解データ側の問題」「未判断」のいずれかであり、単純な集計だけでは実態がつかめないことが分かる。
+</p>
 
 <h3>学びと工夫：</h3>
 <p>
