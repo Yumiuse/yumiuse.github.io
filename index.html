@@ -850,7 +850,43 @@ The most valuable outcome was learning to see predictive modeling not as the “
 <h3>🎥 Showcase</h3>
 <iframe src="https://www.youtube.com/embed/-83E9LRd-yk" title="AI Creative Demo" frameborder="0" allowfullscreen></iframe>
 
-<h3 class="project-title">8. 📩 実務PoC：反響メール集計業務の生成AI活用</h3>
+<h3 class="project-title">8. 🧾 レシートOCR経理精算アプリ</h3>
+<p>
+  レシート画像から情報を自動抽出し、Googleスプレッドシートに記録する経理精算アプリを個人開発しました。Google Cloud Vision APIで文字認識を行い、OpenAI API（GPT-4o-mini）で抽出結果を構造化。店名・日付・合計金額・消費税額・品目・支払方法に加え、勘定科目の提案（3案）まで自動生成し、Google Apps Script経由でスプレッドシートへ保存する構成です。
+</p>
+<p class="english">
+  Built a personal expense-reporting app that extracts information from receipt images and logs it to Google Sheets. Text recognition is handled by Google Cloud Vision API, and the results are structured using the OpenAI API (GPT-4o-mini) — extracting store name, date, total amount, tax, itemized items, and payment method, and even generating three suggested accounting categories. Data is saved to Google Sheets via Google Apps Script.
+</p>
+
+<h3>🎥 Demo</h3>
+<iframe src="https://www.youtube.com/embed/【https://youtu.be/FmaTvvMIXrc】" title="レシートOCRアプリ Demo" frameborder="0" allowfullscreen></iframe>
+
+<h3>工夫した点：</h3>
+<p>
+  OCRでは「血」を「皿」と誤認識するようなケースがあったため、AIによる文脈的な補正を加えました。また、店名抽出では「株式会社」などの法人格表記を除外し、屋号部分だけを抽出するよう調整しています。UIは左右2カラムのレイアウトにし、ローディング表示・画像拡大機能・ファイル形式やサイズのチェック、わかりやすいエラーメッセージなどを実装しました。
+</p>
+<p class="english">
+  To handle OCR misreads (e.g., mistaking one kanji character for a visually similar one), I added AI-based contextual correction. For store name extraction, I excluded corporate suffixes (e.g., "Co., Ltd.") to isolate just the business name. The UI uses a two-column layout with loading indicators, an image zoom feature, file type/size validation, and clear error messages.
+</p>
+
+<h3>セキュリティ面での学び：</h3>
+<p>
+  開発中、React（フロントエンド）側で環境変数を使ってAPIキーを管理していましたが、<code>REACT_APP_</code>から始まる環境変数はビルド時にJavaScriptファイルへ直接埋め込まれるというReact特有の仕様を理解しておらず、ブラウザの開発者ツールからAPIキーが閲覧できる状態になっていたことに気づきました。発見後、直ちに該当キーを無効化・再発行して対応しました。この経験から、「サーバー側だけで扱うべき秘密情報」と「ブラウザに渡してよい情報」を区別する必要があることを学びました。
+</p>
+<p class="english">
+  During development, I was managing API keys via environment variables on the React (frontend) side, without realizing that any variable prefixed with <code>REACT_APP_</code> gets embedded directly into the built JavaScript files — a React-specific behavior. As a result, the API key was visible in the browser's developer tools. Once discovered, I immediately revoked and reissued the affected key. This taught me the importance of distinguishing between secrets that must stay server-side and information that's safe to expose to the browser.
+</p>
+
+<h3>使用技術：</h3>
+<p>React.js, Google Cloud Vision API, OpenAI API (GPT-4o-mini), Google Apps Script, Google スプレッドシート, CSS3</p>
+
+
+
+
+
+
+  
+<h3 class="project-title">9. 📩 実務PoC：反響メール集計業務の生成AI活用</h3>
 <p>
   AI活用支援を行う事業会社にて、住宅会社のマーケティング部門における反響対応業務（来場予約・資料請求などの反響メール集計）を題材に、会場名の自動判定PoCを設計・実装しました。<br>
   Google Apps Script（GAS）でGmail受信メールを取得し、必要項目を抽出してGoogleスプレッドシートへ構造化して記録。会場名の判定には、既存の会場マスタを候補リストとしてGoogle Gemini APIに渡し、候補の中から正式名称を選ばせる設計としました。
@@ -936,7 +972,7 @@ The most valuable outcome was learning to see predictive modeling not as the “
 
 </div>
 </details>
-<h3 class="project-title">9. 🛂 実務プロジェクト：在留資格申請AIシステムの精度評価・Ground Truth検証</h3>
+<h3 class="project-title">10. 🛂 実務プロジェクト：在留資格申請AIシステムの精度評価・Ground Truth検証</h3>
 <p>
   在留資格申請データを抽出するAIシステムの精度評価業務に携わっています。GitHubで共有された既存リポジトリをローカル環境にclone し、VS Code・Python・ChatGPT Codexを使用して評価環境を構築。評価用データの確認、dry-run、Geminiによる抽出評価、goldenデータとの比較まで実施しました。<br>
   評価を進める中で、AIの抽出結果と比較する「正解データ（golden）」自体についても、そのまま採点基準として使用してよいか検証が必要であることが分かりました。そこで、申請書PDFなどの元資料とgoldenを人手で照合し、表記ゆれ、コード値、項目取り違え、評価ルールの曖昧さなどを整理。AIの抽出精度だけでなく、評価基準そのものの妥当性も含めて検証しています。
