@@ -862,10 +862,16 @@ The most valuable outcome was learning to see predictive modeling not as the “
 <iframe src="https://www.youtube.com/embed/FmaTvvMIXrc" title="レシートOCR経理精算アプリ - AI Expense Scanner Demo" frameborder="0" allowfullscreen></iframe>
 <h3>工夫した点：</h3>
 <p>
-  OCRでは「血」を「皿」と誤認識するようなケースがあったため、AIによる文脈的な補正を加えました。また、店名抽出では「株式会社」などの法人格表記を除外し、屋号部分だけを抽出するよう調整しています。UIは左右2カラムのレイアウトにし、ローディング表示・画像拡大機能・ファイル形式やサイズのチェック、わかりやすいエラーメッセージなどを実装しました。
+  OCRでは「皿」を「血」と誤認識するようなケースがあったため、AIによる文脈的な補正を加えました。また、店名抽出では「株式会社」などの法人格表記を除外し、屋号部分だけを抽出するよう調整しています。<br>
+  画像表示まわりでは、レシートの読み取り位置を示すバウンディングボックスの表示・非表示切り替え、画像の拡大・縮小・回転機能を実装。回転させてもバウンディングボックスの位置がずれず追随するよう調整しました。<br>
+  処理状況が一目で分かるよう、AI解析済みのファイルは「下書き」、GASでスプレッドシートへの保存が完了したファイルは「確定済み」のボックスへ自動的に振り分ける仕組みも実装。読み取りに誤りがあった場合は、編集画面から手動で修正できるようにしています。<br>
+  また、レシートだけでなく手書きの明細書についても、読み取り精度の検証を行いました。
 </p>
 <p class="english">
-  To handle OCR misreads (e.g., mistaking one kanji character for a visually similar one), I added AI-based contextual correction. For store name extraction, I excluded corporate suffixes (e.g., "Co., Ltd.") to isolate just the business name. The UI uses a two-column layout with loading indicators, an image zoom feature, file type/size validation, and clear error messages.
+  To handle OCR misreads (e.g., misreading "皿" (plate) as the visually similar "血" (blood)), I added AI-based contextual correction. For store name extraction, I excluded corporate suffixes (e.g., "Co., Ltd.") to isolate just the business name.<br>
+  For the image display, I implemented a toggleable bounding box overlay showing where each field was read from, along with zoom and rotation controls — ensuring the bounding boxes stayed correctly aligned even after the image was rotated.<br>
+  To make processing status clear at a glance, files are automatically sorted into a "draft" queue once AI analysis is complete, and into a "confirmed" queue once the data has been saved to Google Sheets via GAS. Any misread fields can be corrected manually from an edit screen.<br>
+  I also tested the app's accuracy on handwritten receipts, in addition to printed ones.
 </p>
 
 <h3>セキュリティ面での学び：</h3>
