@@ -984,9 +984,8 @@ The most valuable outcome was learning to see predictive modeling not as the “
 </details>
 <h3 class="project-title">10. 🛂 実務プロジェクト：在留資格申請AIシステムの精度評価・Ground Truth検証</h3>
 <p>
-  在留資格申請データを抽出するAIシステムの精度評価業務に携わっています。GitHubで共有された既存リポジトリをローカル環境にclone し、VS Code・Python・ChatGPT Codexを使用して評価環境を構築。評価用データの確認、dry-run、Geminiによる抽出評価、goldenデータとの比較まで実施しました。<br>
-  評価を進める中で、AIの抽出結果と比較する「正解データ（golden）」自体についても、そのまま採点基準として使用してよいか検証が必要であることが分かりました。そこで、申請書PDFなどの元資料とgoldenを人手で照合し、表記ゆれ、コード値、項目取り違え、評価ルールの曖昧さなどを整理。AIの抽出精度だけでなく、評価基準そのものの妥当性も含めて検証しています。
-</p>
+在留資格申請データを抽出するAIシステムの精度評価業務に携わっています。GitHubで共有された既存リポジトリをローカル環境にcloneし、VS Code・Python・ChatGPT Codexを使用して評価環境を構築。評価用データの確認、dry-run、Geminiによる抽出評価、golden（正解データ）との比較まで実施しました。<br>
+評価を進める中で、AIの抽出結果と比較する golden 自体についても、そのまま採点基準として使用してよいか検証が必要であることが分かりました。そこで、申請書PDFなどの元資料とgoldenを人手で照合し、表記ゆれ、コード値、項目取り違え、評価ルールの曖昧さなどを整理。AIの抽出精度だけでなく、評価基準そのものの妥当性も含めて検証しています。</p>
 <p class="english">
   I've been working on accuracy evaluation for an AI system that extracts data from immigration status application documents. After being given access to an existing repository via GitHub, I cloned it locally and built an evaluation environment using VS Code, Python, and ChatGPT Codex — reviewing evaluation data, running a dry-run, executing Gemini-based extraction evaluation, and comparing the results against the golden dataset.<br>
   In the course of this evaluation, I found that the golden (ground-truth) data used to score the AI's output couldn't simply be trusted as-is either. I therefore cross-checked the golden data against source documents such as application PDFs, identifying issues including notation variance, code-value mix-ups, field mismatches, and ambiguity in the evaluation rules — verifying not just the AI's extraction accuracy, but the validity of the evaluation standard itself.
