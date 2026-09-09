@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'IBM Plex Sans', 'Noto Sans JP', "Helvetica Neue", sans-serif;
+    background: #fdf6ec;
+    color: #333;
+    padding: 1.5em;
+    max-width: 700px;
+    margin: auto;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+h1 {
+  font-family: 'Fraunces', 'Noto Serif JP', serif;
+  font-weight: 600;
+  font-size: 1.7em;
+  color: #6b4c6b;
+  border-bottom: 2px solid #b695b6;
+  padding-bottom: 0.3em;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
+.subtitle {
+  display: block;
+  margin-left: 0;
+  margin-top: 0.3em;
+  color: #555;
+  font-size: 0.9em;
+  text-align: center;
+}
+  .english {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 0.3em;
+    font-style: italic;
+  }
+  h2 {
+    font-family: 'Fraunces', 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #444;
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    text-align: left;
+  }
+  /* 新しく追加 *//* ── 太い筆っぽい水彩アンダーライン ── */
+h2.underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.1em; /* 下にほんのり余白を確保 */
+}
+
+h2.underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.8em;             /* 筆跡の太さを調整 */
+  background-color: #dda0dd; /* 水彩風の紫色 */
+  filter: blur(4px);         /* にじみ感を演出 */
+  transform: rotate(-1deg);   /* 軽く角度をつけてムラっぽく */
+  opacity: 0.7;              /* 透け感を出す */
+  z-index: -1;               /* テキストの背後に配置 */
+}
+
+/* 制作実績セクション用のスタイル（太字 + 下線） */
+h2.portfolio-section {
+  font-family: 'Fraunces', 'Noto Serif JP', serif;
+  font-size: 1.5em;
+  color: #5a5a5a;
+  font-weight: 600;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.1em;
+}
+
+h2.portfolio-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.8em;
+  background-color: #dda0dd;  /* 既存の紫色と統一 */
+  filter: blur(4px);
+  transform: rotate(-1deg);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* 各プロジェクトタイトル用のスタイル（青ベース） */
+h3 {
+  font-size: 1.1em;
+  color: #444;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  }
+  h3.project-title {
+    font-family: 'Fraunces', 'Noto Serif JP', serif;
+    font-size: 1.5em;
+    color: #2E86AB;  /* 青ベース */
+    margin-top: 1.4em;
+    margin-bottom: 0.4em;
+    font-weight: bold;
+  }
+
+  h3.underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.1em; /* 下にほんのり余白を確保 */
+}
+  h4 {
+    font-size: 1.05em;
+    color: #444;
+    margin: 0.8em 0 0.3em 0;
+    font-weight: 600;
+  }
+  h5 {
+    font-size: 1.05em;
+    color: #444;
+    margin: 0.8em 0 0.3em 0;
+    font-weight: 600;
+  }
+  .underline {
+    border-bottom: 2px solid #dda0dd;
+    display: inline-block;
+    padding-bottom: 0.2em;
+    margin: 0;
+  }
+  a {
+    color: #3b6fa8;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  iframe {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 1em;
+  }
+  ul {
+    padding-left: 1.2em;
+  }
+  p, li {
+    line-height: 1.5;
+    margin-bottom: 0.8em;
+    color: #333;
+  }
+  p {
+    font-size: 0.95em;
+  }
+  /* --- ここからスキルグリッド --- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin: 1em 0;
+  }
+  .skill-category {
+    background: #f4eef4;
+    padding: 0.8em;
+    border-radius: 5px;
+  }
+  .skill-level {
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 0.5em;
+  }
+  /* --- 学習歴グリッド --- */
+  .learning-grid {
+    display: block;
+    margin: 1em 0;
+  }
+  .learning-category {
+    background: #f4eef4;
+    padding: 0.8em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+  }
+  /* --- 得意分野セクション用のスタイル --- */
+  .expertise-section {
+    background: #f0f8ff;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 1em 0;
+  }
+/* --- 学習details/summary スタイル --- */
+details {
+  margin: 1.5em 0;                    /* 上下の余白を増やした */
+  border: 2px solid #dda0dd;          /* 紫色の枠線を追加 */
+  border-radius: 8px;                 /* 角を丸くした */
+  padding: 0.3em;                       /* 内側の余白を追加 */
+  background: #f6e6f6;                /* 薄紫の背景色を追加 */
+  width: 550px;
+}
+
+summary {
+  cursor: pointer;                    /* マウスを乗せた時に指のマークに */
+  color: #888;                       /* 文字色をグレーに変更 */
+  font-size: 1em;                    /* 文字サイズを大きくした */
+  font-weight: bold;                 /* 文字を太字にした */
+  margin-bottom: 0.5em;
+  padding: 0.5em;                    /* ボタンのような余白を追加 */
+  background: #f7f6fb;               /* 薄い紫色の背景を追加 */
+  border-radius: 5px;                /* 角を丸くしてボタン風に */
+  text-align: center;                 /* 文字を中央揃えに */
+  list-style: none;                  /* デフォルトの三角マークを非表示 */
+  width: 530px;
+  margin: 0.08px 0; /* summary要素の上下間隔 */
+  padding: 9px; /* 内側の余白も調整 */
+}
+
+summary:hover {
+  background: #c591c5;               /* ホバー時の色を少し暗く */
+  transform: translateY(-1px);       /* 少し浮き上がる効果 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 影を追加 */
+
+}
+  summary::-webkit-details-marker {
+  display: none;  /* ブラウザのデフォルト三角マークを非表示 */
+}
+
+
+
+summary::after {
+ content: " CLICK";
+ font-size: 1.0em;
+ color: #ffc0cb; /* 白ピンク */
+ text-shadow: 
+   1px 1px 2px rgba(0, 0, 0, 0.3),     /* 右下の影 */
+   -1px -1px 0px rgba(255, 255, 255, 0.8), /* 左上のハイライト */
+   0 0 3px rgba(255, 192, 203, 0.5);   /* 外側の光彩 */
+ border: 2px solid #ffc0cb;
+ border-radius: 8px;
+ padding: 4px 12px;
+ margin-left: 8px;
+ background: linear-gradient(
+   145deg, 
+   rgba(255, 255, 255, 0.9) 0%,        /* 上部のハイライト */
+   rgba(255, 192, 203, 0.3) 50%,       /* 中央の白ピンク */
+   rgba(200, 150, 160, 0.4) 100%       /* 下部の影 */
+ );
+ box-shadow: 
+   2px 2px 6px rgba(0, 0, 0, 0.2),     /* 外側の影 */
+   inset 1px 1px 2px rgba(255, 255, 255, 0.8), /* 内側のハイライト */
+   inset -1px -1px 2px rgba(0, 0, 0, 0.1);     /* 内側の影 */
+ transition: all 0.3s ease;
+}
+
+summary:hover::after {
+ transform: translateY(-1px);
+ box-shadow: 
+   3px 3px 8px rgba(0, 0, 0, 0.3),
+   inset 1px 1px 3px rgba(255, 255, 255, 0.9),
+   inset -1px -1px 3px rgba(0, 0, 0, 0.15);
+}
+
+details[open] summary::after {
+  content: " [ CLICK ]"; /* 開いている時のテキスト */
+  font-size: 0.9em;
+
+}
+
+.demo-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.demo-btn:hover {
+  background: #e0e0e0;
+}
+
+.demo-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+</style>
+</head>
+<body>
+  <h1>
+    Portfolio - Yumiko Sawa<br>
+    <span class="subtitle">AI Development, Automation & Evaluation</span>
+  </h1>
+  <p>
+  自然言語処理と教育工学の知見を土台に、AI × フランス語学習アプリの開発から、業務自動化PoC、AIシステムの精度評価まで、実務と個人開発の両面でAI開発に取り組んでいます。
+</p>
+<p class="english">
+  Building on a foundation in natural language processing and educational technology, I work across AI-powered French language learning app development, business automation PoCs, and AI system accuracy evaluation — combining hands-on business experience with personal development projects.
+</p>
+
+<nav id="toc" style="background:#f7f6fb;border:1px solid #dda0dd;border-radius:8px;padding:1em 1.2em;margin:1.5em 0;font-size:0.9em;">
+  <strong style="display:block;margin-bottom:0.5em;color:#6b4c6b;">📑 目次 / Contents</strong>
+  <ul style="list-style:none;padding-left:0;margin:0;line-height:1.8;">
+    <li><a href="#section-learning">🎓 学習歴・修了講座</a></li>
+    <li><a href="#section-skills">🛠 技術スキル</a></li>
+    <li><a href="#section-experience">🚀 プロジェクト経験・挑戦したこと</a></li>
+    <li><a href="#section-projects">💻 制作実績</a>
+      <ul style="list-style:none;padding-left:1.2em;margin-top:0.4em;line-height:1.7;">
+        <li><a href="#p1">1. French Flashcard Study App</a></li>
+        <li><a href="#p2">2. French Level Predictor App</a></li>
+        <li><a href="#p3">3. Japanese Instruction-following LLM</a></li>
+        <li><a href="#p4">4. 音声認識 × ChatGPT 対話型チャットボット</a></li>
+        <li><a href="#p5">5. Titanic Survival Prediction</a></li>
+        <li><a href="#p6">6. AirREGI アカウント獲得予測プロジェクト</a></li>
+        <li><a href="#p7">7. AI Creative Content</a></li>
+        <li><a href="#p8">8. レシートOCR経理精算アプリ</a></li>
+        <li><a href="#p9">9. 実務PoC：反響メール集計業務の生成AI活用</a></li>
+        <li><a href="#p10">10. 実務プロジェクト：在留資格申請AIシステムの評価</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 class="underline" id="section-learning">🎓 学習歴・修了講座 - Learning History</h2>
+<ul>
+  <li>(株)キカガク「DXを推進するAI・データサイエンス人材育成長期コース」 修了<br>
+  <p class="english">Kikagaku Inc. "AI & Data Science Professional Development Program for DX" - Completed</p></li>
+  
+  <li>東京大学 松尾研究室 「LLM　大規模言語モデル講座 2024」修了<br>
+  <p class="english">University of Tokyo - Matsuo Lab "Large Language Models (LLM) Course 2024" - Completed</p></li>
+
+  <li>東京大学 松尾研究室 「AI Business Insights AI経営講座 2025」　修了<br>
+  <p class="english">University of Tokyo - Matsuo Lab "AI Business Insights - AI Management Course 2025" - Completed</p></li>
+
+  <li>東京大学 松尾研究室 「AIと半導体講座 2025」　修了<br>
+  <p class="english">University of Tokyo - Matsuo Lab "AI and Semiconductor Course 2025" - Completed</p></li>
+
+  <li>東京大学 松尾研究室 「GCI　東京大学グローバル消費インテリジェンス寄付講座 2025」　修了<br>
+  <p class="english">University of Tokyo - Matsuo Lab "Global Consumer Intelligence Endowed Course 2025" - Completed</p></li>
+
+</ul>
+
+<details>
+ <summary>学習プログラム詳細 / Learning Program Details </summary>
+ <div class="learning-grid">
+   <div class="learning-category">
+     <h4>キカガク「DXを推進するAI・データサイエンス人材育成長期コース」<br>
+     <p class="english">Kikagaku Co., Ltd. - AI & Data Science Professional Development Program</p></h4>
+     <ul>
+       <li>Python基礎（文法・関数・データ型・モジュール）<br>
+       <p class="english">Python Fundamentals (Syntax, Functions, Data Types, Modules)</p></li>
+       <li>データサイエンス（多変量解析・データ分析・前処理・特徴量エンジニアリング）<br>
+       <p class="english">Data Science (Multivariate Analysis, Data Analysis, Preprocessing, Feature Engineering)</p></li>
+       <li>機械学習（scikit-learn・XGBoostで分類・回帰・評価）<br>
+       <p class="english">Machine Learning (Classification, Regression, Evaluation with scikit-learn & XGBoost)</p></li>
+       <li>画像処理（OpenCV・Pillow／画像前処理・CNN基礎）<br>
+       <p class="english">Computer Vision (OpenCV, Pillow, Image Preprocessing, CNN Fundamentals)</p></li>
+       <li>ディープラーニング（PyTorch入門／理論・演習基礎）<br>
+       <p class="english">Deep Learning (PyTorch Introduction, Theory & Hands-on Practice)</p></li>
+       <li>自然言語処理（基礎理論）<br>
+       <p class="english">Natural Language Processing (Fundamental Theory)</p></li>
+       <li>API開発（FastAPI／基礎・演習）<br>
+       <p class="english">API Development (FastAPI Fundamentals & Practice)</p></li>
+     </ul>
+   </div>
+   
+   <div class="learning-category">
+     <h4>東京大学 松尾研究室「大規模言語モデル（LLM）講座 2024」<br>
+     <p class="english">University of Tokyo - Matsuo Lab "Large Language Models (LLM) Course 2024"</p></h4>
+     <ul>
+       <li>言語モデルの概要・仕組み<br>
+       <p class="english">Overview of Language Models</p></li>
+       <li>プロンプト設計・RAG<br>
+       <p class="english">Prompt Engineering & RAG (Retrieval-Augmented Generation)</p></li>
+       <li>事前学習・拡張学習<br>
+       <p class="english">Pre-training & Advanced Pre-training</p></li>
+       <li>Scaling Law（モデル規模の法則）<br>
+       <p class="english">Scaling Laws</p></li>
+       <li>半導体エコシステムとLLMの発展基盤<br>
+       <p class="english">Semiconductor Ecosystem & LLM Development Infrastructure</p></li>
+       <li>Supervised Fine-Tuning（教師ありファインチューニング）<br>
+       <p class="english">Supervised Fine-Tuning (SFT)</p></li>
+       <li>RLHF & Alignment（報酬付き学習・整合性）<br>
+       <p class="english">RLHF (Reinforcement Learning from Human Feedback) & AI Alignment</p></li>
+       <li>安全性・LLMの理論と分析<br>
+       <p class="english">AI Safety & LLM Analysis and Theory</p></li>
+       <li>LLM応用<br>
+       <p class="english">LLM Applications (Domain-Specific LLM, LLM for Control)</p></li>
+       <li>最終課題：LLMのコンペティション型課題<br>
+       <p class="english">Final Project: LLM Competition Challenge</p></li>
+     </ul>
+   </div>
+   
+   
+<div class="learning-category">
+ <h4>東京大学 松尾研究室「AI Business Insights AI経営講座 2025」<br>
+ <p class="english">University of Tokyo - Matsuo Lab "AI Business Insights - AI Management Course 2025"</p></h4>
+ <ul>
+   <li>AIトレンド・ビジネスユースケース・業界別動向<br>
+   <p class="english">AI Trends, Business Use Cases & Industry-Specific Insights</p></li>
+   <li>生成AIの技術進化と未来展望<br>
+   <p class="english">Generative AI Technology Evolution & Future Prospects</p></li>
+   <li>AIガバナンス・法規制・リスク管理・サステナビリティ<br>
+   <p class="english">AI Governance, Legal Regulations, Risk Management & Sustainability</p></li>
+   <li>顧客体験・マーケティング/バックオフィス改革・ロボティクス<br>
+   <p class="english">Customer Experience, Marketing/Back-office Innovation & Robotics</p></li>
+   <li>人材育成・AI共創戦略・AI経営のあり方<br>
+   <p class="english">Talent Development, AI Co-creation Strategy & AI-driven Management</p></li>
+   <li>各業界の実務者による最新事例とケーススタディ<br>
+   <p class="english">Case Studies & Latest Industry Examples by Business Practitioners</p></li>
+   <li>（この講義では、AIの社会実装インサイトに基づき、業界・ソリューション別のビジネス動向とAI活用のポテンシャルとリスク、企業戦略における攻めと守りの両側面を学習）<br>
+   <p class="english">Focus: AI implementation insights, industry-specific business trends, AI potential & risks, and comprehensive corporate strategy (both offensive & defensive approaches)</p></li>
+ </ul>
+</div>
+
+<div class="learning-category">
+  <h4>東京大学 松尾研究室「AIと半導体講座 2025」<br>
+  <p class="english">University of Tokyo - Matsuo Lab "AI and Semiconductor Course 2025"</p></h4>
+  <ul>
+    <li>LLMなどの先端AIモデル、機械学習、NN基礎、最適化<br>
+    <p class="english">Advanced AI Models such as LLMs, Machine Learning, Neural Network Basics, and Optimization</p></li>
+
+    <li>画像認識<br>
+    <p class="english">Image Recognition</p></li>
+
+    <li>半導体エコシステムの外観<br>
+    <p class="english">Overview of the Semiconductor Ecosystem</p></li>
+
+    <li>CUDA／GPUライブラリ<br>
+    <p class="english">CUDA and GPU Libraries</p></li>
+
+    <li>CPUとコンピュータの構成<br>
+    <p class="english">CPU and Computer Architecture</p></li>
+
+    <li>GPUのアーキテクチャについて<br>
+    <p class="english">GPU Architecture and Design Principles</p></li>
+
+    <li>組み合わせ回路、順序回路、HW設計論やFPGAとは？<br>
+    <p class="english">Combinational and Sequential Circuits, Hardware Design Theory, and Introduction to FPGA</p></li>
+
+    <li>【演習】FPGA設計演習のチュートリアル（FPGAの基礎、設計方法、AWSクラウドを使ったFPGA設計体験、AIプロセッサ開発）<br>
+    <p class="english">[Workshop] FPGA Design Tutorial: Basics of FPGA, Design Methods, FPGA Design on AWS Cloud, and AI Processor Development</p></li>
+
+    <li>【演習】FPGA設計演習の実施（ハンズオン・クラウド演習）<br>
+    <p class="english">[Workshop] Practical FPGA Design Exercises (Hands-on and Cloud-based Sessions)</p></li>
+  </ul>
+</div>
+
+<div class="learning-category">
+  <h4>東京大学 松尾研究室「GCI　東京大学グローバル消費インテリジェンス寄付講座 2025」<br>
+  <p class="english">University of Tokyo - Matsuo Lab "Global Consumer Intelligence Endowed Course 2024"</p></h4>
+  <ul>
+    <li>Pythonコーディング（NumPy, Pandas, Matplotlib）<br>
+    <p class="english">Python Coding (NumPy, Pandas, Matplotlib)</p></li>
+    <li>データ分析（特徴量エンジニアリング・教師なし学習・時系列・モデル検証とチューニング）<br>
+    <p class="english">Data Analysis (Feature Engineering, Unsupervised Learning, Time Series, Model Validation & Tuning)</p></li>
+    <li>ビジネス応用（SQL・マーケティング基礎応用・ゲスト講義）<br>
+    <p class="english">Business Applications (SQL, Marketing Fundamentals & Applications, Guest Lectures)</p></li>
+    <li>実践演習（Python宿題・データ分析コンペティション・最終課題）<br>
+    <p class="english">Practical Exercises (Python Assignments, Data Analysis Competition, Final Project)</p></li>
+  </ul>
+</div>
+ </div>
+</details>
+
+<h2 class="underline" id="section-skills">🛠 技術スキル - Technical Skills</h2>
+<div class="skills-grid">
+  <div class="skill-category">
+    <h4>💻 プログラミング言語</h4>
+    <ul>
+      <li>Python <span class="skill-level">（AIアプリ開発・主要ライブラリ）</span></li>
+      <li>HTML/CSS <span class="skill-level">（Web UI調整）</span></li>
+      <li>JavaScript <span class="skill-level">（基本学習中）</span></li>
+      <li>Flutter <span class="skill-level">（モバイルアプリ・講座受講）</span></li>
+    </ul>
+  </div>
+  
+  <div class="skill-category">
+    <h4>🔧 フレームワーク・ライブラリ</h4>
+    <ul>
+      <li>Streamlit <span class="skill-level">（アプリ開発）</span></li>
+      <li>FastAPI <span class="skill-level">（API構築）</span></li>
+      <li>Pandas / NumPy <span class="skill-level">（データ整形・分析）</span></li>
+      <li>scikit-learn <span class="skill-level">（機械学習アルゴリズム）</span></li>
+      <li>XGBoost <span class="skill-level">（予測モデル構築）</span></li>
+      <li>Gradio <span class="skill-level">（音声対話アプリUI構築）</span></li>
+      <li>OpenAI Whisper <span class="skill-level">（音声認識・音声テキスト変換）</span></li>
+      <li>gTTS <span class="skill-level">（テキスト音声合成・TTS）</span></li>
+      <li>pyttsx3 <span class="skill-level">（オフライン対応のテキスト音声合成）</span></li>
+    </ul>
+  </div>
+  
+  <div class="skill-category">
+    <h4>🌐 API・外部サービス</h4>
+  <ul>
+  <li>OpenAI API <span class="skill-level">（ChatGPT連携・テキスト生成）</span></li>
+  <li>ChatGPT Codex <span class="skill-level">（コード生成・評価データ作成補助）</span></li>
+  <li>Google Gemini API <span class="skill-level">（AI対話システム構築、業務データの曖昧マッチングPoC実装、抽出精度評価）</span></li>
+  <li>Gmail API <span class="skill-level">（メール自動取得・本文パース）</span></li>
+  <li>Google Cloud Vision API <span class="skill-level">（OCR・画像内テキスト検出）</span></li>
+  
+</ul>
+  </div>
+  
+  <div class="skill-category">
+    <h4>⚙️ 開発環境・ツール</h4>
+    <ul>
+      <li>Git / GitHub <span class="skill-level">（コード管理、既存リポジトリのclone・ローカル環境での検証）</span></li>
+      <li>Visual Studio Code <span class="skill-level">（開発エディタ）</span></li>
+      <li>Google Colab <span class="skill-level">（モデル学習・ファインチューニング・Webアプリ公開）</span></li>
+      <li>Hugging Face <span class="skill-level">（モデル公開・実装）</span></li>
+      <li>Docker <span class="skill-level">（環境構築・講座受講）</span></li>
+      <li>CSV / Excel / JSON / TSV <span class="skill-level">（データ管理・前処理・構造化データの検証）</span></li>
+      <li>Notion <span class="skill-level">（プロジェクト管理・ドキュメント作成）</span></li>
+    </ul>
+  </div>
+  
+  <div class="skill-category">
+    <h4>🎯 AI技術・手法</h4>
+    <ul>
+      <li>Prompt Engineering <span class="skill-level">（ChatGPTなど効果的なAI指示設計）</span></li>
+    </ul>
+  </div>
+  
+  <div class="skill-category">
+    <h4>🪄 AIクリエイティブツール</h4>
+    <ul>
+      <li>Midjourney <span class="skill-level">（AI画像/動画生成・素材作成）</span></li>
+      <li>Pika <span class="skill-level">（AI画像/動画生成・素材作成）</span></li>
+      <li>RunwayML <span class="skill-level">（AI画像/動画生成・素材作成）</span></li>
+      <li>Canva <span class="skill-level">（動画編集・デザイン制作）</span></li>
+      <li>CapCut <span class="skill-level">（音声合成・動画編集）</span></li>
+      <li>YouTube <span class="skill-level">（動画公開・SNS運用）</span></li>
+      <li>Instagram <span class="skill-level">（動画公開・SNS運用）</span></li>
+      <li>TikTok <span class="skill-level">（動画公開・SNS運用）</span></li>
+      
+    </ul>
+  </div>
+    <div class="skill-category">
+    <h4>🏢 業務自動化・データ基盤</h4>
+    <ul>
+      <li>Google Apps Script (GAS) <span class="skill-level">（業務自動化・メール処理・API連携）</span></li>
+      <li>Google スプレッドシート <span class="skill-level">（業務データの構造化・検証ロジック実装）</span></li>
+      <li>Looker Studio <span class="skill-level">（表示ロジック・集計キーの仕様を確認、影響範囲を調査）</span></li>
+      <li>Google Cloud <span class="skill-level">（認証範囲の確認）</span></li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="underline" id="section-experience">🚀 プロジェクト経験・挑戦したこと - Project Experience</h2>
+<div class="expertise-section">
+ <ul>
+   <li>業務AI活用PoC（Gemini APIによる曖昧マッチング・API制限対応）<br>
+   <p class="english">Business AI Adoption PoC (Fuzzy matching & rate-limit handling with Google Gemini API)</p></li>
+
+   <li>在留資格AIシステムの評価環境構築・Ground Truth監査（GitHub/Python/Gemini APIでの評価実行、正解データの妥当性検証）<br>
+   <p class="english">Evaluation Environment Setup & Ground Truth Audit for an Immigration AI System (Running evaluations via GitHub/Python/Gemini API, verifying the validity of ground-truth data)</p></li>
+   
+   <li>OpenAI API（ChatGPT連携アプリ開発）<br>
+   <p class="english">OpenAI API Integration (ChatGPT-powered app development)</p></li>
+   
+   <li>機械学習モデル構築・評価（scikit-learn, XGBoostによる分類・回帰）<br>
+   <p class="english">Machine Learning Model Development & Evaluation (Classification & Regression with scikit-learn, XGBoost)</p></li>
+   
+   <li>データ前処理・分析（CSV統合、特徴量エンジニアリング、EDA）<br>
+   <p class="english">Data Preprocessing & Analysis (CSV integration, Feature Engineering, Exploratory Data Analysis)</p></li>
+   
+   <li>Explainable AI（SHAPによるモデル解釈・可視化／初歩レベル）<br>
+   <p class="english">Explainable AI (Model interpretation & visualization with SHAP - Beginner level)</p></li>
+   
+   <li>LLMファインチューニング（Unsloth・LoRAを活用した簡易実験）<br>
+   <p class="english">LLM Fine-tuning (Lightweight experiments using Unsloth & LoRA)</p></li>
+   
+   <li>spaCy（自然言語処理での活用を検討・調査段階）<br>
+   <p class="english">spaCy (Natural Language Processing - Research & exploration stage)</p></li>
+ </ul>
+</div>
+
+<h2 class="portfolio-section underline" id="section-projects">💻 制作実績 - Portfolio Projects </h2>
+
+  <h3 class="project-title" id="p1">1. 💫 French Flashcard Study App</h3>
+  <p>
+    効率よく単語を記憶できるよう、復習タイミングにこだわったフランス語学習アプリです。<br>
+    Streamlitで開発し、ユーザーの記憶状況に合わせて最適なタイミングで単語を出題。忘却曲線の理論を応用し、着実な語彙定着をサポートします。
+  </p>
+  <p class="english">
+    A French vocabulary learning app focused on maximizing retention through smart review scheduling. Built with Streamlit, it adapts to users' memory status and presents words at optimal times, applying the forgetting curve theory for solid vocabulary acquisition.
+  </p>
+
+  <h4>技術的チャレンジ：</h4>
+  <p>
+    FastAPI・Streamlit・OpenAI APIを連携し、ChatGPT APIの翻訳出力を最適化するためのプロンプト設計・パラメータ調整を工夫。効率的かつ高品質な翻訳機能を実装しました。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Integrated FastAPI, Streamlit, and OpenAI API, and engineered prompt design and parameter tuning to optimize ChatGPT translation output, achieving efficient and high-quality translations.
+  </p>
+
+  <h4>将来の展望：</h4>
+  <p>
+    音声再生や学習進捗の可視化、個別最適化された復習タイミングなど、より学びやすいAI学習アプリを目指して拡張予定です。
+  </p>
+  <p class="english"><strong>
+    Future Vision:</strong> Plans for features like audio playback, progress visualization, and personalized review intervals to create an even more effective AI-powered language learning app.
+  </p>
+
+  <h4>使用技術：</h4>
+  <p>
+    Python, Streamlit, FastAPI, OpenAI API, Pandas, GitHub
+  </p>
+
+  <a href="https://github.com/Yumiuse/french_flashcard_study" target="_blank">🔗 GitHubでコードを見る</a>
+  
+  <h4>🎥 DEMO</h4>
+
+<!-- 言語選択ボタン -->
+<div style="margin-bottom: 15px;">
+  <button onclick="switchVideo('japanese')" id="btn-japanese" class="demo-btn active">🇯🇵 日本語版</button>
+  <button onclick="switchVideo('english')" id="btn-english" class="demo-btn">🇬🇧 English Demo</button>
+  <button onclick="switchVideo('french')" id="btn-french" class="demo-btn">🇫🇷 Démonstration en français</button>
+</div>
+
+<!-- 動画表示エリア -->
+<div id="video-container">
+  <iframe id="demo-video" src="https://www.youtube.com/embed/-DdYUPyKYTw" title="Demo Video" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script>
+function switchVideo(language) {
+  const videoElement = document.getElementById('demo-video');
+  const buttons = document.querySelectorAll('.demo-btn');
+  
+  // 全ボタンからactiveクラスを削除
+  buttons.forEach(btn => btn.classList.remove('active'));
+  
+  // 選択されたボタンにactiveクラスを追加
+  document.getElementById(`btn-${language}`).classList.add('active');
+  
+  // 動画URLを切り替え
+  switch(language) {
+    case 'japanese':
+      videoElement.src = 'https://www.youtube.com/embed/-DdYUPyKYTw';
+      videoElement.title = 'Japanese Demo';
+      break;
+    case 'english':
+      videoElement.src = 'https://www.youtube.com/embed/uzbAzosgZWw';
+      videoElement.title = 'English Demo';
+      break;
+    case 'french':
+      videoElement.src = 'https://www.youtube.com/embed/-50wOdqEC1Y';
+      videoElement.title = 'French Demo';
+      break;
+  }
+}
+</script>
+  <h3 class="project-title" id="p2">2. 🕵️‍♀️ French Level Predictor App</h3>
+  <p>
+    フランス語単語の難易度を機械学習で予測する学習支援Webアプリケーション。<br>
+    Scikit-learnを用いた分類モデルと、StreamlitによるインタラクティブなUIを組み合わせて開発しました。
+  </p>
+  <p class="english">
+    A web application that predicts French word difficulty using machine learning. Developed with Scikit-learn classification models and an interactive Streamlit interface.
+  </p>
+
+  <h3>技術的チャレンジ：</h3>
+  <p>
+    データ前処理から機械学習モデルの構築・評価まで、MLプロジェクトの全工程を実装。精度向上に向けた試行錯誤を通じて、実践的なスキルを習得しました。
+  </p>
+  <p class="english"><strong>
+    Technical Challenge:</strong> Implemented the complete ML pipeline from data preprocessing to model evaluation, gaining practical skills through iterative accuracy improvements.
+  </p>
+ 
+  <h3>将来の展望：</h3>
+  <p>
+    現在は単語の難易度予測のみに対応していますが、今後は文章全体のレベル予測も行い、French Flashcard Study App と統合する予定です。<br>
+    学習者の語彙レベルに合わせて、最適な教材や例文を自動で出題できるような設計を目指しています。
+  </p>
+  <p class="english"><strong>
+    Future Outlook:</strong> Currently, the app supports only word-level difficulty prediction. In the future, it is planned to integrate this app with the French Flashcard Study App, enabling sentence-level difficulty assessment and automatic suggestion of appropriate materials and example sentences tailored to each learner's level.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>Python, Scikit-learn, Pandas, Streamlit</p>
+
+  <a href="https://github.com/Yumiuse/french-level-predictor" target="_blank">🔗 GitHubでコードを見る</a>
+
+  <h3>🎥 DEMO</h3>
+  <iframe src="https://www.youtube.com/embed/K_5acngr0PE" title="Demo Video" frameborder="0" allowfullscreen></iframe>
+
+  <h3 class="project-title" id="p3" >3. 🤖 Japanese Instruction-following LLM</h3>
+<p>
+  東京大学 松尾研究室主催「大規模言語モデル講座」最終課題として開発。<br>
+  日本語ベンチマークである ELYZA-tasks-100 および Ichikara instruction を学習データとして使用し、その改変版である ELYZA-tasks-100tv を用いて、
+  命令応答能力（instruction-following）を強化するファインチューニングを実施しました。
+　ファインチューニングしたモデルは Hugging Face にて公開しています。
+</p>
+<p class="english">
+  Developed as the final project for the "Large Language Models Course" hosted by the Matsuo Laboratory at the University of Tokyo. 
+  Fine-tuned for enhanced Japanese instruction-following capabilities using ELYZA-tasks-100 and Ichikara instruction datasets, 
+  with evaluation on ELYZA-tasks-100tv. The fine-tuned model is publicly available on Hugging Face.
+</p>
+
+<h3>技術的チャレンジ：</h3>
+<p>
+  日本語特化ベンチマークであるELYZA-tasks-100とIchikara instructionを学習データとし、ELYZA-tasks-100tvで評価することで日本語の命令理解能力を体系的に強化しました。
+  Unsloth + LoRA による軽量ファインチューニングを Google Colab 上で実施し、4bit量子化（QLoRA）によって GPU メモリ使用量を削減することで、限られた計算リソースでも安定した推論を実現し、未学習のタスクに対しても一定の応答性能を確認しました。<br>
+  また、推論コードや JSONL 形式の出力フォーマットを整備し、再現性のある成果として公開しています。
+</p>
+<p class="english">
+  Systematically enhanced Japanese instruction-following capabilities using ELYZA-tasks-100 and Ichikara instruction for training with ELYZA-tasks-100tv evaluation. 
+  Implemented lightweight fine-tuning using Unsloth + LoRA on Google Colab, achieving stable inference with limited computational 
+  resources through 4-bit quantization (QLoRA) for reduced GPU memory usage and confirmed reliable performance on unseen tasks. 
+  Established reproducible results by organizing inference code and JSONL output formats for public release.
+</p>
+  <h3>学習成果：</h3>
+<p>
+  本プロジェクトを通じて、PEFTによる効率的なファインチューニング手法と、
+  日本語LLMの評価手法について実践的な経験を積むことができました。
+</p>
+<p class="english">
+  Through this project, I gained practical experience in efficient fine-tuning methods using PEFT 
+  and evaluation approaches for Japanese LLMs.
+</p>
+
+  <h3>使用技術：</h3>
+  <p>
+    Python, Transformers, Hugging Face, Google Colab, Unsloth, LoRA, JSONL
+  </p>
+
+  <a href="https://huggingface.co/Yumikooo/llm-jp-3-13b-itA_lora" target="_blank">🔗 Hugging Faceでモデルを確認する</a>
+<br>
+<br>
+<br>
+
+
+  
+  <h3 class="project-title" id="p4">4. 🎤 音声認識 × ChatGPT 対話型チャットボット</h3>
+<p>
+  WhisperとChatGPTを組み合わせた音声対話AI「ミライミミ」を試作しました。
+Gradio UIをGoogle Colab上で動作させ、ブラウザだけで音声入力・応答確認・読み上げまで可能な構成にしています。
+ 
+</p>
+<p class="english">
+  MiraiMimi is a prototype combining Whisper and ChatGPT for voice-based interaction.
+The Gradio interface runs on Google Colab, enabling in-browser speech input, response, and audio playback.
+<h3>技術的チャレンジ：</h3>
+<p>
+  音声入力のテキスト変換からChatGPTによる応答生成までの処理を組み合わせ、簡易的な対話パイプラインを試作しました。<br>
+
+</p>
+<p class="english"><strong>
+  Technical Challenge:</strong> Built a complete pipeline from speech input to text conversion, ChatGPT response generation, and speech synthesis. Focused on character design through prompt engineering and leveraging speech recognition variations for natural conversation flow.
+</p>
+
+<h3>将来の展望：</h3>
+<p>
+  教育分野での語学練習、観光案内での音声ガイドなど、音声AIの幅広い応用可能性を検証していきたいです。<br>
+  そしてより高精度な音声認識と、感情表現豊かな音声合成の実装も目指しています。
+</p>
+<p class="english"><strong>
+  Future Vision:</strong> Exploring applications in language learning　and voice-guided tourism. Planning to implement higher-accuracy speech recognition and emotionally expressive speech synthesis.
+</p>
+
+<h3>使用技術：</h3>
+<p>
+  Python, OpenAI Whisper, OpenAI GPT-3.5, Gradio, Google Colab, gTTS, pyttsx3
+</p>
+
+
+  <h3>🎥 DEMO</h3>
+<iframe src="https://www.youtube.com/embed/0gqen9kpSQw" title="AI Creative Demo" frameborder="0" allowfullscreen></iframe>
+
+
+
+  
+  <h3 class="project-title" id="p5" >5. 🚢 Titanic Survival Prediction (Kaggle - GCI)</h3>
+  <p>
+    東京大学松尾研究室主催のGCI講座にて、Kaggle「Titanic: Machine Learning from Disaster」に参加。
+    データ前処理・EDA（探索的データ分析）・特徴量エンジニアリング・モデル構築・評価までの一連の流れを実践しました。
+    特徴量エンジニアリングでは、名前から敬称を抽出・カテゴリ化、家族人数の作成、Cabin 欠損の有無フラグ化、年齢の欠損を中央値で補完するなどの工夫を行い、予測精度向上を図りました。
+    さらに、ランダムフォレスト・ロジスティック回帰・MLP など複数モデルを構築し、GridSearchCV によるハイパーパラメータ調整を通じて性能を改善しました。
+ </p>
+  <p class="english">
+    Participated in Kaggle's "Titanic: Machine Learning from Disaster" competition through the GCI program hosted by the University of Tokyo's Matsuo Lab. 
+    Implemented the data science pipeline from preprocessing, EDA (Exploratory Data Analysis), feature engineering, model building, to evaluation. 
+    For feature engineering, extracted and categorized titles from names, created family size features, flagged missing Cabin data, and imputed missing age values with medians to improve prediction accuracy. 
+    Built multiple models including Random Forest, Logistic Regression, and MLP, and improved performance through hyperparameter tuning with GridSearchCV.
+  </p>
+
+  <h3>使用技術：</h3>
+  <p>Python, Pandas, Scikit-learn, Matplotlib, Seaborn, Random Forest, Logistic Regression, MLPClassifier, GridSearchCV</p>
+  
+  <h3>将来の展望：</h3>
+  <p>今後は XGBoost を導入し、さらに精度向上を図る予定です。 また、Kaggle の Titanic コンペに改めて参加し、より良いスコアを目指したいと考えています。 
+  </p>
+  <p class="english">In the future, I plan to implement XGBoost to further improve prediction accuracy.  
+I also aim to rejoin the Kaggle Titanic competition and strive for a higher score.
+  </p>
+
+
+  
+  <h3 class="project-title" id="p6" >6. 📊 AirREGI アカウント獲得予測プロジェクト（GCI最終課題）</h3>
+<p class="english">AirREGI Account Acquisition Prediction Project (GCI Final Assignment)</p>
+<p>
+  東京大学松尾研究室主催「GCIグローバル消費インテリジェンス」寄附講座の最終課題として、AirREGIのアカウント獲得数を外部要因から予測するモデルを開発しました。
+</p>
+<p class="english">
+  Developed a predictive model for AirREGI account acquisition based on external factors as the final assignment for the University of Tokyo's "Global Consumer Intelligence" endowed course.
+</p>
+
+<h3>目的:</h3>
+<p class="english">Objectives:</p>
+<ul>
+  <li>アカウント獲得数（acc_get_cnt）に影響する外部要因を定量的に分析<br>
+  <p class="english">Quantitative analysis of external factors affecting account acquisition count (acc_get_cnt)</p></li>
+  <li>通話件数・CM・祝日・曜日・季節性などを考慮し、将来のアカウント獲得を予測できるモデルを構築<br>
+  <p class="english">Built a predictive model considering call volume, TV commercials, holidays, day-of-week, and seasonality for forecasting account acquisitions</p></li>
+</ul>
+
+<h3>使用技術・手法:</h3>
+<p class="english">Technologies & Methods:</p>
+<ul>
+  <li>Python（pandas, seaborn, matplotlib, scikit-learn, XGBoost, Optuna, SHAP）<br>
+  <p class="english">Python (pandas, seaborn, matplotlib, scikit-learn, XGBoost, Optuna, SHAP)</p></li>
+  <li>複数CSV（calendar_data / cm_data / call_data / acc_get_data）を日付で統合し、時系列データを前処理<br>
+  <p class="english">Multi-CSV integration (calendar_data, cm_data, call_data, acc_get_data) merged by date with time series preprocessing</p></li>
+  <li>XGBoost + Optunaによるハイパーパラメータ最適化、SHAPによる特徴量の解釈性分析<br>
+  <p class="english">XGBoost with Optuna hyperparameter optimization and SHAP for interpretability analysis</p></li>
+</ul>
+
+<h3>分析結果:</h3>
+<p class="english">Analysis Results:</p>
+<ul>
+  <li>営業通話数（call_num）とCMの掛け合わせが最も重要な要因（特徴量重要度 49.4%）<br>
+  <p class="english">Combination of sales call volume and TV commercials was the most important factor(49.4% feature importance)</p></li>
+  <li>CM効果は中程度（特に火曜〜木曜の平日で有効）、祝日は負の影響<br>
+  <p class="english">CM effect was moderate (effective especially Tue–Thu), while holidays had negative impact</p></li>
+  <li>9〜10月に獲得数が大幅に増加、6〜7月は低迷するなど明確な季節性を確認<br>
+  <p class="english">Strong seasonality observed: September–October showed sharp increases, while June–July remained low</p></li>
+  <li>XGBoost最適化モデルで R²=0.9238 を達成し、高精度な予測が可能<br>
+  <p class="english">Optimized XGBoost model achieved R²=0.9238, enabling high-accuracy predictions</p></li>
+</ul>
+
+<h3>学びと工夫:</h3>
+ただ精度の高い予測モデルを作るのではなく、そこからビジネスに役立つ気づきを得ることを目標にしました。
+そのために、XGBoostとOptunaを組み合わせてモデルの精度を高めつつ、SHAPを使ってブラックボックスになりがちなモデルを分かりやすく解釈する工夫をしました。
+その結果、営業通話数とCMのかけ合わせが大きな要因になることや、特定の季節に需要が高まる傾向があることなど、単なる数値だけでは見えなかった発見を得られました。
+モデル構築を“ゴール”ではなく“ビジネス戦略の起点”と捉える姿勢を学べたのが最大の成果です。<br>
+  <p class="english">Through this project, my goal was not just to build a highly accurate predictive model, but also to extract insights that could be useful for business.
+To achieve this, I combined XGBoost with Optuna to improve model performance, while using SHAP to make the often “black box” nature of the model more interpretable.
+Through this process, I discovered that the interaction between sales calls and TV commercials played a major role, and that demand tended to rise in certain seasons—findings that wouldn’t have been visible from the numbers alone.
+The most valuable outcome was learning to see predictive modeling not as the “end,” but as a starting point for business strategy.</ul>
+
+
+<h3>🔗 関連リンク</h3>
+<p class="english">Related Links:</p>
+<ul>
+  <li><strong>GitHub リポジトリ</strong>: <a href="https://github.com/Yumiuse/AirRegi-presentation" target="_blank">ソースコード</a><br>
+  <p class="english"><strong>GitHub Repository</strong>: <a href="https://github.com/Yumiuse/AirRegi-presentation" target="_blank">Source Code</a></p></li>
+  <li><strong>プレゼンテーション</strong>: <a href="https://yumiuse.github.io/AirRegi-presentation/" target="_blank">スライドを見る</a><br>
+  <p class="english"><strong>Presentation</strong>: <a href="https://yumiuse.github.io/AirRegi-presentation/" target="_blank">View Slides</a></p></li>
+</ul>
+<h3 class="project-title" id="p7" >7. 🎨 AI Creative Content</h3>
+<p>
+  MidjourneyとCanvaを活用し、AIで生成した画像素材を元に動画コンテンツを制作。<br>
+  プロンプト設計から動画編集、YouTubeでの公開まで一貫して手掛けています。
+</p>
+<p class="english">
+  Creating video content using AI-generated images from Midjourney combined with Canva editing. 
+  Handling the complete workflow from prompt design to video editing and YouTube publication.
+</p>
+
+<h3>使用技術：</h3>
+<p>Midjourney, Canva, ChatGPT (prompt engineering)</p>
+
+<h3>🎥 Showcase</h3>
+<iframe src="https://www.youtube.com/embed/-83E9LRd-yk" title="AI Creative Demo" frameborder="0" allowfullscreen></iframe>
+
+<h3 class="project-title" id="p8">8. 🧾 レシートOCR経理精算アプリ</h3>
+<p>
+  レシート画像から情報を自動抽出し、Googleスプレッドシートに記録する経理精算アプリを個人開発しました。Google Cloud Vision APIで文字認識を行い、OpenAI API（GPT-4o-mini）で抽出結果を構造化。店名・日付・合計金額・消費税額・品目・支払方法に加え、勘定科目の提案（3案）まで自動生成し、Google Apps Script経由でスプレッドシートへ保存する構成です。
+</p>
+<p class="english">
+  Built a personal expense-reporting app that extracts information from receipt images and logs it to Google Sheets. Text recognition is handled by Google Cloud Vision API, and the results are structured using the OpenAI API (GPT-4o-mini) — extracting store name, date, total amount, tax, itemized items, and payment method, and even generating three suggested accounting categories. Data is saved to Google Sheets via Google Apps Script.
+</p>
+
+<h3>🎥 Demo</h3>
+<iframe src="https://www.youtube.com/embed/FmaTvvMIXrc" title="レシートOCR経理精算アプリ - AI Expense Scanner Demo" frameborder="0" allowfullscreen></iframe>
+<h3>工夫した点：</h3>
+<p>
+  OCRでは「皿」を「血」と誤認識するようなケースがあったため、AIによる文脈的な補正を加えました。また、店名抽出では「株式会社」などの法人格表記を除外し、屋号部分だけを抽出するよう調整しています。<br>
+  画像表示まわりでは、レシートの読み取り位置を示すバウンディングボックスの表示・非表示切り替え、画像の拡大・縮小・回転機能を実装。回転させてもバウンディングボックスの位置がずれず追随するよう調整しました。<br>
+  処理状況が一目で分かるよう、AI解析済みのファイルは「下書き」、GASでスプレッドシートへの保存が完了したファイルは「確定済み」のボックスへ自動的に振り分ける仕組みも実装。読み取りに誤りがあった場合は、編集画面から手動で修正できるようにしています。<br>
+  また、レシートだけでなく手書きの明細書についても、読み取り精度の検証を行いました。
+</p>
+<p class="english">
+  To handle OCR misreads (e.g., misreading "皿" (plate) as the visually similar "血" (blood)), I added AI-based contextual correction. For store name extraction, I excluded corporate suffixes (e.g., "Co., Ltd.") to isolate just the business name.<br>
+  For the image display, I implemented a toggleable bounding box overlay showing where each field was read from, along with zoom and rotation controls — ensuring the bounding boxes stayed correctly aligned even after the image was rotated.<br>
+  To make processing status clear at a glance, files are automatically sorted into a "draft" queue once AI analysis is complete, and into a "confirmed" queue once the data has been saved to Google Sheets via GAS. Any misread fields can be corrected manually from an edit screen.<br>
+  I also tested the app's accuracy on handwritten receipts, in addition to printed ones.
+</p>
+
+<h3>セキュリティ面での学び：</h3>
+<p>
+  開発中、React（フロントエンド）側で環境変数を使ってAPIキーを管理していましたが、<code>REACT_APP_</code>から始まる環境変数はビルド時にJavaScriptファイルへ直接埋め込まれるというReact特有の仕様を理解しておらず、ブラウザの開発者ツールからAPIキーが閲覧できる状態になっていたことに気づきました。発見後、直ちに該当キーを無効化・再発行して対応しました。この経験から、「サーバー側だけで扱うべき秘密情報」と「ブラウザに渡してよい情報」を区別する必要があることを学びました。
+</p>
+<p class="english">
+  During development, I was managing API keys via environment variables on the React (frontend) side, without realizing that any variable prefixed with <code>REACT_APP_</code> gets embedded directly into the built JavaScript files — a React-specific behavior. As a result, the API key was visible in the browser's developer tools. Once discovered, I immediately revoked and reissued the affected key. This taught me the importance of distinguishing between secrets that must stay server-side and information that's safe to expose to the browser.
+</p>
+
+<h3>使用技術：</h3>
+<p>React.js, Google Cloud Vision API, OpenAI API (GPT-4o-mini), Google Apps Script, Google スプレッドシート, CSS3</p>
+
+
+
+
+
+
+  
+<h3 class="project-title" id="p9">9. 📩 実務PoC：反響メール集計業務の生成AI活用</h3>
+<p>
+  AI活用支援を行う事業会社にて、住宅会社のマーケティング部門における反響対応業務（来場予約・資料請求などの反響メール集計）を題材に、会場名の自動判定PoCを設計・実装しました。<br>
+  Google Apps Script（GAS）でGmail受信メールを取得し、必要項目を抽出してGoogleスプレッドシートへ構造化して記録。会場名の判定には、既存の会場マスタを候補リストとしてGoogle Gemini APIに渡し、候補の中から正式名称を選ばせる設計としました。
+</p>
+<p class="english">
+  While working on AI adoption support at a business services company, designed and implemented a PoC for automatically identifying venue names in inquiry emails, focused on the marketing department's lead-response workflow at a housing company client. Using Google Apps Script (GAS), inquiry emails received via Gmail were parsed, structured, and logged into Google Sheets. Venue identification was handled by passing an existing venue master list as candidates to the Google Gemini API, which selected the matching official name from that list.
+</p>
+
+<details style="margin-top:0.8em;">
+<summary style="cursor:pointer;font-weight:bold;color:#6b4c6b;padding:0.5em 0;">🔍 技術的チャレンジ・検証結果を詳しく見る</summary>
+
+<div style="margin-top:1em;">
+
+<h3>技術的チャレンジ：</h3>
+<p>
+  Geminiには候補リストの中から一字一句そのまま選ぶよう指示し、候補外の場合は「該当なし」と判定させる完全一致検品ロジックを実装。Gemini無料枠のレート制限（1分あたり5回、1日20回）に対応するため、リクエスト間に約13秒の待機時間を設け、エラー発生時には自動で最大3回リトライする仕組みも組み込みました。<br>
+  また、全件をAIに通すのではなく、パターンが固定的な問い合わせ（資料請求など）はGAS側のルール処理のみで完結させ、AI呼び出しを会場特定が難しいケースに絞ることで、不要なAPI呼び出しを抑える設計としました。<br>
+  検証は128件の会場候補リストに対して20件のテストを実施し、概念的に妥当な候補を選択できたものは17件（85%）、文字列として完全一致したものは14件（70%）でした。
+</p>
+<p class="english"><strong>
+  Technical Challenge:</strong> Implemented a strict validation function that only accepted exact matches from the candidate list, falling back to "no match" otherwise. To handle the Gemini free tier's rate limits (5 requests/minute, 20/day), I added a ~13-second wait between requests and automatic retry (up to 3 attempts) on errors. Rule-based logic in GAS handled clearly patterned inquiries (e.g., brochure requests) without invoking the AI, reserving API calls for genuinely ambiguous cases. Testing against a 128-item candidate list across 20 cases showed conceptually reasonable matches in 17 cases (85%) and exact string matches in 14 cases (70%).
+</p>
+
+<h3>学びと工夫：</h3>
+<p>
+  検証を通じて、会場候補リスト自体が固定的な正解マスタではなく、運用上随時追加・調整されているものであることが判明しました。この事実と、AIの判定精度（完全一致70%）を踏まえ、AI単独を本番の確定方式とするには課題が残ると判断。本番運用ではルールベースの数式・対応表方式を提案しました。<br>
+  一方で、対応表だけでは拾いきれない例外パターン（新イベント、表記ゆれの大きいケースなど）にはAIによる曖昧マッチングが補助的に有効という可能性も見えたため、「基本はルール、例外はAI」という役割分担の視点を得ました。AIに任せる部分と、ルール・人間確認で担保する部分を切り分ける設計判断の重要性を学びました。
+</p>
+<p class="english">
+  Testing revealed that the venue candidate list was not a fixed master but an evolving, manually maintained list. Combined with the AI's exact-match accuracy (70%), I concluded that AI alone was not yet reliable enough to serve as the production source of truth, and recommended a rule- and mapping-table-based approach for production instead. At the same time, AI-based fuzzy matching showed promise for handling exception cases the mapping table couldn't cover — new events, cases with significant notation variance — leading to a "rules for the common case, AI for exceptions" design perspective, and a broader lesson in separating what to delegate to AI versus what to secure with rules and human review.
+</p>
+
+<h3>処理フロー：</h3>
+<ol style="line-height:1.9;padding-left:1.3em;">
+  <li>Gmailで反響メールを受信</li>
+  <li>Google Apps Scriptで件名・本文・受信日時を取得</li>
+  <li>Gemini APIで会場候補とのマッチングを検証（20件中17件で概念的に妥当な候補を選択、日付表記・表記ゆれ等の課題も確認）</li>
+  <li>判定結果をGoogleスプレッドシートへ構造化して記録</li>
+  <li>会場候補リストの運用実態を確認（固定マスタではなく随時更新されるものと判明）</li>
+  <li>対応表・数式・人間確認を組み合わせて最終会場名を補正する方針を提案</li>
+  <li>整理済みデータをLooker Studioで可視化する想定でデータ構造を検討</li>
+</ol>
+
+<h3>入力・出力データのイメージ（ダミー）：</h3>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
+  <tr style="background:#f5eaf5;">
+    <th style="border:1px solid #dda0dd;padding:6px;">受信日時</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">問い合わせ種別</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">来場希望場所（本文記載）</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">Gemini判定結果</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">検品ステータス</th>
+  </tr>
+  <tr>
+    <td style="border:1px solid #dda0dd;padding:6px;">2026/03/05 10:12</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">来場予約</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">〇〇展示場（第一希望）</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">〇〇モデルハウス</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">✅ マスタ一致</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #dda0dd;padding:6px;">2026/03/05 14:40</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">資料請求</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">△△会場希望</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">該当なし</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">⚠️ 人間確認へ</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #dda0dd;padding:6px;">2026/03/06 09:03</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">来場予約</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">（本文に会場記載なし）</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">未判定</td>
+    <td style="border:1px solid #dda0dd;padding:6px;">⚠️ 対応表で補完予定</td>
+  </tr>
+</table>
+<p class="english" style="margin-top:0.5em;">
+  ※ 表内の日時・会場名・件数はすべて架空のサンプルです。実際の顧客データは含まれていません。
+</p>
+
+<h3>使用技術：</h3>
+<p>Google Apps Script (GAS), Gmail, Google Gemini API, Googleスプレッドシート, Looker Studio</p>
+
+<p style="font-size:0.9em;color:#888;">※社内業務のPoCのため、ソースコードは非公開です。</p>
+
+</div>
+</details>
+<h3 class="project-title" id="p10">10. 🛂 実務プロジェクト：在留資格申請AIシステムの精度評価・Ground Truth検証</h3>
+<p>
+在留資格申請データを抽出するAIシステムの精度評価業務に携わっています。GitHubで共有された既存リポジトリをローカル環境にcloneし、VS Code・Python・ChatGPT Codexを使用して評価環境を構築。評価用データの確認、dry-run、Geminiによる抽出評価、golden（正解データ）との比較まで実施しました。<br>
+評価を進める中で、AIの抽出結果と比較する golden 自体についても、そのまま採点基準として使用してよいか検証が必要であることが分かりました。そこで、申請書PDFなどの元資料とgoldenを人手で照合し、表記ゆれ、コード値、項目取り違え、評価ルールの曖昧さなどを整理。AIの抽出精度だけでなく、評価基準そのものの妥当性も含めて検証しています。</p>
+<p class="english">
+  I've been working on accuracy evaluation for an AI system that extracts data from immigration status application documents. After being given access to an existing repository via GitHub, I cloned it locally and built an evaluation environment using VS Code, Python, and ChatGPT Codex — reviewing evaluation data, running a dry-run, executing Gemini-based extraction evaluation, and comparing the results against the golden dataset.<br>
+  In the course of this evaluation, I found that the golden (ground-truth) data used to score the AI's output couldn't simply be trusted as-is either. I therefore cross-checked the golden data against source documents such as application PDFs, identifying issues including notation variance, code-value mix-ups, field mismatches, and ambiguity in the evaluation rules — verifying not just the AI's extraction accuracy, but the validity of the evaluation standard itself.
+</p>
+
+<details style="margin-top:0.8em;">
+<summary style="cursor:pointer;font-weight:bold;color:#6b4c6b;padding:0.5em 0;">🔍 評価環境・検証プロセスを詳しく見る</summary>
+
+<div style="margin-top:1em;">
+
+<h3>評価環境の構築：</h3>
+<p>
+  既存の申請システム（visa-app）のローカル起動を確認し、Gemini APIへ実際にデータを送信する前にdry-run（実送信せず処理内容だけを確認するテスト）を行うことで、個人情報を含むデータを安全に扱いながら評価処理を進められる状態を整えました。
+</p>
+<p class="english">
+  I confirmed local startup of the existing application (visa-app) and ran a dry-run before sending any real data to the Gemini API — verifying the processing logic without live calls — to ensure data containing personal information could be handled safely throughout the evaluation.
+</p>
+  
+<h3>技術的チャレンジ：</h3>
+<p>
+  AIの抽出結果とgoldenを機械的に突き合わせたところ、7名分・509項目のうち237項目が一致（約46.6%）という結果が出ました。しかし数字をそのまま信じる前に、1名分について実際の申請書まで遡って確認したところ、そもそもgoldenの方に誤りが含まれているケースが見つかりました。<br>
+  たとえば、ある項目は選択肢が1〜9の9種類しかないはずなのに、goldenには「25」という存在しない値が入っていました。つまり、AIが間違っていたのではなく、比較対象であるgoldenの方が誤っていたということです。<br>
+  そこで、不一致が出た272件すべてを一つずつ見直し、「本当にAIが間違えたもの」「golden側に問題があるもの」「単なる表記の違い」などに仕分けしました。金額の桁を読み違えていたなど、AI側の本当のミスも別途見つかっています。個人情報を含むデータはバージョン管理から外し、社外には一切共有していません。
+</p>
+<p class="english"><strong>
+  Technical Challenge:</strong> A mechanical comparison between the AI's extraction results and the golden dataset showed 237 out of 509 fields matching (about 46.6%) across 7 applicants. But before trusting that number, I traced one applicant's data back to the original application documents — and found that the golden data itself sometimes contained incorrect values. For example, one field only had 9 valid options, yet the golden data contained the value "25," which wasn't a valid option at all. In other words, it wasn't the AI that was wrong — the golden data itself was inaccurate.<br>
+  I then reviewed all 272 discrepancies one by one, sorting them into categories such as genuine AI errors, golden data issues, and simple notation differences. I also found real AI mistakes, such as a digit-transposition error in a monetary field. Data containing personal information was kept out of version control and was never shared externally.
+</p>
+
+<h3>不一致272件の内訳：</h3>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:0.5em;">
+  <tr style="background:#f5eaf5;">
+    <th style="border:1px solid #dda0dd;padding:6px;">分類</th>
+    <th style="border:1px solid #dda0dd;padding:6px;">件数</th>
+  </tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">単なる表記のゆれ</td><td style="border:1px solid #dda0dd;padding:6px;">0</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">コード値と表示値の対応関係の違いのみ（実質同じ内容）</td><td style="border:1px solid #dda0dd;padding:6px;">1</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">業務ルール上、固定値として扱ってよいもの</td><td style="border:1px solid #dda0dd;padding:6px;">79</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">AI側の誤りの疑い（要確認）</td><td style="border:1px solid #dda0dd;padding:6px;">24</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">正解データ側に問題がある可能性（要確認）</td><td style="border:1px solid #dda0dd;padding:6px;">85</td></tr>
+  <tr><td style="border:1px solid #dda0dd;padding:6px;">現時点ではどちらとも判断できないもの</td><td style="border:1px solid #dda0dd;padding:6px;">83</td></tr>
+</table>
+<p style="font-size:0.85em;color:#888;margin-top:0.4em;">
+  272件のうち約7割（192件）が「AI側の誤り」「正解データ側の問題」「未判断」のいずれかであり、単純な集計だけでは実態がつかめないことが分かる。
+</p>
+
+<h3>学びと工夫：</h3>
+<p>
+  このプロジェクトで得た一番の学びは、「AIの正答率という数字は、誤りの原因を分解しない限り意味を持たない」ということです。今回の結果だけを見れば「AIの精度は46.6%」という話になりますが、実際に1件ずつ原因を追ってみると、AI自体の誤りよりも、比較対象である正解データ側の誤りや、表記・コード値の違いといった、評価の仕組み自体に起因する要因が大きく混ざっていました。<br>
+  この経験から、AIシステムを評価する際は、モデルの出力だけを見るのではなく、比較対象のデータや評価ロジックの設計自体が正しいかまで含めて検証する必要があるという視点を持つようになりました。今後AIの精度や有効性を検証する仕事に関わる際も、表面的な指標だけで判断せず、その数字がどう作られているかまで確認する姿勢を大切にしたいと考えています。
+</p>
+<p class="english">
+  The biggest lesson from this project was that an AI accuracy figure is meaningless without decomposing the causes behind it. Taken at face value, the result looked like "46.6% accuracy." But tracing individual discrepancies back to their source revealed that many were not AI errors at all — they stemmed from errors in the ground-truth data itself, or from differences in notation and code-value mapping baked into the evaluation design.<br>
+  This taught me that evaluating an AI system requires scrutinizing not just the model's output, but the validity of the comparison data and evaluation logic itself. Going forward, when working on AI accuracy or effectiveness evaluation, I want to look beyond surface-level metrics and verify how those numbers were actually produced.
+</p>
+
+<h3>使用技術：</h3>
+<p>Python, Git / GitHub, VS Code, Google Gemini API, ChatGPT Codex, Google Cloud（認証範囲の確認）, JSON, Excel / TSV, データ監査・正規化ルール設計</p>
+
+<p style="font-size:0.9em;color:#888;">※実務案件のため、企業名・申請者情報・実データ・リポジトリ・ソースコードは一切含めず、検証プロセスと匿名化した集計結果のみ紹介しています。本プロジェクトは現在進行中で、goldenの正式な修正やAI抽出精度の最終評価は今後実施予定です。</p>
+
+</div>
+</details>
+
+
+  
+<!-- <h2>📩 連絡先</h2>
+
+<p>お仕事・ご相談は <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> まで📬</p>
+<p class="english">For work inquiries and consultations: <a href="mailto:yumiko.sawa@gmail.com">yumiko.sawa@gmail.com</a> 📬</p> -->
